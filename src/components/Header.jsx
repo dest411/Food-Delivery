@@ -15,13 +15,13 @@ const Header = () => {
             <nav>
                 <ul className='flex gap-25 text-3xl' >
                     <li>Home</li>
-                    <li className='flex gap-1.5 relative' >Menu <img src={arrow} className='absolute right-[-17px] top-[40%]' alt="" /> </li>
+                    <li className='flex gap-1.5 relative' >Menu <img src={arrow} className='absolute right-[-22px] top-[40%]' alt="" /> </li>
                     <li>Contact Us</li>
                 </ul>
             </nav>
         </div>
         
-        <div className='relative h-[40px] bg-amber-100 flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
+        <div className='relative h-[50px] bg-amber-100 flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
             <input 
                 className='w-[300px] h-[25px] 
                     placeholder:text-3xl placeholder:text-gray-500
