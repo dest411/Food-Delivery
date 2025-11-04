@@ -5,7 +5,7 @@ import Header from './components/Header'
 const App = () => {
   return (
     <div className='w-full h-auto flex flex-col justify-center items-center' >
-      <Header />
+      <Header/>
     </div>
     
   )

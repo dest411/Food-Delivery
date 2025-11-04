@@ -4,7 +4,7 @@ import dandruff from '../png/dandruff.svg'
 
 const Header = () => {
   return (
-    <div className='flex w-[95%] h-[60px] justify-between  items-center bg-amber-300' >
+    <div className='flex w-[95%] h-[80px] justify-between  items-center' >
         <div className='flex gap-25 items-center ' >
             <p className=' text-4xl ' >Naples</p>
             <nav>
@@ -16,15 +16,15 @@ const Header = () => {
             </nav>
         </div>
         
-        <div className='relative'>
+        <div className='relative h-[40px] bg-amber-100 flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
             <input 
-                className='w-[300px] h-[50px] border border-black/10 rounded-2xl px-3 bg-black/5 
+                className='w-[300px] h-[25px] 
                     placeholder:text-3xl placeholder:text-gray-500
                     flex items-center text-3xl leading-[50px] outline-none'                
                 type="text" 
                 placeholder='Search something...' 
             />
-            <img className='absolute w-5 h-5 right-5 top-[30%]' src={dandruff} alt="dandruff" />   
+            <img className='absolute w-5 h-5 right-5 top-[25%]' src={dandruff} alt="dandruff" />   
         </div>
         
     </div>
