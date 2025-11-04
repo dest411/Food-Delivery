@@ -3,12 +3,17 @@ import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
 
 const Header = () => {
+    console.log('render header');
+    
   return (
     <div className='flex w-[95%] h-[80px] justify-between  items-center' >
         <div className='flex gap-25 items-center ' >
-            <p className=' text-4xl ' >Naples</p>
+            <p className="text-5xl font-bold bg-gradient-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
+                Naples  
+            </p>
+
             <nav>
-                <ul className='flex gap-10 text-3xl' >
+                <ul className='flex gap-25 text-3xl' >
                     <li>Home</li>
                     <li className='flex gap-1.5 relative' >Menu <img src={arrow} className='absolute right-[-17px] top-[40%]' alt="" /> </li>
                     <li>Contact Us</li>
