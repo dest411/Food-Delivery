@@ -12,5 +12,6 @@ body{
     font-style: normal;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
 }
