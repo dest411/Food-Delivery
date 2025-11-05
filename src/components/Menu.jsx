@@ -44,9 +44,9 @@ const Menu = () => {
                 Menu
             </div>
 
-            <div className='w-[220px] h-[120px] bg-blue-950 '  ></div>
+            <div className='w-[220px] h-[120px]'  ></div>
 
-            <div className=' w-full flex gap-16 items-center '>
+            <div className=' w-full flex justify-between items-center '>
 
                 {Foods.map(food => {
                     return (
