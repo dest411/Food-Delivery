@@ -3,6 +3,7 @@ import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import WelcomeSection from './components/WelcomeSection'
+import Menu from './components/Menu.jsx'
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <Header/>
       <Hero/>
       <WelcomeSection/>
-      
+      <Menu/>
     </div>
     
   )
