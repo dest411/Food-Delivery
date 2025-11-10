@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Foods from '../Food'
-
-
 
 const Menu = () => {
     console.log('render menu');
+    const [activeMenu, setActiveMenu] = useState('Pizza')
 
   return (
      <div className='bg-red-1 w-[95%] h-auto my-20 '>
@@ -24,9 +23,15 @@ const Menu = () => {
             <div className=' w-full flex justify-between  items-center'>
 
                 {Foods.map(food => {
+                    const isActive = food.name === activeMenu;
                     return (
-                        <div className='flex items-center gap-4 border border-black/7 rounded-2xl box-shadow: -1px 0px 80px -3px rgba(0,0,0,0.75)
-                             shadow-[0px_0px_20px_-3px_rgba(0,0,0,0.40)] py-5 px-8 cursor-pointer' key={food.id}>
+                        <div className={`flex items-center gap-4 border  rounded-2xl box-shadow: -1px 0px 80px -3px rgba(0,0,0,0.75)
+                             shadow-[0px_0px_20px_-3px_rgba(0,0,0,0.40)] 
+                             py-5 px-8 cursor-pointer
+                             ${isActive ? 'border-amber-600': 'border-black/7'}`}
+                             key={food.id}
+                             onClick={() => setActiveMenu(food.name)}
+                             >
                             <img className='w-[100px] h-20' src={food.photo} alt="" />
                             <span className='w-px h-20 bg-black/10 ' ></span>
                             <p className='text-5xl' >{food.name}</p>
