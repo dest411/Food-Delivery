@@ -1,36 +1,13 @@
 import React from 'react'
-import pizza from '../png/pizza.svg'
-import pasta from '../png/pasta.svg'
-import burger from '../png/burger.svg'
+import Foods from '../Food'
 
-const Foods = [
-    {
-        id: 1,
-        name: 'Pizza',
-        photo: pizza,
-        typePizza: {
-            Pepperoni: 'Pepperoni pizza',
-            Vegetables: 'Vegetables pizza',
-            Margherita: 'Margherita pizza'
-        }
-    },
-    {
-        id: 2,
-        name: 'Burger',
-        photo: burger
-    },
-    {
-        id: 3,
-        name: 'Pasta',
-        photo: pasta
-    }
-]
 
 
 const Menu = () => {
+    console.log('render menu');
 
   return (
-    <div className='bg-red-1 w-[95%] h-auto my-20 '>
+     <div className='bg-red-1 w-[95%] h-auto my-20 '>
         
         <div className='flex justify-between  w-full h-[120px]  '>
             <div
@@ -50,8 +27,8 @@ const Menu = () => {
                     return (
                         <div className='flex items-center gap-4 border border-black/7 rounded-2xl box-shadow: -1px 0px 80px -3px rgba(0,0,0,0.75)
                              shadow-[0px_0px_20px_-3px_rgba(0,0,0,0.40)] py-5 px-8 cursor-pointer' key={food.id}>
-                            <img className='w-[100px] h-[80px]' src={food.photo} alt="" />
-                            <span className='w-[1px] h-[80px] bg-black/10 ' ></span>
+                            <img className='w-[100px] h-20' src={food.photo} alt="" />
+                            <span className='w-px h-20 bg-black/10 ' ></span>
                             <p className='text-5xl' >{food.name}</p>
                         </div>
                     );

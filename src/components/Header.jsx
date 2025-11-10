@@ -6,9 +6,9 @@ const Header = () => {
     console.log('render header');
     
   return (
-    <div className='flex w-[95%] h-[80px] justify-between  items-center' >
+    <div className='flex w-[95%] h-20 justify-between  items-center' >
         <div className='flex gap-25 items-center ' >
-            <p className="text-5xl font-bold bg-gradient-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
+            <p className="text-5xl font-bold bg-linear-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
                 Naples  
             </p>
 
@@ -21,7 +21,7 @@ const Header = () => {
             </nav>
         </div>
         
-        <div className='relative h-[50px] bg-amber-100 flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
+        <div className='relative h-[50px] flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
             <input 
                 className='w-[300px] h-[25px] 
                     placeholder:text-3xl placeholder:text-gray-500
