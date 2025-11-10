@@ -1,6 +1,9 @@
 import pizza from './png/pizza.svg'
 import pasta from './png/pasta.svg'
 import burger from './png/burger.svg'
+import PepperoniPizza from './png/PizzaPhoto/PepperoniPizza.svg'
+import VegetablesPizza from './png/PizzaPhoto/VegetablesPizza.svg'
+import MargheritaPizza from './png/PizzaPhoto/MargheritaPizza.svg'
 
 const Foods = [
     {
@@ -9,6 +12,7 @@ const Foods = [
         photo: pizza,
         typePizza: {
             Pepperoni: {
+                pizzaPhoto: PepperoniPizza, 
                 name: 'Pepperoni pizza',
                 price: '55,00',
                 ingredients: [
@@ -21,6 +25,7 @@ const Foods = [
                 ]
             },
             Vegetables: {
+                pizzaPhoto: VegetablesPizza, 
                 name: 'Vegetables pizza',
                 price: '50,00',
                 ingredients: [
@@ -32,6 +37,7 @@ const Foods = [
                 ]
             },
             Margherita: {
+                pizzaPhoto: MargheritaPizza,
                 name: 'Margherita pizza',
                 price: '49,87',
                 ingredients: [
