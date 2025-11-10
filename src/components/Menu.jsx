@@ -29,24 +29,22 @@ const Foods = [
 
 const Menu = () => {
 
-  const clipPathStyle = 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)';
-
   return (
     <div className='bg-red-1 w-[95%] h-auto my-20 '>
         
-        <div className='flex gap-15 w-full h-[120px] gap-48'>
+        <div className='flex justify-between  w-full h-[120px]  '>
             <div
                 className="absolute  left-0 rounded-snm bg-red-700   text-white  text-6xl 
-                    font-semibold   px-6  py-6   w-60 text-center flex items-center justify-center
+                    font-semibold   px-6  py-7   w-1/6 text-center flex items-center justify-center
                     [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)]
                 "
                 >
                 Menu
             </div>
 
-            <div className='w-[220px] h-[120px]'  ></div>
+            <div className='w-1/3 h-[120px] '  ></div>
 
-            <div className=' w-full flex justify-between items-center '>
+            <div className=' w-full flex justify-between  items-center'>
 
                 {Foods.map(food => {
                     return (
@@ -60,6 +58,7 @@ const Menu = () => {
                 })}
                 
             </div>
+            <div className='w-1/10 h-[120px'  ></div>
 
         </div>
     </div>
