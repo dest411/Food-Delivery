@@ -1,19 +1,17 @@
 import React, {useState} from 'react'
 import Foods from '../Food'
 
-const Menu = () => {
-    console.log('render menu');
-    const [activeMenu, setActiveMenu] = useState('Pizza')
-
+const Menu = ({activeMenu, setActiveMenu}) => {
+    // console.log('render menu');
   return (
-     <div className='bg-red-1 w-[95%] h-auto my-20 '>
+     <div className=' w-[95%] h-auto my-20 '>
         
         <div className='flex justify-between  w-full h-[120px]  '>
+
             <div
                 className="absolute  left-0 rounded-snm bg-red-700   text-white  text-6xl 
                     font-semibold   px-6  py-7   w-1/6 text-center flex items-center justify-center
-                    [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)]
-                "
+                    [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)]"
                 >
                 Menu
             </div>
@@ -40,6 +38,7 @@ const Menu = () => {
                 })}
                 
             </div>
+            
             <div className='w-1/10 h-[120px'  ></div>
 
         </div>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useMemo, memo} from 'react'
 import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
 
-const Header = () => {
-    console.log('render header');
+const Header = memo(() => {
+    // console.log('render header');
     
   return (
     <div className='flex w-[95%] h-20 justify-between  items-center' >
@@ -22,7 +22,8 @@ const Header = () => {
         </div>
         
         <div className='relative h-[50px] flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
-            <input 
+            <input
+                id='inputSearch' 
                 className='w-[300px] h-[25px] 
                     placeholder:text-3xl placeholder:text-gray-500
                     flex items-center text-3xl leading-[50px] outline-none'                
@@ -34,6 +35,6 @@ const Header = () => {
         
     </div>
   )
-}
+})
 
 export default Header
