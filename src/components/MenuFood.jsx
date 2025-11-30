@@ -20,7 +20,7 @@ const MenuFood = ({activeMenu}) => {
                       <div className='flex items-center mx-auto  w-[90%]'>
                         
                         <div className='flex flex-col relative w-full pl-40 h-42 '>
-                          <img className='h-140 w-120 absolute z-110 left-0 top-[-170px]' src={food.pizzaPhoto} alt="" />
+                          <img className='h-140 w-120 absolute z-110 left-0 top-[-170px]' src={food.typePhoto} alt="" />
                           <div className='flex w-full gap-30 items-center justify-between pl-80 pr-3 bg-gray text-white' >
                             <h1 className='text-6xl'>{food.name}</h1>
                             <h2 className='text-6xl' >{food.price}$</h2>
