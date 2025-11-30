@@ -8,7 +8,7 @@ const MenuFood = ({activeMenu}) => {
     if (!foodItem) {
         return <p>Меню не знайдено</p>;
     }
-    console.log(foodItem.typePizza);
+    console.log(foodItem);
     
     
   return (
@@ -16,7 +16,7 @@ const MenuFood = ({activeMenu}) => {
 
         <h1 className='text-6xl font-bold ml-32' >Popular Pizzas of Naples</h1>
         
-        {Object.values(foodItem.typePizza).map((piz) => {
+        {Object.values(foodItem.typeFood).map((piz) => {
             return <p key={piz.name} >{piz.name}</p>
         })}
        
