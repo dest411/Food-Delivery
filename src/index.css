@@ -21,7 +21,7 @@ body{
 .add-btn {
   position: absolute;
   right: 8px;   
-  bottom: 8px;
+  bottom: 14px;
 
   width: 160px;
   height: 50px;
@@ -30,20 +30,23 @@ body{
   align-items: center;
   justify-content: center;
 
-  background-color: #b91c1c; 
+  background-color: hsl(0, 74%, 42%); 
   color: white;
 
   border-radius: 12px;
   cursor: pointer;
   
   border: none;
-  transition: all 100ms ease-in;
+  transition: all 100ms ease;
+  box-shadow: 0px 4px 0px #7f1d1d;
 }
 
 .add-btn:hover {
-  background-color: #991b1b; 
-  transform: translateY(-3px);
+  background-color: hsl(0, 70%,38%); 
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 0px hsl(0, 63%, 31%);
 }
 .add-btn:active{
-  transform: translateY(3px);
+  transform: translateY(6px);
+  box-shadow: 0px 0px 0px #7f1d1d;
 }
