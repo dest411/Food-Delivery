@@ -18,9 +18,10 @@ body{
 @theme{
   --color-gray: #67666A;
 }
+/* RED BUTTON "Add to Get" */
 .add-btn {
   position: absolute;
-  right: 8px;   
+  right: 14px;   
   bottom: 14px;
 
   width: 160px;
