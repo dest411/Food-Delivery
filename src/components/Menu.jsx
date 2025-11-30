@@ -4,7 +4,7 @@ import Foods from '../Food'
 const Menu = ({activeMenu, setActiveMenu}) => {
     // console.log('render menu');
   return (
-     <div className=' w-[95%] h-auto my-20 '>
+     <div className=' w-[95%]  max-w-[1500px] h-auto my-20 '>
         
         <div className='flex justify-between  w-full h-[120px]  '>
 

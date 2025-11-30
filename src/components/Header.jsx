@@ -6,7 +6,7 @@ const Header = memo(() => {
     // console.log('render header');
     
   return (
-    <div className='flex w-[95%] h-20 justify-between  items-center' >
+    <div className='flex w-[95%]  max-w-[1500px] h-20 justify-between  items-center' >
         <div className='flex gap-25 items-center ' >
             <p className="text-5xl font-bold bg-linear-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
                 Naples  

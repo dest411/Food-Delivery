@@ -12,21 +12,21 @@ const MenuFood = ({activeMenu}) => {
     
     const name = foodItem.name;
   return (
-    <div className='w-full ' >
+    <div className='w-full max-w-[1500px] mx-auto ' >
         <h1 className='text-8xl font-bold ml-32' >Popular {name}s of Naples</h1>
         <div className='flex flex-col mt-10 gap-100'>
           {Object.values(foodItem.typeFood).map((food) => {
             return  <div className=' w-full relative ' key={food.name} >
                       <div className='flex items-center mx-auto  w-[90%]'>
-                        <img className='h-140 w-120 absolute' src={food.pizzaPhoto} alt="" />
+                        <img className='h-140 w-120 absolute ' src={food.pizzaPhoto} alt="" />
                       
-                        <div className='flex flex-col  gap-2.5 w-full h-42'>
-                          <div className='flex w-full gap-30 items-center justify-between pl-120 bg-gray text-white' >
+                        <div className='flex flex-col w-full pl-40 h-42'>
+                          <div className='flex w-full gap-30 items-center justify-between pl-80 bg-gray text-white' >
                             <h1 className='text-6xl'>{food.name}</h1>
                             <h2 className='text-6xl' >{food.price}$</h2>
                           </div>
 
-                          <ul className='text-2xl bg-gray-200 grid grid-rows-3 grid-flow-col pl-130 gap-x-3 gap-y-1 list-disc list-inside'>
+                          <ul className='text-3xl bg-gray-200 grid grid-rows-3 grid-flow-col pl-90 py-3 gap-x-3 gap-y-1 list-disc list-inside'>
                             {food.ingredients.map((ing) => {
                               return <li key={ing} className='list-disc' >{ing}</li>
                             })}
