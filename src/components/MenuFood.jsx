@@ -10,15 +10,34 @@ const MenuFood = ({activeMenu}) => {
     }
     console.log(foodItem);
     
-    
+    const name = foodItem.name;
   return (
-    <div className='w-full bg-amber-500' >
-
-        <h1 className='text-6xl font-bold ml-32' >Popular Pizzas of Naples</h1>
+    <div className='w-full ' >
+        <h1 className='text-6xl font-bold ml-32' >Popular {name}s of Naples</h1>
         
-        {Object.values(foodItem.typeFood).map((piz) => {
-            return <p key={piz.name} >{piz.name}</p>
+        {Object.values(foodItem.typeFood).map((food) => {
+            return  <div className='flex  ' key={food.name} >
+                      <img className='h-50 w-50' src={food.pizzaPhoto} alt="" />
+                      
+                      <div className='flex flex-col '>
+                        <div className='flex gap-30' >
+                          <h1>{food.name}</h1>
+                          <h2>{food.price}</h2>
+                        </div>
+
+                        <ul>
+                          {food.ingredients.map((ing) => {
+                            return <li>{ing}</li>
+                          })}
+                        </ul>
+                      </div>
+                      
+
+              
+                    </div>
+            
         })}
+        
        
     </div>
   )
