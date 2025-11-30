@@ -16,18 +16,18 @@ const MenuFood = ({activeMenu}) => {
         <h1 className='text-6xl font-bold ml-32' >Popular {name}s of Naples</h1>
         
         {Object.values(foodItem.typeFood).map((food) => {
-            return  <div className='flex  ' key={food.name} >
-                      <img className='h-50 w-50' src={food.pizzaPhoto} alt="" />
+            return  <div className='flex items-center gap-10' key={food.name} >
+                      <img className='h-70 w-70' src={food.pizzaPhoto} alt="" />
                       
-                      <div className='flex flex-col '>
-                        <div className='flex gap-30' >
-                          <h1>{food.name}</h1>
-                          <h2>{food.price}</h2>
+                      <div className='flex flex-col w-100 h-42 bg-blue-200 '>
+                        <div className='flex gap-30 justify-between ' >
+                          <h1 className='text-4xl'>{food.name}</h1>
+                          <h2 className='text-4xl' >{food.price}</h2>
                         </div>
 
-                        <ul>
+                        <ul className='' >
                           {food.ingredients.map((ing) => {
-                            return <li>{ing}</li>
+                            return <li className='list-disc' >{ing}</li>
                           })}
                         </ul>
                       </div>
