@@ -15,3 +15,6 @@ body{
     overflow-x: hidden;
     position: relative;
 }
+@theme{
+  --color-gray: #67666A;
+}
