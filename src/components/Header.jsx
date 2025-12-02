@@ -3,7 +3,7 @@ import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
 
 const Header = memo(() => {
-    // console.log('render header');
+    console.log('render header');
     
   return (
     <div className='flex w-[95%]  max-w-[1500px] h-20 justify-between  items-center' >

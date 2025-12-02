@@ -1,6 +1,9 @@
+import { memo } from "react"
 import React from 'react'
 
-const Form = () => {
+const Form = memo(() => {
+  console.log("form render");
+  
   return (
     <div className='w-full h-auto my-50 flex justify-center items-center'>
         <div className=' w-full max-w-[920px]'>
@@ -20,6 +23,6 @@ const Form = () => {
         
     </div>
   )
-}
+})
 
 export default Form

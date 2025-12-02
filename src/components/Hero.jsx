@@ -1,7 +1,9 @@
 import React from 'react'
 import background from '../png/bg.svg'
 
-const Hero = () => {
+const Hero = React.memo(() => {
+  console.log("hero render");
+  
   return (
     <div 
         style={{ backgroundImage:`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${background})`,
@@ -17,6 +19,6 @@ const Hero = () => {
         active:scale-95 active:bg-white/25' >Order now</button>
     </div>
   )
-}
+})
 
 export default Hero

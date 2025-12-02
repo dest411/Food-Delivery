@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Foods from '../Food'
 
 const Menu = ({activeMenu, setActiveMenu}) => {
-    // console.log('render menu');
+    console.log('render menu');
   return (
      <div className=' w-[95%]  max-w-[1500px] h-auto my-20 '>
         

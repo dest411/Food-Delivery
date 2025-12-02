@@ -8,7 +8,8 @@ const MenuFood = ({activeMenu}) => {
     if (!foodItem) {
         return <p>Меню не знайдено</p>;
     }
-    console.log(foodItem);
+    console.log("render menu food");
+    
     
     const name = foodItem.name;
   return (
