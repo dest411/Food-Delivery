@@ -7,6 +7,7 @@ import Menu from './components/Menu.jsx'
 import MenuFood from './components/MenuFood.jsx'
 import Form from './components/Form.jsx'
 import Hr from './components/Hr.jsx'
+import ChoiseFood from './components/ChoiseFood.jsx'
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           activeMenu={activeMenu}
       />
       <Hr/>
+      <ChoiseFood/>
       <Form/>
       
     </div>
