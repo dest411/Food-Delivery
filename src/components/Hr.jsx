@@ -2,9 +2,9 @@ import React from 'react'
 
 const Hr = () => {
   return (
-    <div className='my-30 w-full'>
+    <div className='my-30 w-full max-w-[1500px]'>
         <div 
-            className="w-[545px] h-[44px] bg-white flex items-center justify-center mt-10"
+            className="w-[545px]  h-[44px] bg-white flex items-center justify-center mt-10"
             aria-label="Zigzag Pattern Container"
             >
             <svg 
