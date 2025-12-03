@@ -6,6 +6,7 @@ import WelcomeSection from './components/WelcomeSection'
 import Menu from './components/Menu.jsx'
 import MenuFood from './components/MenuFood.jsx'
 import Form from './components/Form.jsx'
+import Hr from './components/Hr.jsx'
 
 const App = () => {
 
@@ -24,7 +25,9 @@ const App = () => {
       <MenuFood
           activeMenu={activeMenu}
       />
+      <Hr/>
       <Form/>
+      
     </div>
     
   )
