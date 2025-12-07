@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, memo} from 'react'
 import Foods from '../Food'
 
 const Menu = ({activeMenu, setActiveMenu}) => {
@@ -46,4 +46,4 @@ const Menu = ({activeMenu, setActiveMenu}) => {
   )
 }
 
-export default Menu
+export default memo(Menu);

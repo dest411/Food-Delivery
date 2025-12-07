@@ -1,15 +1,12 @@
-import React, { useState, memo } from 'react'
+import React from 'react'
 import Foods from '../Food';
 
 
 
 
-const MenuFood = ({activeMenu}) => {
+const MenuFood = ({activeMenu, basket, handleClick}) => {
   
-  const [basket, addToBasket] = useState([]);
-  const handleClick = (newItem) => {
-    addToBasket((prev) => [...prev, newItem])
-  }
+  
   const foodItem = Foods.find(item => item.name === activeMenu);
   const foodbpmId = foodItem ? foodItem.id : null;
 
@@ -59,4 +56,4 @@ const MenuFood = ({activeMenu}) => {
   )
 }
 
-export default MenuFood
+export default MenuFood;

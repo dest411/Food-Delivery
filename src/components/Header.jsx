@@ -1,8 +1,9 @@
 import React, {useMemo, memo} from 'react'
 import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
+import shoppingcart from '../png/shoppingcart.png'
 
-const Header = memo(() => {
+const Header = memo(({basket}) => {
     console.log('render header');
     
   return (
@@ -21,7 +22,8 @@ const Header = memo(() => {
             </nav>
         </div>
         
-        <div className='relative h-[50px] flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
+        <div className='flex items-center gap-8' >
+            <div className='relative h-[50px] flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
             <input
                 id='inputSearch' 
                 className='w-[300px] h-[25px] 
@@ -30,8 +32,16 @@ const Header = memo(() => {
                 type="text" 
                 placeholder='Search something...' 
             />
-            <img className='absolute w-5 h-5 right-5 top-[25%]' src={dandruff} alt="dandruff" />   
+            <img className='absolute  w-5 h-5 right-5 top-[25%]' src={dandruff} alt="dandruff" />   
+            </div>
+            <div className='relative' >
+                <img src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
+                <div>
+                    <p className='text-4xl absolute right-0 -bottom-7' >{basket.length}</p>
+                </div>
+            </div>
         </div>
+        
         
     </div>
   )

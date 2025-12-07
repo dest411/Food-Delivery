@@ -12,11 +12,16 @@ import ChoiseFood from './components/ChoiseFood.jsx'
 const App = () => {
 
     const [activeMenu, setActiveMenu] = useState('Pizza')
-
+    const [basket, addToBasket] = useState([]);
+    const handleClick = (newItem) => {
+      addToBasket((prev) => [...prev, newItem])
+    }
 
   return (
     <div className='w-full h-auto flex flex-col justify-center items-center' >
-      <Header/>
+      <Header
+        basket = {basket}
+      />
       <Hero/>
       <WelcomeSection/>
       <Menu 
@@ -24,6 +29,9 @@ const App = () => {
         setActiveMenu={setActiveMenu} 
       />
       <MenuFood
+          basket = {basket}
+          addToBasket = {addToBasket}
+          handleClick = {handleClick}
           activeMenu={activeMenu}
       />
       <Hr/>
