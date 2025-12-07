@@ -1,9 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useMemo} from 'react'
 
 const ModalBasket = ({basket}) => {
+    const groupedBasket = useMemo(() => {
+        const groups = {};
+        
+        basket.forEach(item => {
+            if (groups[item.naame]) {
+                groups[item.name].count += 1;
+            } else {
+                groups[item.name] = { ...item, count: 1 };
+            }
+        });
+
+        return Object.values(groups);
+    }, [basket]);
   return (
-    <div>
-        <div className='absolute bg-white -right-[2.8%] p-5 top-20 w-150 min-h-60 h-auto border '  >
+    <div className='w-full max-w-[1500px]  relative bg-amber-200' >
+        <div className='absolute bg-white right-0 max-w-[1500px] p-5 top-0 w-150 min-h-60 h-auto border '  >
             {basket.length == 0 ? <p className='text-4xl flex items-center justify-center'>The basket is empty</p> :
             <div>
                 {groupedBasket.map((food) => {
