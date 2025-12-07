@@ -8,21 +8,34 @@ import MenuFood from './components/MenuFood.jsx'
 import Form from './components/Form.jsx'
 import Hr from './components/Hr.jsx'
 import ChoiseFood from './components/ChoiseFood.jsx'
+import ModalBasket from './components/ModalBasket.jsx'
 
 const App = () => {
 
     const [activeMenu, setActiveMenu] = useState('Pizza')
-    const [basket, addToBasket] = useState([]);
-    const handleClick = (newItem) => {
-      addToBasket((prev) => [...prev, newItem])
+    const [basket, setBasket] = useState([]);
+    const addToBasket = (newItem) => {
+      setBasket((prev) => [...prev, newItem])
     }
-   
+    const [modalBasket, setModalBasket] = useState(false);
+    
+  
 
   return (
     <div className='w-full h-auto flex flex-col justify-center items-center' >
       <Header
         basket = {basket}
+        addToBasket = {addToBasket}
+        setModalBasket= {setModalBasket}
+        modalBasket= {modalBasket}
       />
+      {modalBasket &&
+        < ModalBasket
+          basket={basket}
+          addToBasket={addToBasket}
+          />
+      }
+      
       <Hero/>
       <WelcomeSection/>
       <Menu 
@@ -31,8 +44,8 @@ const App = () => {
       />
       <MenuFood
           basket = {basket}
+          setBasket = {setBasket}
           addToBasket = {addToBasket}
-          handleClick = {handleClick}
           activeMenu={activeMenu}
       />
       <Hr/>

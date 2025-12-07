@@ -1,12 +1,9 @@
 import React from 'react'
 import Foods from '../Food';
 
-const MenuFood = ({activeMenu, basket, handleClick}) => {
-  
-  
+const MenuFood = ({activeMenu, basket, addToBasket}) => {
   const foodItem = Foods.find(item => item.name === activeMenu);
   const foodbpmId = foodItem ? foodItem.id : null;
-
   if (!foodItem) {
       return <p>Меню не знайдено</p>;
   }
@@ -38,7 +35,7 @@ const MenuFood = ({activeMenu, basket, handleClick}) => {
                             {food.ingredients.map((ing) => {
                               return <li key={ing} className='list-disc' >{ing}</li>
                             })}
-                            <button onClick={() => handleClick(food)} className="add-btn">Add to Get</button>                          </ul>
+                            <button onClick={() => addToBasket(food)} className="add-btn">Add to Get</button>                          </ul>
                           
                         </div>
                       </div>
