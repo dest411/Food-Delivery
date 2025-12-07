@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react'
 
-const ModalBasket = ({basket}) => {
+const ModalBasket = ({basket, addToBasket}) => {
     const groupedBasket = useMemo(() => {
         const groups = {};
         
@@ -30,7 +30,7 @@ const ModalBasket = ({basket}) => {
                         
                         <div className='flex text-2xl gap-2 items-center cursor-pointer' >
                             <p>-</p>
-                            <p className='border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
+                            <p className='border w-8 h-6 flex items-center justify-center rounded' ></p>
                             <p onClick={()=> addToBasket(food)} >+</p>
                         </div>
                         <p key={food.name} className='text-2xl'>

@@ -17,6 +17,7 @@ const App = () => {
     const addToBasket = (newItem) => {
       setBasket((prev) => [...prev, newItem])
     }
+    
     const [modalBasket, setModalBasket] = useState(false);
     
   
