@@ -6,8 +6,27 @@ import shoppingcart from '../png/shoppingcart.png'
 
 const Header = memo(({basket}) => {
     let basketOpen = true;
+    const groupedBasket = useMemo(() => {
+        const groups = {};
+        
+        basket.forEach(item => {
+            // Якщо товар вже є в групі - збільшуємо лічильник
+            if (groups[item.name]) {
+                groups[item.name].count += 1;
+                // Сумуємо ціну, якщо треба (але зазвичай ціна за шт.)
+            } else {
+                // Якщо немає - створюємо запис і ставимо лічильник 1
+                groups[item.name] = { ...item, count: 1 };
+            }
+        });
+
+        // Перетворюємо об'єкт назад у масив для відображення
+        return Object.values(groups);
+    }, [basket]);
     console.log('render header');
 
+    console.log(`groupedBasket: ${groupedBasket}`);
+    
     
   return (
     <div className='flex w-[95%] relative max-w-[1500px] h-20 justify-between  items-center' >
@@ -47,15 +66,25 @@ const Header = memo(({basket}) => {
             </div>
         </div>
         {basketOpen && 
-            <div className='absolute bg-white -right-[2.8%] p-5 top-20 w-80 min-h-60 h-auto border '  >
+            <div className='absolute bg-white -right-[2.8%] p-5 top-20 w-150 min-h-60 h-auto border '  >
                 {basket.length == 0 ? <p>Кошик пустий, добавте товар</p> :
                 <div>
-                    {basket.map((food) => {
+                    {groupedBasket.map((food) => {
                         console.log(food);
-                        return <div className='flex items-center justify-start gap-3.5' >
-                            <img className='w-20 h-20' src={food.typePhoto}  alt="" srcset="" />
+                        return <div className='flex items-center justify-between gap-2' >
                             
-                            <p key={food.name} className='text-2xl' >{food.name}</p>
+                            <div className='flex gap-3 items-center w-60'>
+                                <img className='w-20 h-20' src={food.typePhoto}  alt="food photo"/>
+                                <p key={food.name} className='text-2xl' >{food.name}</p>
+                            </div>
+                            
+                            <div className='flex text-2xl gap-2 items-center cursor-pointer' >
+                                <p>-</p>
+                                <p className='border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
+                                <p onClick={() => food.count + 1} >+</p>
+                            </div>
+                            <p key={food.name} className='text-2xl' >Price: {food.price}$</p>
+                            
                         </div> 
                     })}
                 </div> 

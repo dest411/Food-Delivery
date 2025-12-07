@@ -16,6 +16,7 @@ const App = () => {
     const handleClick = (newItem) => {
       addToBasket((prev) => [...prev, newItem])
     }
+    
 
   return (
     <div className='w-full h-auto flex flex-col justify-center items-center' >
