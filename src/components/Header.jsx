@@ -58,7 +58,7 @@ const Header = memo(({basket}) => {
             </div>
             <div className='relative' >
                 <img src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
-                {basket.length > 1 && 
+                {basket.length > 0 && 
                     <div className='flex items-center justify-center ' >
                         <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{basket.length}</p>
                     </div>
@@ -71,7 +71,7 @@ const Header = memo(({basket}) => {
                 <div>
                     {groupedBasket.map((food) => {
                         console.log(food);
-                        return <div className='flex items-center justify-between gap-2' >
+                        return <div key={food.name} className='flex items-center justify-between gap-2' >
                             
                             <div className='flex gap-3 items-center w-60'>
                                 <img className='w-20 h-20' src={food.typePhoto}  alt="food photo"/>
