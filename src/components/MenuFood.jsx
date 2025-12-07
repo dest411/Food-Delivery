@@ -1,17 +1,26 @@
-import React from 'react'
+import React, { useState, memo } from 'react'
 import Foods from '../Food';
 
-const MenuFood = ({activeMenu}) => {
-    const foodItem = Foods.find(item => item.name === activeMenu);
-    const foodId = foodItem ? foodItem.id : null;
 
-    if (!foodItem) {
-        return <p>Меню не знайдено</p>;
-    }
-    console.log("render menu food");
-    
-    
-    const name = foodItem.name;
+
+
+const MenuFood = ({activeMenu}) => {
+  
+  const [basket, addToBasket] = useState([]);
+  const handleClick = (newItem) => {
+    addToBasket((prev) => [...prev, newItem])
+  }
+  const foodItem = Foods.find(item => item.name === activeMenu);
+  const foodbpmId = foodItem ? foodItem.id : null;
+
+  if (!foodItem) {
+      return <p>Меню не знайдено</p>;
+  }
+  console.log("render menu food");
+  console.log(basket);
+  
+  
+  const name = foodItem.name;
   return (
     <div className='w-full max-w-[1500px] mx-auto ' >
         <h1 className='text-8xl font-bold ml-32' >Popular {name}s of Naples</h1>
@@ -35,7 +44,7 @@ const MenuFood = ({activeMenu}) => {
                             {food.ingredients.map((ing) => {
                               return <li key={ing} className='list-disc' >{ing}</li>
                             })}
-                            <button className="add-btn">Add to Get</button>                          </ul>
+                            <button onClick={() => handleClick(food)} className="add-btn">Add to Get</button>                          </ul>
                           
                         </div>
                       </div>
