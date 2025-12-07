@@ -36,9 +36,12 @@ const Header = memo(({basket}) => {
             </div>
             <div className='relative' >
                 <img src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
-                <div>
-                    <p className='text-4xl absolute right-0 -bottom-7' >{basket.length}</p>
-                </div>
+                {basket.length > 1 && 
+                    <div className='flex items-center justify-center ' >
+                        <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{basket.length}</p>
+                    </div>
+                }
+                
             </div>
         </div>
         
