@@ -1,9 +1,6 @@
 import React from 'react'
 import Foods from '../Food';
 
-
-
-
 const MenuFood = ({activeMenu, basket, handleClick}) => {
   
   
@@ -46,7 +43,6 @@ const MenuFood = ({activeMenu, basket, handleClick}) => {
                         </div>
                       </div>
                     </div>
-            
           })}
         </div>
         

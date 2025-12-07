@@ -3,11 +3,14 @@ import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
 import shoppingcart from '../png/shoppingcart.png'
 
+
 const Header = memo(({basket}) => {
+    let basketOpen = true;
     console.log('render header');
+
     
   return (
-    <div className='flex w-[95%]  max-w-[1500px] h-20 justify-between  items-center' >
+    <div className='flex w-[95%] relative max-w-[1500px] h-20 justify-between  items-center' >
         <div className='flex gap-25 items-center ' >
             <p className="text-5xl font-bold bg-linear-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
                 Naples  
@@ -41,10 +44,25 @@ const Header = memo(({basket}) => {
                         <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{basket.length}</p>
                     </div>
                 }
-                
             </div>
         </div>
-        
+        {basketOpen && 
+            <div className='absolute bg-white -right-[2.8%] p-5 top-20 w-80 min-h-60 h-auto border '  >
+                {basket.length == 0 ? <p>Кошик пустий, добавте товар</p> :
+                <div>
+                    {basket.map((food) => {
+                        console.log(food);
+                        return <div className='flex items-center justify-start gap-3.5' >
+                            <img className='w-20 h-20' src={food.typePhoto}  alt="" srcset="" />
+                            
+                            <p key={food.name} className='text-2xl' >{food.name}</p>
+                        </div> 
+                    })}
+                </div> 
+                }
+                
+            </div>
+        }
         
     </div>
   )
