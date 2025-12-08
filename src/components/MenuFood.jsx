@@ -1,14 +1,13 @@
 import React from 'react'
 import Foods from '../Food';
 
-const MenuFood = ({activeMenu, basket, addToBasket}) => {
+const MenuFood = ({activeMenu, addToBasket}) => {
   const foodItem = Foods.find(item => item.name === activeMenu);
   const foodbpmId = foodItem ? foodItem.id : null;
   if (!foodItem) {
       return <p>Меню не знайдено</p>;
   }
   console.log("render menu food");
-  console.log(basket);
   
   
   const name = foodItem.name;

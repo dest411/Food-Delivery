@@ -15,6 +15,7 @@ const App = () => {
     const [activeMenu, setActiveMenu] = useState('Pizza')
     const [basket, setBasket] = useState([]);
     const addToBasket = (newItem) => {
+      
       setBasket((prev) => [...prev, newItem])
     }
     

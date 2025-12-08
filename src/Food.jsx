@@ -15,19 +15,19 @@ const Foods = [
             Pepperoni: {
                 typePhoto: PepperoniPizza, 
                 name: 'Pepperoni pizza',
-                price: '15,00',
+                price: 15.00,
                 ingredients: ['Pepperoni sausage', 'Cheese pizza', 'Red bell pepper', 'Ketchup', 'Thyme', 'Tomato']
             },
             Vegetables: {
                 typePhoto: VegetablesPizza, 
                 name: 'Vegetables pizza',
-                price: '12,00',
+                price: 12.00,
                 ingredients: ['Mushroom', 'Corn', 'Black olive', 'Tomato', 'Peas']
             },
             Margherita: {
                 typePhoto: MargheritaPizza,
                 name: 'Margherita pizza',
-                price: '13,87',
+                price: 13.87,
                 ingredients: ['Basil', 'Cheese pizza', 'Black pepper', 'Garlic', 'Thyme', 'Tomato']
             }
         }
