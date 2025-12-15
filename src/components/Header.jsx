@@ -14,7 +14,7 @@ const Header = memo(({basket, setModalBasket, modalBasket }) => {
     
   return (
 
-    <header className='sticky top-0 z-50 w-full bg-white backdrop-blur-sm shadow-sm border-b border-gray-100' >
+    <header className='sticky top-0 z-200 w-full bg-white backdrop-blur-sm shadow-sm border-b border-gray-100' >
         <div className='flex w-[95%] mx-auto sticky top-0 z-140 bg-white  max-w-[1500px] h-20 justify-between  items-center' >
             <div className='flex gap-25 items-center ' >
 

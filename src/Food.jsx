@@ -27,7 +27,7 @@ const Foods = [
             Margherita: {
                 typePhoto: MargheritaPizza,
                 name: 'Margherita pizza',
-                price: '13,87',
+                price: '13,90',
                 ingredients: ['Basil', 'Cheese pizza', 'Black pepper', 'Garlic', 'Thyme', 'Tomato']
             }
         }
