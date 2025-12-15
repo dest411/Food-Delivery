@@ -13,12 +13,12 @@ const Header = memo(({basket, setModalBasket, modalBasket }) => {
     }, [basket]);
     
   return (
-    
+
     <header className='sticky top-0 z-50 w-full bg-white backdrop-blur-sm shadow-sm border-b border-gray-100' >
         <div className='flex w-[95%] mx-auto sticky top-0 z-140 bg-white  max-w-[1500px] h-20 justify-between  items-center' >
             <div className='flex gap-25 items-center ' >
 
-                <p className="text-5xl font-bold bg-linear-to-r from-[#67666A] to-[#C0C0C2] bg-clip-text text-transparent">
+                <p className="text-5xl font-bold bg-linear-to-r from-gray to-[#C0C0C2] bg-clip-text text-transparent">
                     Naples  
                 </p>
 
