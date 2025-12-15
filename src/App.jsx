@@ -19,7 +19,7 @@ const App = () => {
     }
     
     const [modalBasket, setModalBasket] = useState(false);
-    
+  
   
 
   return (
@@ -30,13 +30,14 @@ const App = () => {
         setModalBasket= {setModalBasket}
         modalBasket= {modalBasket}
       />
-      {modalBasket &&
+      
         < ModalBasket
         className=''
           basket={basket}
           addToBasket={addToBasket}
+          modalBasket = {modalBasket}
           />
-      }
+      
       
       <Hero/>
       <WelcomeSection/>

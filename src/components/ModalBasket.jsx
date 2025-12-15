@@ -1,6 +1,7 @@
 import React, {useState, useMemo} from 'react'
 
-const ModalBasket = ({basket, addToBasket}) => {
+const ModalBasket = ({basket, addToBasket, modalBasket}) => {
+
     const groupedBasket = useMemo(() => {
         const groups = {};
         
@@ -16,7 +17,7 @@ const ModalBasket = ({basket, addToBasket}) => {
     }, [basket]);
   return (
     <div className='w-full max-w-[1500px]  relative bg-amber-200' >
-        <div className='absolute bg-white right-0 max-w-[1500px] p-5 top-0 w-150 min-h-60 h-auto border '  >
+        <div className={`absolute bg-white ${modalBasket ? 'right-0' : '-right-1000'}  max-w-[1500px] transition-all duration-500 ease-in-out p-5 top-0 w-150 min-h-60 h-auto border`}   >
             {basket.length == 0 ? <p className='text-4xl flex items-center justify-center'>The basket is empty</p> :
             <div>
                 {groupedBasket.map((food) => {
