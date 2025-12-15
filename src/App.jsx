@@ -15,8 +15,40 @@ const App = () => {
     const [activeMenu, setActiveMenu] = useState('Pizza')
     const [basket, setBasket] = useState([]);
     const addToBasket = (newItem) => {
-      setBasket((prev) => [...prev, newItem])
-    }
+      setBasket((prev) => {
+        // Шукаємо, чи такий товар вже є в кошику
+        const isExist = prev.find((item) => item.name === newItem.name);
+
+        if (isExist) {
+          // Якщо є -> проходимось по масиву і збільшуємо count тільки цьому товару
+          return prev.map((item) =>
+            item.name === newItem.name
+              ? { ...item, count: (item.count || 1) + 1 }
+              : item
+          );
+        } else {
+          // Якщо немає -> додаємо новий з count: 1
+          return [...prev, { ...newItem, count: 1 }];
+        }
+      });
+    };
+
+    const removeFromBasket = (itemToRemove) => {
+      setBasket((prev) => {
+        // 1. Якщо кількість більше 1 -> зменшуємо на 1
+        if (itemToRemove.count > 1) {
+          return prev.map((item) =>
+            item.name === itemToRemove.name
+              ? { ...item, count: item.count - 1 }
+              : item
+          );
+        } 
+        // 2. Якщо кількість 1 (або менше) -> видаляємо товар з масиву повністю
+        else {
+          return prev.filter((item) => item.name !== itemToRemove.name);
+        }
+      });
+    };
     
     const [modalBasket, setModalBasket] = useState(false);
   
@@ -35,7 +67,9 @@ const App = () => {
         className=''
           basket={basket}
           addToBasket={addToBasket}
+          removeFromBasket={removeFromBasket}
           modalBasket = {modalBasket}
+
           />
       
       

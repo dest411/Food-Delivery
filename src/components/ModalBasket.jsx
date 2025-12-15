@@ -1,12 +1,12 @@
 import React, {useState, useMemo} from 'react'
 
-const ModalBasket = ({basket, addToBasket, modalBasket}) => {
+const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
 
     const groupedBasket = useMemo(() => {
         const groups = {};
         
         basket.forEach(item => {
-            if (groups[item.naame]) {
+            if (groups[item.name]) {
                 groups[item.name].count += 1;
             } else {
                 groups[item.name] = { ...item, count: 1 };
@@ -15,6 +15,8 @@ const ModalBasket = ({basket, addToBasket, modalBasket}) => {
 
         return Object.values(groups);
     }, [basket]);
+
+    const totalAmount = basket.reduce((acc, item) => acc + (item.price * item.count), 0);
   return (
     <div className='w-full max-w-[1500px]  relative bg-amber-200' >
         <div className={`absolute bg-white ${modalBasket ? 'right-0' : '-right-1000'}  max-w-[1500px] transition-all duration-500 ease-in-out p-5 top-0 w-150 min-h-60 h-auto border`}   >
@@ -30,8 +32,8 @@ const ModalBasket = ({basket, addToBasket, modalBasket}) => {
                         </div>
                         
                         <div className='flex text-2xl gap-2 items-center cursor-pointer' >
-                            <p>-</p>
-                            <p className='border w-8 h-6 flex items-center justify-center rounded' ></p>
+                            <p onClick={()=>removeFromBasket(food)} >-</p>
+                            <p className='border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
                             <p onClick={()=> addToBasket(food)} >+</p>
                         </div>
                         <p key={food.name} className='text-2xl'>
@@ -41,6 +43,7 @@ const ModalBasket = ({basket, addToBasket, modalBasket}) => {
                 })}
             </div> 
             }
+            
         </div>
     </div>
   )
