@@ -2,28 +2,17 @@ import React, {useState, useMemo} from 'react'
 
 const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
 
-    const groupedBasket = useMemo(() => {
-        const groups = {};
-        
-        basket.forEach(item => {
-            if (groups[item.name]) {
-                groups[item.name].count += 1;
-            } else {
-                groups[item.name] = { ...item, count: 1 };
-            }
-        });
+    const totalBasket = basket.reduce((acc, food) => {
+        const price = parseFloat(food.price.replace(',', '.'));
+        return acc + (price * food.count);
+    }, 0);
 
-        return Object.values(groups);
-    }, [basket]);
-
-    const totalAmount = basket.reduce((acc, item) => acc + (item.price * item.count), 0);
-  return (
+    return (
     <div className='w-full max-w-[1500px]  relative bg-amber-200' >
         <div className={`absolute bg-white ${modalBasket ? 'right-0' : '-right-1000'}  max-w-[1500px] transition-all duration-500 ease-in-out p-5 top-0 w-150 min-h-60 h-auto border`}   >
             {basket.length == 0 ? <p className='text-4xl flex items-center justify-center'>The basket is empty</p> :
             <div>
-                {groupedBasket.map((food) => {
-                    console.log(food);
+                {basket.map((food) => {
                     return <div key={food.name} className='flex items-center justify-between gap-2' >
                         
                         <div className='flex gap-3 items-center w-60'>
@@ -41,6 +30,11 @@ const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
                         </p>                            
                     </div> 
                 })}
+                <div className='mt-5 pt-5 border-t border-black'>
+                            <p className='text-3xl font-bold text-right'>
+                                Total:{totalBasket}$
+                            </p>
+                        </div>
             </div> 
             }
             

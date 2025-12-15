@@ -6,7 +6,9 @@ import shoppingcart from '../png/shoppingcart.png'
 
 const Header = memo(({basket, setModalBasket, modalBasket }) => {
     
-
+    const totalCount = basket.reduce((acc, item) => {
+        return acc + item.count;
+    }, 0);
     console.log('render header');
   return (
     <header className='flex w-[95%]  max-w-[1500px] h-20 justify-between  items-center' >
@@ -40,7 +42,7 @@ const Header = memo(({basket, setModalBasket, modalBasket }) => {
                 <img onClick={() => setModalBasket(!modalBasket)} src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
                 {basket.length > 0 && 
                     <div className='flex items-center justify-center ' >
-                        <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{basket.length}</p>
+                        <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{totalCount}</p>
                     </div>
                 }
             </div>
