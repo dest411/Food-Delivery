@@ -1,6 +1,6 @@
-import React, {useState, useMemo} from 'react'
+import React, { memo } from 'react'
 
-const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
+const ModalBasket = memo(({basket, addToBasket, modalBasket,removeFromBasket}) => {
 
     console.log('render modalBasket');
     
@@ -38,12 +38,12 @@ const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
                                 Total:{totalBasket}$
                             </p>
                         </div>
-            </div> 
-            }
+            </div> }
+            
             
         </div>
     </div>
-  )
-}
+    )
+})
 
 export default ModalBasket

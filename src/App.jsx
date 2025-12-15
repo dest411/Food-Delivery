@@ -31,7 +31,7 @@ const App = () => {
       });
     }, []);
 
-    const removeFromBasket = (itemToRemove) => {
+    const removeFromBasket = useCallback((itemToRemove) => {
       setBasket((prev) => {
         if (itemToRemove.count > 1) {
           return prev.map((item) =>
@@ -44,7 +44,7 @@ const App = () => {
           return prev.filter((item) => item.name !== itemToRemove.name);
         }
       });
-    };
+    }, []);
     
     const [modalBasket, setModalBasket] = useState(false);
   
