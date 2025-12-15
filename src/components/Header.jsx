@@ -1,15 +1,17 @@
-import React, {useMemo, memo, useState} from 'react'
+import React, {useMemo, memo} from 'react'
 import arrow from '../png/arrow.svg'
 import dandruff from '../png/dandruff.svg'
 import shoppingcart from '../png/shoppingcart.png'
 
 
 const Header = memo(({basket, setModalBasket, modalBasket }) => {
-    
-    const totalCount = basket.reduce((acc, item) => {
-        return acc + item.count;
-    }, 0);
+
     console.log('render header');
+
+    const totalCount = useMemo(() => {
+        return basket.reduce((acc, item) => acc + item.count, 0);
+    }, [basket]);
+    
   return (
     <header className='flex w-[95%]  max-w-[1500px] h-20 justify-between  items-center' >
         <div className='flex gap-25 items-center ' >

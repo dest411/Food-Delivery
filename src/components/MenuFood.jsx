@@ -1,17 +1,18 @@
 import React from 'react'
 import Foods from '../Food';
 
-const MenuFood = ({activeMenu, basket, addToBasket}) => {
+const MenuFood = ({activeMenu, addToBasket}) => {
+
+  console.log("render menu food");  
 
   const foodItem = Foods.find(item => item.name === activeMenu);
-
   if (!foodItem) {
       
     return <p>Меню не знайдено</p>;
   }
-  console.log("render menu food");  
-  const name = foodItem.name;
   
+  const name = foodItem.name;
+
   return (
     <div className='w-full max-w-[1500px] mx-auto ' >
         <h1 className='text-8xl font-bold ml-32' >Popular {name}s of Naples</h1>

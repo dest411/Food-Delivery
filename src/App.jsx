@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -15,7 +15,7 @@ const App = () => {
     const [activeMenu, setActiveMenu] = useState('Pizza')
     const [basket, setBasket] = useState([]);
 
-    const addToBasket = (newItem) => {
+    const addToBasket = useCallback((newItem) => {
       setBasket((prev) => {
         const isExist = prev.find((item) => item.name === newItem.name);
 
@@ -29,7 +29,7 @@ const App = () => {
           return [...prev, { ...newItem, count: 1 }];
         }
       });
-    };
+    }, []);
 
     const removeFromBasket = (itemToRemove) => {
       setBasket((prev) => {

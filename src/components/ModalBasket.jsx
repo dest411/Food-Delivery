@@ -2,6 +2,9 @@ import React, {useState, useMemo} from 'react'
 
 const ModalBasket = ({basket, addToBasket, modalBasket,removeFromBasket}) => {
 
+    console.log('render modalBasket');
+    
+
     const totalBasket = basket.reduce((acc, food) => {
         const price = parseFloat(food.price.replace(',', '.'));
         return acc + (price * food.count);
