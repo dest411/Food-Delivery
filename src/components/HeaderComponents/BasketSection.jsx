@@ -1,7 +1,7 @@
-import React, {useMemo, memo} from 'react'
+import React, { useMemo, memo } from 'react'
 import shoppingcart from "../../png/shoppingcart.png";
 
-const BasketSection = memo(({basket,setModalBasket,modalBasket}) => {
+const BasketSection = memo(({ basket, setModalBasket, modalBasket }) => {
 
     const totalCount = useMemo(() => {
             return basket.reduce((acc, item) => acc + item.count, 0);

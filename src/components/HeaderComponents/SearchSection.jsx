@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useRef, memo} from 'react'
+import React,  {useState, useEffect, useRef, memo } from 'react'
 import dandruff from '../../png/dandruff.svg'
 
-const SearchSection = memo(({searchItem,setSearchItem,filteredFoods,addToBasket}) => {
+const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket, setActiveMenu }) => {
 
     const searchRef = useRef(null);
     const [showSearch, setShowSearch] = useState(false);
@@ -27,24 +27,23 @@ const SearchSection = memo(({searchItem,setSearchItem,filteredFoods,addToBasket}
         if (searchItem.length > 0) setShowSearch(true);
     }, [searchItem]);
 
-    const handleScrollToProduct = (productName) => {
-        // 1. Робимо такий самий ID, як в MenuFood (прибираємо пробіли)
-        const id = productName.replace(/\s/g, '');
-        
-        // 2. Шукаємо елемент
-        const element = document.getElementById(id);
-        
-        if (element) {
-            // 3. Скролимо до нього
-            element.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center' // Важливо: ставить елемент по центру екрану (щоб хедер не перекрив)
-            });
+    const handleScrollToProduct = (item) => {
+        setActiveMenu(item.category);
+
+        setShowSearch(false);
+        setSearchItem('');
+
+        setTimeout(() => {
+            const id = item.name.replace(/\s/g, '');
+            const element = document.getElementById(id);
             
-            // 4. Закриваємо пошук і (опціонально) чистимо інпут
-            setShowSearch(false);
-            setSearchItem(''); 
-        }
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        }, 100);
     };
 
     return (
@@ -69,7 +68,7 @@ const SearchSection = memo(({searchItem,setSearchItem,filteredFoods,addToBasket}
                     ) : (
                         
                         filteredFoods.map((item, index) => (
-                            <div onClick={() => handleScrollToProduct(item.name)} className='flex items-center justify-between border-gray-200 border-b last:border-0'>
+                            <div onClick={() => handleScrollToProduct(item)} className='flex items-center justify-between border-gray-200 border-b last:border-0'>
                                 <p  key={item.name + index} className="flex gap-5 items-center text-2xl py-1   hover:text-orange-500 cursor-pointer transition">
                                     <img className='w-15 h-15' src={item.typePhoto} alt="" srcset="" />
                                     {item.name}

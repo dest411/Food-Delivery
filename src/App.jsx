@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useMemo} from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -17,10 +17,14 @@ const App = () => {
     const [basket, setBasket] = useState([]);
     const [searchItem, setSearchItem] = useState('') // input in header
 
-    const allDishes = useMemo(() => { // take from typefood
-      return Foods.flatMap(category => Object.values(category.typeFood));
-    }, [])  
-
+    const allDishes = useMemo(() => {
+      return Foods.flatMap(category => {
+        return Object.values(category.typeFood).map(dish => ({
+            ...dish,
+            category: category.name // <--- ВАЖЛИВО: зберігаємо категорію
+        }));
+      });
+    }, []);
    
     const filteredFoods = useMemo(() => { // filter in input search
       if (searchItem === "") return [];
@@ -77,6 +81,7 @@ const App = () => {
         addToBasket = {addToBasket}
         setModalBasket= {setModalBasket}
         modalBasket= {modalBasket}
+        setActiveMenu={setActiveMenu}
         //input search
         filteredFoods={filteredFoods}
         searchItem={searchItem}

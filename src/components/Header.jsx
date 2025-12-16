@@ -1,10 +1,10 @@
-import React, {useMemo, memo, useEffect, useRef, useState} from 'react'
+import React, { memo } from 'react'
 import SearchSection from './HeaderComponents/SearchSection';
 import BasketSection from './HeaderComponents/BasketSection';
 import arrow from '../png/arrow.svg'
 
 
-const Header = memo(({basket, setModalBasket, modalBasket, filteredFoods, searchItem, setSearchItem, addToBasket }) => {
+const Header = memo(({ basket, setModalBasket, modalBasket, filteredFoods, searchItem, setSearchItem, addToBasket, setActiveMenu }) => {
 
     console.log('render header');
 
@@ -28,12 +28,13 @@ const Header = memo(({basket, setModalBasket, modalBasket, filteredFoods, search
                 </div>
                 
                 <div className='flex items-center gap-6'>
-                    
+
                     <SearchSection 
                         searchItem={searchItem}
                         setSearchItem={setSearchItem}
                         filteredFoods={filteredFoods}
                         addToBasket={addToBasket}
+                        setActiveMenu={setActiveMenu}
                     />
 
                     <BasketSection 
