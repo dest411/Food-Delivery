@@ -18,7 +18,7 @@ const MenuFood = ({activeMenu, addToBasket}) => {
         <h1 className='text-8xl font-bold ml-32' >Popular {name}s of Naples</h1>
         <div className='flex flex-col mt-10 gap-50'>
           {Object.values(foodItem.typeFood).map((food) => {
-            return  <div className=' w-full relative ' key={food.name} >
+            return  <div id={food.name.replace(/\s/g, '')} className=' w-full relative ' key={food.name} >
                       <div className='flex items-center mx-auto  w-[90%]'>
                         
                         <div className='flex flex-col relative w-full pl-40 h-42 '>
