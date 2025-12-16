@@ -45,6 +45,12 @@ const App = () => {
         }
       });
     }, []);
+
+    const removeCompletely = useCallback((itemToRemove) => {
+      setBasket((prev) => {
+        return prev.filter((item) => item.name !== itemToRemove.name);
+      })
+    }, []);
     
     const [modalBasket, setModalBasket] = useState(false);
   
@@ -63,7 +69,7 @@ const App = () => {
           addToBasket={addToBasket}
           removeFromBasket={removeFromBasket}
           modalBasket = {modalBasket}
-
+          removeCompletely = {removeCompletely}
           />
       
       

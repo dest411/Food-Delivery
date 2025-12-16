@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
+import garbage from '../png/garbage.svg'
 
-const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket}) => {
+const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, removeCompletely}) => {
 
     console.log('render modalBasket');
     
@@ -23,18 +24,19 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket}) 
                 {basket.length == 0 ? <p className='text-4xl flex items-center justify-center'>The basket is empty</p> :
                 <div>
                     {basket.map((food) => {
-                        return <div key={food.name} className='flex items-center justify-between gap-2' >
+                        return <div key={food.name} className='flex w-full items-center justify-between gap-2' >
                             
                             <div className='flex gap-3 items-center w-60'>
                                 <img className='w-20 h-20' src={food.typePhoto}  alt="food photo"/>
                                 <p key={food.name} className='text-3xl' >{food.name}</p>
                             </div>
                             
-                            <div className='flex text-2xl gap-2 items-center cursor-pointer' >
+                            <div className='flex text-2xl gap-2 items-center cursor-pointer w-auto min-w-[80px]' >
                                 <p onClick={()=>removeFromBasket(food)} >-</p>
-                                <p className='text-2xl border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
+                                <p className='text-2xl border w-auto min-w-[2rem] h-6 flex items-center justify-center rounded' >{food.count}</p>
                                 <p onClick={()=> addToBasket(food)} >+</p>
                             </div>
+                            <img onClick={() => removeCompletely(food)} className='w-3 h-3 cursor-pointer' src={garbage} alt="" />
                             <p key={food.name} className='text-2xl'>
                                 Price: {(parseFloat(food.price.replace(',', '.')) * food.count).toFixed(2)}$
                             </p>                            
