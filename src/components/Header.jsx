@@ -44,13 +44,22 @@ const Header = memo(({basket, setModalBasket, modalBasket, filteredFoods, search
                     value={searchItem} 
                     onChange={(e) => setSearchItem(e.target.value)}
                 />
-                {searchItem.length > 0 && 
-                    <div className='absolute top-17 text-black rounded-3xl p-3 bg-white border border-white w-[330px] h-auto' >
-                        {filteredFoods.map((item) => {
-                            return <p key={item.name} >{item.name}</p>
-                        })}
+                {searchItem.length > 0 && (
+                    <div className='absolute top-17 left-0 z-50 text-black rounded-3xl p-3 bg-white border border-gray-200 w-[330px] h-auto shadow-lg'>
+                        
+                        {filteredFoods.length === 0 ? (
+                            <p className="text-2xl text-center text-gray-500">Nothing found</p>
+                        ) : (
+                            filteredFoods.map((item, index) => (
+                                <p key={item.name + index} className="flex gap-5 items-center text-2xl py-1 border-b last:border-0 border-gray-100 hover:text-orange-500 cursor-pointer transition">
+                                    <img className='w-15 h-15' src={item.typePhoto} alt="" srcset="" />
+                                    {item.name}
+                                </p>
+                            ))
+                        )}
+
                     </div>
-                }
+                )}
                 
                 <img className='absolute  w-5 h-5 right-5 top-[25%]' src={dandruff} alt="dandruff" />   
                 </div>

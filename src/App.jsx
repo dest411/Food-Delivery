@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react'
+import React, {useState, useCallback, useMemo} from 'react'
 import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -17,12 +17,18 @@ const App = () => {
     const [basket, setBasket] = useState([]);
     const [searchItem, setSearchItem] = useState('') // input in header
 
-    const allDishes = Foods.flatMap(category => Object.values(category.typeFood)); // take from typefood
-    const filteredFoods = allDishes.filter((item) => { // filter in input search
-      if (searchItem === "") return false;
-      return item.name.toLowerCase().includes(searchItem.toLowerCase());
-    })
-    console.log(filteredFoods);
+    const allDishes = useMemo(() => { // take from typefood
+      return Foods.flatMap(category => Object.values(category.typeFood));
+    }, [])  
+
+   
+    const filteredFoods = useMemo(() => { // filter in input search
+      if (searchItem === "") return [];
+      return allDishes.filter((item) => { 
+        return item.name.toLowerCase().includes(searchItem.toLowerCase());
+      })
+    }, [searchItem, allDishes])
+
     
 
     const addToBasket = useCallback((newItem) => {
