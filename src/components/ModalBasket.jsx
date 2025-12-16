@@ -17,7 +17,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
             
             <div className={`
                 absolute top-20 pointer-events-auto
-                bg-white border p-5 w-150 min-h-60 h-auto 
+                bg-white border p-5 w-150 min-h-50 h-auto 
                 transition-all duration-300 ease-in-out 
                 ${modalBasket ? 'right-0' : '-right-[3000px]'}`}>
                 
