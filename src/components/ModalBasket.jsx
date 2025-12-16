@@ -10,7 +10,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket}) 
     }, 0);
 
     return (
-    <div className='fixed top-0 left-8 w-full h-full z-202 flex justify-center pointer-events-none'>
+    <div className='fixed top-0 left-2 w-full h-full z-202 flex justify-center pointer-events-none'>
         
         <div className='w-full max-w-[1500px] relative h-full'>
             
@@ -27,12 +27,12 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket}) 
                             
                             <div className='flex gap-3 items-center w-60'>
                                 <img className='w-20 h-20' src={food.typePhoto}  alt="food photo"/>
-                                <p key={food.name} className='text-2xl' >{food.name}</p>
+                                <p key={food.name} className='text-3xl' >{food.name}</p>
                             </div>
                             
                             <div className='flex text-2xl gap-2 items-center cursor-pointer' >
                                 <p onClick={()=>removeFromBasket(food)} >-</p>
-                                <p className='border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
+                                <p className='text-2xl border w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
                                 <p onClick={()=> addToBasket(food)} >+</p>
                             </div>
                             <p key={food.name} className='text-2xl'>
@@ -40,10 +40,12 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket}) 
                             </p>                            
                         </div> 
                     })}
-                    <div className='mt-5 pt-5 border-t border-black'>
-                        <p className='text-3xl font-bold text-right'>
-                            Total:{totalBasket}$
-                        </p> 
+                    <div className='mt-5 flex flex-col justify-end gap-2 items-center pt-5 border-t border-black'>
+                        <p className='text-4xl font-bold text-right'>
+                            Total to order: {totalBasket}$
+                        </p>
+                        <button className="add-btn2 text-2xl">Proceed to checkout</button>
+
                     </div>
                 </div> }
                 
