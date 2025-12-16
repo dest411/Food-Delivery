@@ -49,7 +49,8 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                         <button className="add-btn2 text-2xl">Proceed to checkout</button>
 
                     </div>
-                </div> }
+                </div> 
+                }
                 
             </div>
         </div>

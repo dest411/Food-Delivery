@@ -9,11 +9,21 @@ import Form from './components/Form.jsx'
 import Hr from './components/Hr.jsx'
 import ChoiseFood from './components/ChoiseFood.jsx'
 import ModalBasket from './components/ModalBasket.jsx'
+import Foods from './Food.jsx'
 
 const App = () => {
 
     const [activeMenu, setActiveMenu] = useState('Pizza')
     const [basket, setBasket] = useState([]);
+    const [searchItem, setSearchItem] = useState('') // input in header
+
+    const allDishes = Foods.flatMap(category => Object.values(category.typeFood)); // take from typefood
+    const filteredFoods = allDishes.filter((item) => { // filter in input search
+      if (searchItem === "") return false;
+      return item.name.toLowerCase().includes(searchItem.toLowerCase());
+    })
+    console.log(filteredFoods);
+    
 
     const addToBasket = useCallback((newItem) => {
       setBasket((prev) => {
@@ -61,6 +71,10 @@ const App = () => {
         addToBasket = {addToBasket}
         setModalBasket= {setModalBasket}
         modalBasket= {modalBasket}
+        //input search
+        filteredFoods={filteredFoods}
+        searchItem={searchItem}
+        setSearchItem={setSearchItem}
       />
       
         < ModalBasket
