@@ -31,7 +31,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                                 <p key={food.name} className='text-3xl' >{food.name}</p>
                             </div>
                             
-                            <div className='flex text-2xl gap-2 items-center cursor-pointer w-auto min-w-20' >
+                            <div className='flex text-2xl gap-2 items-center cursor-pointer w-auto min-w-20 select-none' >
                                 <p onClick={()=>removeFromBasket(food)} >-</p>
                                 <p className='text-2xl border w-auto min-w-8 h-6 flex items-center justify-center rounded' >{food.count}</p>
                                 <p onClick={()=> addToBasket(food)} >+</p>

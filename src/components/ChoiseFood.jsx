@@ -6,7 +6,7 @@ import Wrapper from '../png/ChoiseFood/Wrapper.svg'
 
 const ChoiseFood = () => {
   return (
-    <div className='w-full h-auto flex justify-center'>
+    <div className='w-full h-auto flex justify-center select-none'>
         <div className=' flex justify-between w-[95%] h-auto max-w-[1500px]'>
             <div className='relative cursor-pointer'>
                 <img className='' src={Appetizer} alt="" />

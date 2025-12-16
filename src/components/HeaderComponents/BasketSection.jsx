@@ -8,7 +8,7 @@ const BasketSection = memo(({ basket, setModalBasket, modalBasket }) => {
         }, [basket]);
 
     return (
-        <div className='relative' >
+        <div className='relative select-none' >
             <img onClick={() => setModalBasket(!modalBasket)} src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
             {basket.length > 0 && 
                 <div className='flex items-center justify-center ' >
