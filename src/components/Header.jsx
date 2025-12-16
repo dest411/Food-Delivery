@@ -50,11 +50,18 @@ const Header = memo(({basket, setModalBasket, modalBasket, filteredFoods, search
                         {filteredFoods.length === 0 ? (
                             <p className="text-2xl text-center text-gray-500">Nothing found</p>
                         ) : (
+                            
                             filteredFoods.map((item, index) => (
-                                <p key={item.name + index} className="flex gap-5 items-center text-2xl py-1 border-b last:border-0 border-gray-100 hover:text-orange-500 cursor-pointer transition">
+                                <div className='flex items-center justify-between border-gray-200 border-b last:border-0'>
+                                    <p key={item.name + index} className="flex gap-5 items-center text-2xl py-1   hover:text-orange-500 cursor-pointer transition">
                                     <img className='w-15 h-15' src={item.typePhoto} alt="" srcset="" />
                                     {item.name}
-                                </p>
+                                    </p>
+                                    <button className='add-btn2 w-15! h-8! text-[16px]! ' >Add to get</button>
+
+                                </div>
+                                
+                                
                             ))
                         )}
 
