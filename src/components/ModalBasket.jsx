@@ -18,7 +18,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
             <div className={`
                 absolute top-20 pointer-events-auto 
                 bg-white
-                h-auto max-h-[80vh] border p-5 w-150 min-h-50'
+                h-auto max-h-[65vh] border p-5 w-150 min-h-50'
                 flex flex-col
                 transition-all duration-300 ease-in-out 
                 ${modalBasket ? 'right-0' : '-right-[3000px]'}`}>
@@ -26,7 +26,8 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                 {basket.length == 0 ? <p className='text-4xl flex items-center justify-center h-full'>The basket is empty</p> :
 
                 <div className='flex flex-col h-full overflow-hidden ' > {/* MAIN */}
-
+                    
+                    {/* LIST FOOD ID MODAL BASKET */}
                     <div className=' overflow-y-auto custom-scrollbar flex-1 flex flex-col gap-2 ' >
 
                         {basket.map((food) => {
