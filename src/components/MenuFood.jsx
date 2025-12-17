@@ -8,7 +8,7 @@ const MenuFood = ({activeMenu, addToBasket}) => {
   const foodItem = Foods.find(item => item.name === activeMenu);
   if (!foodItem) {
       
-    return <p>Меню не знайдено</p>;
+    return <p className='text-4xl uppercase' >Menu is not found</p>;
   }
   
   const name = foodItem.name;

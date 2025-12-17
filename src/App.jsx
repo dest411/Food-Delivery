@@ -21,7 +21,7 @@ const App = () => {
       return Foods.flatMap(category => {
         return Object.values(category.typeFood).map(dish => ({
             ...dish,
-            category: category.name // <--- ВАЖЛИВО: зберігаємо категорію
+            category: category.name
         }));
       });
     }, []);

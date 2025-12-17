@@ -20,7 +20,7 @@ const Header = memo(({ basket, setModalBasket, modalBasket, filteredFoods, searc
                     <nav>
                         <ul className='flex gap-25 text-3xl' >
                             <li>Home</li>
-                            <li className='flex gap-1.5 relative' >Menu <img src={arrow} className='absolute right-[-22px] top-[40%]' alt="" /> </li>
+                            <li className='flex gap-1.5 relative' >Menu <img src={arrow} className='cursor-pointer transition-all ease-in duration-150 hover:rotate-180 absolute right-[-22px] top-[40%]' alt="" /> </li>
                             <li>Contact Us</li>
                         </ul>
                     </nav>
