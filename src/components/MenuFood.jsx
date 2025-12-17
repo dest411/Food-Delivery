@@ -12,6 +12,7 @@ const MenuFood = ({activeMenu, addToBasket}) => {
   }
   
   const name = foodItem.name;
+  const categoryImgStyle = foodItem.imgStyle;
 
   return (
     <div className='w-full max-w-[1500px] mx-auto ' >
@@ -25,7 +26,7 @@ const MenuFood = ({activeMenu, addToBasket}) => {
                           {food.typePhoto == null ? 
                             <div className='skeleton' >PHOTO {food.name} <br /> (NOT LOADED)</div>
                             :
-                            <img className='select-none h-140 w-120 absolute z-110 left-0 top-[-170px]' src={food.typePhoto} alt="" />}
+                            <img className={`select-none absolute z-110 left-0 top-[-170px] ${food.imgStyle || 'w-120 h-140 top-[-170px]'}`} src={food.typePhoto} alt="" />}
                           
                           <div className='flex w-full gap-30 items-center justify-between pl-80 pr-3 bg-gray text-white' >
                             <h1 className='text-6xl'>{food.name}</h1>
