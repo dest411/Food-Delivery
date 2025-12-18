@@ -48,21 +48,21 @@ const Foods = [
                 typePhoto: cheeseBurger,
                 imgStyle: "w-[400px] h-[280px] top-[-50px]!", 
                 name: 'Cheese Burger',
-                price: '45,00',
+                price: '6,00',
                 ingredients: ['Beef patty', 'Cheddar cheese', 'Pickles', 'Onion', 'Mustard', 'Ketchup']
             },
             Chicken: {
                 typePhoto: chickenBurger,
                 imgStyle: "w-[500] h-[304px] top-[-50px]!", 
                 name: 'Chicken Burger',
-                price: '42,00',
+                price: '7,00',
                 ingredients: ['Chicken fillet', 'Lettuce', 'Tomato', 'Mayonnaise', 'Sesame bun']
             },
             Double: {
                 typePhoto: doubleBeefBurger,
                 imgStyle: "w-[400px] h-[400px] top-[-120px]!",
                 name: 'Double Beef Burger',
-                price: '65,00',
+                price: '8,50',
                 ingredients: ['Double beef patty', 'Bacon', 'BBQ sauce', 'Caramelized onion', 'Cheese']
             }
         }
@@ -76,21 +76,21 @@ const Foods = [
                 typePhoto: null,
                 imgStyle: "w-[480px] h-[560px]", 
                 name: 'Pasta Carbonara',
-                price: '52,00',
+                price: '12,00',
                 ingredients: ['Spaghetti', 'Bacon', 'Egg yolk', 'Parmesan cheese', 'Black pepper']
             },
             Bolognese: {
                 typePhoto: null, 
                 name: 'Pasta Bolognese',
                 imgStyle: "w-[480px] h-[560px]",
-                price: '48,00',
+                price: '18,00',
                 ingredients: ['Tagliatelle', 'Minced beef', 'Tomato sauce', 'Carrot', 'Celery', 'Red wine']
             },
             Pesto: {
                 typePhoto: null,
                 imgStyle: "w-[480px] h-[560px]",
                 name: 'Pasta Pesto',
-                price: '46,00',
+                price: '16,00',
                 ingredients: ['Penne', 'Basil pesto', 'Pine nuts', 'Olive oil', 'Parmesan cheese']
             }
         }
