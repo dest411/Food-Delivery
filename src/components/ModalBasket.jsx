@@ -15,13 +15,13 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
         
         <div className='w-full max-w-[1500px] relative h-full'>
             
-            <div className={`
+            <div className={` 
                 absolute top-20 pointer-events-auto 
                 bg-white
                 h-auto max-h-[65vh] border p-5 w-150 min-h-50'
                 flex flex-col
                 transition-all duration-300 ease-in-out 
-                ${modalBasket ? 'right-0' : '-right-[3000px]'}`}>
+                ${modalBasket ? 'right-0' : '-right-[3000px]'}`}>  {/* <-- MAIN/ */}
                 
                 {basket.length == 0 ? <p className='text-4xl flex items-center justify-center h-full'>The basket is empty</p> :
 
@@ -66,7 +66,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
 
                 </div>
                 
-                }{/* MAIN */}
+                } {/* <-- MAIN */}
                 
             </div>
         </div>

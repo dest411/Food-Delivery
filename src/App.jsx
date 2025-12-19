@@ -14,11 +14,11 @@ import Footer from './components/Footer.jsx'
 
 const App = () => {
 
-    const [activeMenu, setActiveMenu] = useState('Pizza')
+    const [activeMenu, setActiveMenu] = useState('Pizza') /* active menu in Menu.jsx (Pizza/Burger/Pasta) */
     const [basket, setBasket] = useState([]);
-    const [searchItem, setSearchItem] = useState('') // input in header
+    const [searchItem, setSearchItem] = useState('')  /* input in header */
 
-    const allDishes = useMemo(() => {
+    const allDishes = useMemo(() => {    /* filter foods for input search */
       return Foods.flatMap(category => {
         return Object.values(category.typeFood).map(dish => ({
             ...dish,
@@ -27,7 +27,7 @@ const App = () => {
       });
     }, []);
    
-    const filteredFoods = useMemo(() => { // filter in input search
+    const filteredFoods = useMemo(() => { /* filter foods in input search */
       if (searchItem === "") return [];
       return allDishes.filter((item) => { 
         return item.name.toLowerCase().includes(searchItem.toLowerCase());
@@ -36,7 +36,7 @@ const App = () => {
 
     
 
-    const addToBasket = useCallback((newItem) => {
+    const addToBasket = useCallback((newItem) => {  /* add item to basket */
       setBasket((prev) => {
         const isExist = prev.find((item) => item.name === newItem.name);
 
@@ -52,7 +52,7 @@ const App = () => {
       });
     }, []);
 
-    const removeFromBasket = useCallback((itemToRemove) => {
+    const removeFromBasket = useCallback((itemToRemove) => {    /* remove ONE item */
       setBasket((prev) => {
         if (itemToRemove.count > 1) {
           return prev.map((item) =>
@@ -67,7 +67,7 @@ const App = () => {
       });
     }, []);
 
-    const removeCompletely = useCallback((itemToRemove) => {
+    const removeCompletely = useCallback((itemToRemove) => {  /* remove ALL item */
       setBasket((prev) => {
         return prev.filter((item) => item.name !== itemToRemove.name);
       })
@@ -88,17 +88,13 @@ const App = () => {
         searchItem={searchItem}
         setSearchItem={setSearchItem}
       />
-      
-        < ModalBasket
-        className=''
-          basket={basket}
-          addToBasket={addToBasket}
-          removeFromBasket={removeFromBasket}
-          modalBasket = {modalBasket}
-          removeCompletely = {removeCompletely}
-          />
-      
-      
+      <ModalBasket
+        basket={basket}
+        addToBasket={addToBasket}
+        removeFromBasket={removeFromBasket}
+        modalBasket = {modalBasket}
+        removeCompletely = {removeCompletely}
+      />
       <Hero/>
       <WelcomeSection/>
       <Menu 
