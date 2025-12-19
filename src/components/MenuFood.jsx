@@ -12,7 +12,6 @@ const MenuFood = ({activeMenu, addToBasket}) => {
   }
   
   const name = foodItem.name;
-  const categoryImgStyle = foodItem.imgStyle;
 
   return (
     <div className='w-full max-w-[1500px] mx-auto ' >

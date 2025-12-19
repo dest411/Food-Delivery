@@ -4,11 +4,12 @@ import Foods from '../Food'
 const Menu = ({activeMenu, setActiveMenu}) => {
     console.log('render menu');
   return (
-     <div className=' w-[95%]  max-w-[1500px] h-auto my-20 '>
+     <div id='menu-choise' className=' w-[95%]  max-w-[1500px] h-auto my-20 '>
         
         <div className='flex justify-between  w-full h-[120px]  '>
 
             <div
+    
                 className="absolute left-0 rounded-snm bg-red-700   text-white  text-6xl 
                     font-semibold   px-6  py-7   w-1/6 text-center flex items-center justify-center
                     [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)]"

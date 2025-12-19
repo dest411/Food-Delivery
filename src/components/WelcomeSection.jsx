@@ -7,7 +7,7 @@ const WelcomeSection = () => {
         <h2 className='text-8xl mt-30 opacity-75' >Welcome to Naples</h2>
         <p className='text-center opacity-60  text-5xl' >We started working in 2007 and in 2012 we were able to <br /> open our second branch and now we have several <br /> branches all over the country.</p>
         <div 
-            className="w-[545px] h-[44px] bg-white flex items-center justify-center mt-10"
+            className="w-[545px] h-11 bg-white flex items-center justify-center mt-10"
             aria-label="Zigzag Pattern Container"
             >
             <svg 
