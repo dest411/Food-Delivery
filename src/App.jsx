@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import './index.css'
+import Foods from './Food.jsx'
 import Header from './components/Header'
+import ModalBasket from './components/ModalBasket.jsx'
 import Hero from './components/Hero'
 import WelcomeSection from './components/WelcomeSection'
 import Menu from './components/Menu.jsx'
@@ -8,8 +10,7 @@ import MenuFood from './components/MenuFood.jsx'
 import Form from './components/Form.jsx'
 import Hr from './components/Hr.jsx'
 import ChoiseFood from './components/ChoiseFood.jsx'
-import ModalBasket from './components/ModalBasket.jsx'
-import Foods from './Food.jsx'
+import Footer from './components/Footer.jsx'
 
 const App = () => {
 
@@ -113,6 +114,7 @@ const App = () => {
       <Hr/>
       <ChoiseFood/>
       <Form/>
+      <Footer/>
       
     </div>
     
