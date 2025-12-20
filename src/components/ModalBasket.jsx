@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import garbage from '../png/garbage.svg'
 
-const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, removeCompletely}) => {
+const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, removeCompletely, checkoutClick}) => {
 
     console.log('render modalBasket');
     
@@ -58,7 +58,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                             <p className='text-4xl text-orange-400 font-bold text-right'>{totalBasket}$</p> 
                         </div>
                         
-                        <button className="add-btn2 text-2xl">Proceed to checkout</button>
+                        <button onClick={checkoutClick} className="add-btn2 text-2xl">Proceed to checkout</button>
 
                     </div>
 

@@ -11,12 +11,20 @@ import Form from './components/Form.jsx'
 import Hr from './components/Hr.jsx'
 import ChoiseFood from './components/ChoiseFood.jsx'
 import Footer from './components/Footer.jsx'
+import CheckoutForm from './components/Checkout Form/CheckoutForm.jsx'
 
 const App = () => {
 
     const [activeMenu, setActiveMenu] = useState('Pizza') /* active menu in Menu.jsx (Pizza/Burger/Pasta) */
     const [basket, setBasket] = useState([]);
     const [searchItem, setSearchItem] = useState('')  /* input in header */
+    const [checkout, openCheckout] = useState(false)
+
+    const checkoutClick = () => {
+      openCheckout(val => !val)
+    }
+    console.log(checkout);
+    
 
     const allDishes = useMemo(() => {    /* filter foods for input search */
       return Foods.flatMap(category => {
@@ -88,12 +96,20 @@ const App = () => {
         searchItem={searchItem}
         setSearchItem={setSearchItem}
       />
+      {checkout && 
+        <CheckoutForm
+          checkout= {checkout}
+          openCheckout= {openCheckout}
+        />
+      }
+      
       <ModalBasket
         basket={basket}
         addToBasket={addToBasket}
         removeFromBasket={removeFromBasket}
         modalBasket = {modalBasket}
         removeCompletely = {removeCompletely}
+        checkoutClick = {checkoutClick}
       />
       <Hero/>
       <WelcomeSection/>
