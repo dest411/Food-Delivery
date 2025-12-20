@@ -21,7 +21,6 @@ const Form = memo(() => {
       });
   };
 
-  // 3. Відправка форми
   const handleSubmit = async (e) => {
       e.preventDefault();
       
