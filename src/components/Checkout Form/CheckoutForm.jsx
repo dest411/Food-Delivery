@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase.js'; 
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
+import CheckoutInput from './CheckoutInput';
+import CheckoutSelect from './CheckoutSelect';
 
 const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, openCheckout }) => {
 
@@ -13,50 +15,35 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
     });
 
     const [isSending, setIsSending] = useState(false);
-    
     const [wasSubmitted, setWasSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    const isNameValid = formData.name.length >= 2;
+    const phoneRegex = /[0-9+\- ]{10,}/; 
+    const isPhoneValid = !!formData.phone.match(phoneRegex);
+    const isAddressValid = formData.address.length >= 5;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
         setWasSubmitted(true);
 
-        const isNameValid = formData.name.length >= 2;
-        const isPhoneValid = formData.phone.match(/[0-9+\- ]{10,}/);
-        const isAddressValid = formData.address.length >= 5;
-
-        if (!isNameValid || !isPhoneValid || !isAddressValid) {
-            return; 
-        }
+        if (!isNameValid || !isPhoneValid || !isAddressValid) return;
 
         setIsSending(true);
 
         const simplifiedBasket = basket.map(item => ({
-            name: item.name,           
-            price: item.price,         
-            count: item.count          
+            name: item.name, price: item.price, count: item.count
         }));
 
         try {
             await addDoc(collection(db, "orders"), {
-                customer: {
-                    name: formData.name,
-                    phone: formData.phone,
-                    address: formData.address,
-                    comment: formData.comment
-                },
+                customer: formData,
                 order: {
                     items: simplifiedBasket, 
-                    totalPrice: totalPrice,
-                    totalCount: totalCount,
+                    totalPrice, totalCount, 
                     paymentMethod: formData.paymentMethod
                 },
                 status: 'new',
@@ -66,26 +53,16 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
             alert(`Дякуємо, ${formData.name}! Оператор зв'яжеться з вами.`);
             clearBasket();
             closeForm();
-
         } catch (error) {
             console.error("Error: ", error);
-            alert("Помилка при замовленні. Перевірте консоль.");
+            alert("Помилка.");
         } finally {
             setIsSending(false);
         }
     };
 
-    const getInputClass = (isValid) => {
-        const baseClass = "w-full border p-3 rounded-xl focus:outline-none focus:border-orange-500 transition bg-white";
-        if (wasSubmitted && !isValid) {
-            return `${baseClass} border-red-500 animate-pulse`;
-        }
-        return `${baseClass} border-gray-300`;
-    };
-
     return (
         <div className="fixed inset-0 bg-black/60 z-300 flex justify-center items-center backdrop-blur-sm">
-            
             <div className="bg-white p-8 rounded-2xl w-[90%] max-w-[500px] relative shadow-2xl animate-in fade-in zoom-in duration-300">
                 
                 <button 
@@ -98,57 +75,45 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
                 <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Checkout</h2>
                 
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-                    
                     <div className="space-y-6">
                         
+
+                        <CheckoutInput 
+                            label="Ваше ім'я"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                            wasSubmitted={wasSubmitted}
+                            isValid={isNameValid}
+                            errorMessage="Введіть ім'я (мін. 2 літери)"
+                        />
+
+                        <CheckoutInput 
+                            label="Телефон"
+                            name="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            required
+                            wasSubmitted={wasSubmitted}
+                            isValid={isPhoneValid}
+                            errorMessage="Введіть коректний номер"
+                        />
+
+                        <CheckoutInput 
+                            label="Адреса доставки"
+                            name="address"
+                            value={formData.address}
+                            onChange={handleInputChange}
+                            required
+                            wasSubmitted={wasSubmitted}
+                            isValid={isAddressValid}
+                            errorMessage="Вкажіть адресу (вулиця, дім)"
+                        />
+
                         <div className="relative">
-                            <input 
-                                type="text" name="name" 
-                                value={formData.name} onChange={handleInputChange}
-                                className={getInputClass(formData.name.length >= 2)}
-                                placeholder=" "
-                            />
-                            <label className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500 font-medium">
-                                Ваше ім'я <span className="text-red-500">*</span>
-                            </label>
-                            {wasSubmitted && formData.name.length < 2 && (
-                                <p className="text-red-500 text-xs mt-1 ml-2">Введіть ім'я (мін. 2 літери)</p>
-                            )}
-                        </div>
-                        
-                        {/* INPUT: ТЕЛЕФОН */}
-                        <div className="relative">
-                            <input 
-                                type="tel" name="phone"
-                                value={formData.phone} onChange={handleInputChange}
-                                className={getInputClass(formData.phone.match(/[0-9+\- ]{10,}/))}
-                            />
-                            <label className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500 font-medium">
-                                Телефон <span className="text-red-500">*</span>
-                            </label>
-                            {wasSubmitted && !formData.phone.match(/[0-9+\- ]{10,}/) && (
-                                <p className="text-red-500 text-xs mt-1 ml-2">Введіть коректний номер</p>
-                            )}
-                        </div>
-                        
-                        {/* INPUT: АДРЕСА */}
-                        <div className="relative">
-                            <input 
-                                type="text" name="address"
-                                value={formData.address} onChange={handleInputChange}
-                                className={getInputClass(formData.address.length >= 5)}
-                            />
-                            <label className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500 font-medium">
-                                Адреса доставки <span className="text-red-500">*</span>
-                            </label>
-                            {wasSubmitted && formData.address.length < 5 && (
-                                <p className="text-red-500 text-xs mt-1 ml-2">Вкажіть адресу (вулиця, дім)</p>
-                            )}
-                        </div>
-                        
-                        {/* TEXTAREA: КОМЕНТАР */}
-                        <div className="relative">
-                            <textarea 
+                             <textarea 
                                 name="comment"
                                 value={formData.comment} onChange={handleInputChange}
                                 className="w-full border border-gray-300 p-3 rounded-xl focus:outline-none focus:border-orange-500 transition h-24 resize-none bg-white"
@@ -157,27 +122,22 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
                                 Коментар (необов'язково)
                             </label>
                         </div>
-                        
-                        {/* SELECT: ОПЛАТА */}
-                        <div className="relative">
-                             <select 
-                                name="paymentMethod" 
-                                value={formData.paymentMethod} onChange={handleInputChange}
-                                className="w-full border border-gray-300 p-3 rounded-xl bg-white cursor-pointer focus:outline-none focus:border-orange-500"
-                            >
-                                <option value="cash">Готівка</option>
-                                <option value="card">Карта</option>
-                            </select>
-                            <label className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500 font-medium">
-                                Спосіб оплати
-                            </label>
-                        </div>
 
+                        <CheckoutSelect 
+                            label="Спосіб оплати"
+                            name="paymentMethod"
+                            value={formData.paymentMethod}
+                            onChange={handleInputChange}
+                            options={[
+                                { value: 'cash', label: 'Готівка' },
+                                { value: 'card', label: 'Карта' }
+                            ]}
+                        />
                     </div>
 
-                    <div className="pt-2 border-t border-dashed border-gray-300 flex justify-between text-xl font-bold">
-                        <span>До сплати:</span>
-                        <span className="text-orange-600">{totalPrice}$</span>
+                    <div className="pt-2 border-t border-dashed border-gray-300 flex justify-between items-center text-xl font-bold">
+                        <span>До сплати:</span> 
+                        <span className="text-orange-600 text-3xl">{totalPrice}$</span>
                     </div>
 
                     <button 
