@@ -14,7 +14,6 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
 
     const [isSending, setIsSending] = useState(false);
     
-    // 1. Стейт, щоб знати, чи натискав юзер кнопку "Підтвердити"
     const [wasSubmitted, setWasSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
@@ -28,15 +27,12 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // 2. Юзер натиснув кнопку -> вмикаємо режим показу помилок
         setWasSubmitted(true);
 
-        // 3. Ручна валідація (бо ми вимкнули стандартну)
         const isNameValid = formData.name.length >= 2;
         const isPhoneValid = formData.phone.match(/[0-9+\- ]{10,}/);
         const isAddressValid = formData.address.length >= 5;
 
-        // Якщо хоч щось не так - зупиняємось, не відправляємо
         if (!isNameValid || !isPhoneValid || !isAddressValid) {
             return; 
         }
@@ -79,13 +75,10 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
         }
     };
 
-    // Допоміжна функція для класів інпутів
-    // Якщо кнопку натиснули (wasSubmitted) І поле пусте/неправильне -> червона рамка
-    // Інакше -> звичайна сіра
     const getInputClass = (isValid) => {
         const baseClass = "w-full border p-3 rounded-xl focus:outline-none focus:border-orange-500 transition bg-white";
         if (wasSubmitted && !isValid) {
-            return `${baseClass} border-red-500 animate-pulse`; // Додав пульсацію для ефекту
+            return `${baseClass} border-red-500 animate-pulse`;
         }
         return `${baseClass} border-gray-300`;
     };
@@ -104,30 +97,26 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
 
                 <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Checkout</h2>
                 
-                {/* noValidate - вимикає стандартні браузерні підказки, щоб працювала наша логіка */}
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
                     
-                    <div className="space-y-6"> {/* Збільшив відступ, щоб текст не налізав */}
+                    <div className="space-y-6">
                         
-                        {/* --- INPUT: ІМ'Я --- */}
                         <div className="relative">
                             <input 
                                 type="text" name="name" 
                                 value={formData.name} onChange={handleInputChange}
                                 className={getInputClass(formData.name.length >= 2)}
-                                placeholder=" " // Важливо для деяких CSS хаків, але тут просто щоб було
+                                placeholder=" "
                             />
-                            {/* Лейбл, що сидить на лінії */}
                             <label className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500 font-medium">
                                 Ваше ім'я <span className="text-red-500">*</span>
                             </label>
-                            {/* Повідомлення про помилку (з'явиться тільки якщо є помилка) */}
                             {wasSubmitted && formData.name.length < 2 && (
                                 <p className="text-red-500 text-xs mt-1 ml-2">Введіть ім'я (мін. 2 літери)</p>
                             )}
                         </div>
                         
-                        {/* --- INPUT: ТЕЛЕФОН --- */}
+                        {/* INPUT: ТЕЛЕФОН */}
                         <div className="relative">
                             <input 
                                 type="tel" name="phone"
@@ -142,7 +131,7 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
                             )}
                         </div>
                         
-                        {/* --- INPUT: АДРЕСА --- */}
+                        {/* INPUT: АДРЕСА */}
                         <div className="relative">
                             <input 
                                 type="text" name="address"
@@ -157,7 +146,7 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
                             )}
                         </div>
                         
-                        {/* --- TEXTAREA: КОМЕНТАР --- */}
+                        {/* TEXTAREA: КОМЕНТАР */}
                         <div className="relative">
                             <textarea 
                                 name="comment"
@@ -169,7 +158,7 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
                             </label>
                         </div>
                         
-                        {/* --- SELECT: ОПЛАТА --- */}
+                        {/* SELECT: ОПЛАТА */}
                         <div className="relative">
                              <select 
                                 name="paymentMethod" 
