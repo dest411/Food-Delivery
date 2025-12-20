@@ -10,7 +10,7 @@ const MenuFood = ({activeMenu, addToBasket}) => {
       
     return <p className='text-4xl uppercase' >Menu is not found</p>;
   }
-  
+   
   const name = foodItem.name;
 
   return (
