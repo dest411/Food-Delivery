@@ -21,10 +21,13 @@ const App = () => {
     const [checkout, openCheckout] = useState(false)
 
     const checkoutClick = () => {
-      openCheckout(val => !val)
-    }
-    console.log(checkout);
+      setModalBasket(false);
+      openCheckout(true); 
+    } 
     
+    const clearBasket = () => setBasket([]);
+    const totalCount = basket.reduce((acc, item) => acc + item.count, 0);
+    const totalPrice = basket.reduce((acc, item) => acc + (parseFloat(item.price.replace(',', '.')) * item.count), 0).toFixed(2);
 
     const allDishes = useMemo(() => {    /* filter foods for input search */
       return Foods.flatMap(category => {
@@ -98,8 +101,12 @@ const App = () => {
       />
       {checkout && 
         <CheckoutForm
-          checkout= {checkout}
+          closeForm={() => openCheckout(false)} 
+          clearBasket={clearBasket}
           openCheckout= {openCheckout}
+          totalCount={totalCount}
+          totalPrice={totalPrice}
+          basket={basket}
         />
       }
       
