@@ -14,8 +14,8 @@ const Footer = () => {
 
                 <div className='text-gray'>
                     <h1 className='text-4xl font-bold text-black '>Contact</h1>
-                    <p className='flex gap-2 items-center5' > <img className=' w-5 h-5' src={Envelope} alt="" srcset="" />Naples@email.com</p>
-                    <p className='flex gap-2' > <img className=' w-5 h-5' src={Call} alt="" srcset="" /> 573-8304-0830-246</p>
+                    <p className='flex gap-2 items-center5' > <img className=' w-5 h-5' src={Envelope} alt="" />Naples@email.com</p>
+                    <p className='flex gap-2' > <img className=' w-5 h-5' src={Call} alt="" /> 573-8304-0830-246</p>
                 </div>
 
                 <div className='text-gray'>
@@ -40,9 +40,9 @@ const Footer = () => {
                     Naples  
                 </p>
                 <div className='flex justify-center items-center gap-2' >
-                    <img className='w-4 h-4' src={Instagram} alt="" srcset="" />
-                    <img className='w-4 h-4' src={Facebook} alt="" srcset="" />   
-                    <img className='w-4 h-4' src={Twitter} alt="" srcset="" />   
+                    <img className='w-4 h-4' src={Instagram} alt="" />
+                    <img className='w-4 h-4' src={Facebook} alt="" />   
+                    <img className='w-4 h-4' src={Twitter} alt="" />   
                 </div>
                             
             </div>
