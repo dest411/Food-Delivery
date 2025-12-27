@@ -4,8 +4,8 @@ import BasketSection from './HeaderComponents/BasketSection';
 import arrow from '../png/arrow.svg'
 
 
-const Header = memo(({ basket, setModalBasket, modalBasket, filteredFoods, searchItem, setSearchItem, addToBasket, setActiveMenu }) => {
-
+const Header = () => {
+    
     console.log('render header');
 
     return (
@@ -29,24 +29,12 @@ const Header = memo(({ basket, setModalBasket, modalBasket, filteredFoods, searc
                 
                 <div className='flex items-center gap-6'>
 
-                    <SearchSection 
-                        searchItem={searchItem}
-                        setSearchItem={setSearchItem}
-                        filteredFoods={filteredFoods}
-                        addToBasket={addToBasket}
-                        setActiveMenu={setActiveMenu}
-                    />
-
-                    <BasketSection 
-                        basket={basket}
-                        setModalBasket={setModalBasket}
-                        modalBasket={modalBasket}
-                        
-                    />
+                    <SearchSection />
+                    <BasketSection />
                 </div>
             </div> 
         </header>
     )
-})
+}
 
 export default Header

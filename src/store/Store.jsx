@@ -1,30 +1,38 @@
 import { create } from "zustand";
+// Імпортуємо твій файл з даними про їжу, щоб фільтрувати його прямо тут
+import Foods from "../Food";
+
+// Допоміжна функція для отримання плоского списку страв (твоя логіка з useMemo)
+export const allDishes = Foods.flatMap(category => {
+  return Object.values(category.typeFood).map(dish => ({
+      ...dish,
+      category: category.name
+  }));
+});
 
 export const useStore = create((set, get) => ({
-  // --- СТАН (STATE) ---
+  // --- СТАНИ (STATE) ---
   activeMenu: 'Pizza',
   basket: [],
   searchItem: '',
   
-  // Стан для модальних вікон
-  checkoutOpen: false,
-  modalBasketOpen: false,
+  // Стани видимості
+  isModalBasketOpen: false,
+  isCheckoutOpen: false,
 
   // --- ДІЇ (ACTIONS) ---
 
-  // Прості сетери
+  // 1. Управління інтерфейсом
   setActiveMenu: (menu) => set({ activeMenu: menu }),
-  setSearchItem: (term) => set({ searchItem: term }),
-  setCheckoutOpen: (isOpen) => set({ checkoutOpen: isOpen }),
-  setModalBasketOpen: (isOpen) => set({ modalBasketOpen: isOpen }),
+  setSearchItem: (text) => set({ searchItem: text }),
+  
+  setModalBasketOpen: (isOpen) => set({ isModalBasketOpen: isOpen }),
+  setCheckoutOpen: (isOpen) => set({ isCheckoutOpen: isOpen }),
 
-  // Логіка переходу до оформлення (закрити кошик, відкрити чекаут)
-  proceedToCheckout: () => set({ 
-      modalBasketOpen: false, 
-      checkoutOpen: true 
-  }),
+  // Спеціальна дія: закрити кошик і відкрити чекаут
+  openCheckout: () => set({ isModalBasketOpen: false, isCheckoutOpen: true }),
 
-  // Логіка кошика (перенесена з App.js)
+  // 2. Логіка Кошика (твоя логіка перенесена сюди)
   addToBasket: (newItem) => set((state) => {
     const isExist = state.basket.find((item) => item.name === newItem.name);
 
@@ -37,9 +45,7 @@ export const useStore = create((set, get) => ({
         ),
       };
     } else {
-      return { 
-        basket: [...state.basket, { ...newItem, count: 1 }] 
-      };
+      return { basket: [...state.basket, { ...newItem, count: 1 }] };
     }
   }),
 
@@ -64,4 +70,15 @@ export const useStore = create((set, get) => ({
   })),
 
   clearBasket: () => set({ basket: [] }),
+
+
+  getTotalCount: () => {
+    return get().basket.reduce((acc, item) => acc + item.count, 0);
+  },
+
+  getTotalPrice: () => {
+    return get().basket.reduce((acc, item) => 
+      acc + (parseFloat(item.price.replace(',', '.')) * item.count), 0
+    ).toFixed(2);
+  }
 }));

@@ -1,8 +1,12 @@
 import React from 'react'
 import Foods from '../Food';
+import { useStore } from '../store/Store';
 
-const MenuFood = ({activeMenu, addToBasket}) => {
+const MenuFood = () => {
 
+  const activeMenu = useStore((state) => state.activeMenu);
+  const addToBasket = useStore((state) => state.addToBasket);
+  
   console.log("render menu food");  
 
   const foodItem = Foods.find(item => item.name === activeMenu);

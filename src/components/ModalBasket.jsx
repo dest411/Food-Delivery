@@ -1,14 +1,25 @@
 import React, { memo } from 'react'
 import garbage from '../png/garbage.svg'
+import { useStore } from '../store/Store';
 
-const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, removeCompletely, checkoutClick}) => {
+const ModalBasket = () => {
 
     console.log('render modalBasket');
     
-    const totalBasket = basket.reduce((acc, food) => {
-        const price = parseFloat(food.price.replace(',', '.'));
-        return acc + (price * food.count);
-    }, 0);
+    const basket = useStore((state) => state.basket);
+    // Зверни увагу: використовуємо змінну isModalBasketOpen (як ми назвали її в store.js)
+    const isModalBasketOpen = useStore((state) => state.isModalBasketOpen);
+    
+    // 3. Витягуємо дії
+    const addToBasket = useStore((state) => state.addToBasket);
+    const removeFromBasket = useStore((state) => state.removeFromBasket);
+    const removeCompletely = useStore((state) => state.removeCompletely);
+    
+    // Наша спеціальна дія, яка закриває кошик і відкриває форму
+    const proceedToCheckout = useStore((state) => state.openCheckout);
+    
+    // 4. Отримуємо загальну суму через геттер стору (щоб не рахувати вручну)
+    const totalPrice = useStore((state) => state.getTotalPrice());
 
     return (
     <div className='fixed top-0 left-2 w-full h-full z-202 flex justify-center pointer-events-none'>
@@ -21,7 +32,7 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                 h-auto max-h-[65vh] border p-5 w-150 min-h-50'
                 flex flex-col
                 transition-all duration-300 ease-in-out 
-                ${modalBasket ? 'right-0' : '-right-[3000px]'}`}>  {/* <-- MAIN/ */}
+                ${isModalBasketOpen ? 'right-0' : '-right-[3000px]'}`}>  {/* <-- MAIN/ */}
                 
                 {basket.length == 0 ? <p className='text-4xl flex items-center justify-center h-full'>The basket is empty</p> :
 
@@ -55,10 +66,10 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
                     <div className='mt-2 pt-4 flex flex-col gap-5 py-2 border-t border-black/20 shrink-0 '>
                         <div className='flex justify-between' >
                             <p className='text-4xl font-bold text-right' >Total to order:</p>
-                            <p className='text-4xl text-orange-400 font-bold text-right'>{totalBasket}$</p> 
+                            <p className='text-4xl text-orange-400 font-bold text-right'>{totalPrice}$</p> 
                         </div>
                         
-                        <button onClick={checkoutClick} className="add-btn2 text-2xl">Proceed to checkout</button>
+                        <button onClick={proceedToCheckout} className="add-btn2 text-2xl">Proceed to checkout</button>
 
                     </div>
 
@@ -72,6 +83,6 @@ const ModalBasket = memo(({basket, addToBasket, modalBasket, removeFromBasket, r
         </div>
     </div>
     )
-})
+}
 
 export default ModalBasket

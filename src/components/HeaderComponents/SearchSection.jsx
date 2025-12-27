@@ -1,7 +1,20 @@
-import React,  {useState, useEffect, useRef, memo } from 'react'
+import React,  {useState, useEffect, useRef, useMemo } from 'react'
 import dandruff from '../../png/dandruff.svg'
+import { useStore, allDishes } from '../../store/Store';
 
-const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket, setActiveMenu }) => {
+const SearchSection = () => {
+
+    const searchItem = useStore((state) => state.searchItem);
+    const setSearchItem = useStore((state) => state.setSearchItem);
+    const addToBasket = useStore((state) => state.addToBasket);
+    const setActiveMenu = useStore((state) => state.setActiveMenu);
+
+    const filteredFoods = useMemo(() => {
+        if (searchItem === "") return [];
+        return allDishes.filter((item) => 
+            item.name.toLowerCase().includes(searchItem.toLowerCase())
+        );
+    }, [searchItem])
 
     const searchRef = useRef(null);
     const [showSearch, setShowSearch] = useState(false);
@@ -14,11 +27,11 @@ const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket
         };
 
         document.addEventListener('mousedown', handleClickOutside);
-        
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
     const handleInputFocus = () => {
         if (searchItem.length > 0) setShowSearch(true);
     }
@@ -29,7 +42,6 @@ const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket
 
     const handleScrollToProduct = (item) => {
         setActiveMenu(item.category);
-
         setShowSearch(false);
         setSearchItem('');
 
@@ -68,9 +80,9 @@ const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket
                         ) : (
                             
                             filteredFoods.map((item, index) => (
-                                <div onClick={() => handleScrollToProduct(item)} className='flex items-center justify-between border-gray-200 border-b last:border-0'>
-                                    <p  key={item.name + index} className="flex gap-5 items-center text-2xl py-1   hover:text-orange-500 cursor-pointer transition">
-                                        <img className='w-15 h-15' src={item.typePhoto} alt="" srcset="" />
+                                <div key={item.name + index} onClick={() => handleScrollToProduct(item)} className='flex items-center justify-between border-gray-200 border-b last:border-0'>
+                                    <p   className="flex gap-5 items-center text-2xl py-1   hover:text-orange-500 cursor-pointer transition">
+                                        <img className='w-15 h-15' src={item.typePhoto} alt="" />
                                         {item.name}
                                     </p>
                                     <button onClick={(e) => {
@@ -91,6 +103,6 @@ const SearchSection = memo(({ searchItem,setSearchItem,filteredFoods,addToBasket
 
         </div>
     )
-})
+}
 
 export default SearchSection

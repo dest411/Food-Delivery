@@ -3,10 +3,19 @@ import { db } from '../../firebase.js';
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
 import CheckoutInput from './CheckoutInput';
 import CheckoutSelect from './CheckoutSelect';
+import { useStore } from '../../store/Store.jsx';
 
-const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, openCheckout }) => {
+const CheckoutForm = () => {
 
+    const isCheckoutOpen = useStore((state) => state.isCheckoutOpen); // Додали це
+    const basket = useStore((state) => state.basket);
+    const clearBasket = useStore((state) => state.clearBasket);
+    const setCheckoutOpen = useStore((state) => state.setCheckoutOpen);
+    const totalPrice = useStore((state) => state.getTotalPrice());
+    const totalCount = useStore((state) => state.getTotalCount());
     const [formData, setFormData] = useState({
+
+
         name: '',
         phone: '',
         address: '',
@@ -16,6 +25,8 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
 
     const [isSending, setIsSending] = useState(false);
     const [wasSubmitted, setWasSubmitted] = useState(false);
+
+    if (!isCheckoutOpen) return null;
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,7 +63,7 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
 
             alert(`Дякуємо, ${formData.name}! Оператор зв'яжеться з вами.`);
             clearBasket();
-            closeForm();
+            setCheckoutOpen(false);
         } catch (error) {
             console.error("Error: ", error);
             alert("Помилка.");
@@ -66,7 +77,7 @@ const CheckoutForm = ({ basket, totalCount, totalPrice, closeForm, clearBasket, 
             <div className="bg-white p-8 rounded-2xl w-[90%] max-w-[500px] relative shadow-2xl animate-in fade-in zoom-in duration-300">
                 
                 <button 
-                    onClick={() => openCheckout(false)}
+                    onClick={() => setCheckoutOpen(false)}
                     className="absolute top-4 right-5 text-gray-500 hover:text-red-500 text-3xl font-bold transition"
                 >
                     &times;
