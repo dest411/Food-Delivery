@@ -12,6 +12,7 @@ import Hr from './components/Hr.jsx'
 import ChoiseFood from './components/ChoiseFood.jsx'
 import Footer from './components/Footer.jsx'
 import CheckoutForm from './components/Checkout Form/CheckoutForm.jsx'
+import { useStore } from './store/Store.jsx'
 
 const App = () => {
 
