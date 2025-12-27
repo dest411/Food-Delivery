@@ -7,18 +7,12 @@ const ModalBasket = () => {
     console.log('render modalBasket');
     
     const basket = useStore((state) => state.basket);
-    // Зверни увагу: використовуємо змінну isModalBasketOpen (як ми назвали її в store.js)
     const isModalBasketOpen = useStore((state) => state.isModalBasketOpen);
-    
-    // 3. Витягуємо дії
     const addToBasket = useStore((state) => state.addToBasket);
     const removeFromBasket = useStore((state) => state.removeFromBasket);
     const removeCompletely = useStore((state) => state.removeCompletely);
-    
-    // Наша спеціальна дія, яка закриває кошик і відкриває форму
     const proceedToCheckout = useStore((state) => state.openCheckout);
     
-    // 4. Отримуємо загальну суму через геттер стору (щоб не рахувати вручну)
     const totalPrice = useStore((state) => state.getTotalPrice());
 
     return (

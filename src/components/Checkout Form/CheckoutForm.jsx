@@ -7,7 +7,7 @@ import { useStore } from '../../store/Store.jsx';
 
 const CheckoutForm = () => {
 
-    const isCheckoutOpen = useStore((state) => state.isCheckoutOpen); // Додали це
+    const isCheckoutOpen = useStore((state) => state.isCheckoutOpen);
     const basket = useStore((state) => state.basket);
     const clearBasket = useStore((state) => state.clearBasket);
     const setCheckoutOpen = useStore((state) => state.setCheckoutOpen);

@@ -1,16 +1,16 @@
 import React from 'react';
 
 const CheckoutInput = ({ 
-    label,          // Текст лейблу (наприклад "Ваше ім'я")
-    name,           // name для форми
-    value,          // значення зі стейту
-    onChange,       // функція оновлення
-    type = "text",  // тип інпута (text, tel)
+    label,          
+    name,           
+    value,          
+    onChange,       
+    type = "text",  
     required = false, 
-    wasSubmitted,   // чи була натиснута кнопка "Підтвердити"
-    isValid,        // умова валідації (наприклад length > 2)
-    errorMessage,   // текст помилки
-    ...props        // всі інші пропси (pattern, minLength тощо)
+    wasSubmitted,
+    isValid,  
+    errorMessage, 
+    ...props 
 }) => {
 
     const isError = wasSubmitted && !isValid;
