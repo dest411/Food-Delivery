@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import SearchSection from './HeaderComponents/SearchSection';
 import BasketSection from './HeaderComponents/BasketSection';
 import arrow from '../png/arrow.svg'
