@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { db } from '../../firebase.js'; 
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
+import axios from 'axios'; // 1. Для запитів
+import { useMutation } from '@tanstack/react-query'; // 2. Для керування запитом
 import CheckoutInput from './CheckoutInput';
 import CheckoutSelect from './CheckoutSelect';
 import { useStore } from '../../store/Store.jsx';
 
 const CheckoutForm = () => {
-
     const isCheckoutOpen = useStore((state) => state.isCheckoutOpen);
     const basket = useStore((state) => state.basket);
     const clearBasket = useStore((state) => state.clearBasket);
     const setCheckoutOpen = useStore((state) => state.setCheckoutOpen);
     const totalPrice = useStore((state) => state.getTotalPrice());
-    const totalCount = useStore((state) => state.getTotalCount());
+    
     const [formData, setFormData] = useState({
-
-
         name: '',
         phone: '',
         address: '',
@@ -23,8 +20,27 @@ const CheckoutForm = () => {
         comment: ''
     });
 
-    const [isSending, setIsSending] = useState(false);
     const [wasSubmitted, setWasSubmitted] = useState(false);
+
+    const mutation = useMutation({
+        mutationFn: (newOrder) => {
+            return axios.post('http://localhost:3000/orders', newOrder);
+        },
+        onSuccess: () => {
+            // Що робити, коли все успішно
+            alert(`Дякуємо, ${formData.name}! Замовлення відправлено в базу.`);
+            clearBasket();
+            setCheckoutOpen(false);
+            setFormData({ // Очищаємо форму
+                name: '', phone: '', address: '', paymentMethod: 'cash', comment: ''
+            });
+            setWasSubmitted(false);
+        },
+        onError: (error) => {
+            console.error("Error submitting order:", error);
+            alert("Сталася помилка при з'єднанні з сервером. Перевір, чи запущено бекенд!");
+        }
+    });
 
     if (!isCheckoutOpen) return null;
 
@@ -33,43 +49,31 @@ const CheckoutForm = () => {
     };
 
     const isNameValid = formData.name.length >= 2;
-    const phoneRegex = /[0-9+\- ]{10,}/; 
+    const phoneRegex = /[0-9+\- ]{10,}/;
     const isPhoneValid = !!formData.phone.match(phoneRegex);
     const isAddressValid = formData.address.length >= 5;
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setWasSubmitted(true);
 
         if (!isNameValid || !isPhoneValid || !isAddressValid) return;
 
-        setIsSending(true);
-
         const simplifiedBasket = basket.map(item => ({
-            name: item.name, price: item.price, count: item.count
+            name: item.name,
+            price: item.price,
+            count: item.count
         }));
 
-        try {
-            await addDoc(collection(db, "orders"), {
-                customer: formData,
-                order: {
-                    items: simplifiedBasket, 
-                    totalPrice, totalCount, 
-                    paymentMethod: formData.paymentMethod
-                },
-                status: 'new',
-                createdAt: serverTimestamp()
-            });
+        const orderData = {
+            name: formData.name,
+            phone: formData.phone,
+            address: formData.address,
+            total: Number(totalPrice), 
+            items: simplifiedBasket
+        };
 
-            alert(`Дякуємо, ${formData.name}! Оператор зв'яжеться з вами.`);
-            clearBasket();
-            setCheckoutOpen(false);
-        } catch (error) {
-            console.error("Error: ", error);
-            alert("Помилка.");
-        } finally {
-            setIsSending(false);
-        }
+        mutation.mutate(orderData);
     };
 
     return (
@@ -87,8 +91,6 @@ const CheckoutForm = () => {
                 
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
                     <div className="space-y-6">
-                        
-
                         <CheckoutInput 
                             label="Ваше ім'я"
                             name="name"
@@ -153,12 +155,12 @@ const CheckoutForm = () => {
 
                     <button 
                         type="submit" 
-                        disabled={isSending}
+                        disabled={mutation.isPending}
                         className={`py-4 text-white text-xl font-bold rounded-xl transition shadow-lg transform active:scale-95
-                            ${isSending ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 hover:shadow-orange-500/30'}
+                            ${mutation.isPending ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 hover:shadow-orange-500/30'}
                         `}
                     >
-                        {isSending ? 'Обробка...' : 'Підтвердити замовлення'}
+                        {mutation.isPending ? 'Відправка...' : 'Підтвердити замовлення'}
                     </button>
                 </form>
             </div>

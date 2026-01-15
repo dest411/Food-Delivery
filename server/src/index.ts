@@ -1,4 +1,3 @@
-// server/src/index.ts
 import express, { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import cors from 'cors';
@@ -10,33 +9,22 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-// 1. Отримати всі продукти
-app.get('/products', async (req: Request, res: Response) => {
+app.post('/orders', async (req: Request, res: Response) => {
     try {
-        const products = await prisma.product.findMany();
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ error: 'Something went wrong' });
-    }
-});
-
-// 2. Додати продукт (для тестування)
-app.post('/products', async (req: Request, res: Response) => {
-    try {
-        const { name, price, category, description, imageUrl } = req.body;
-        const newProduct = await prisma.product.create({
+        const { name, phone, address, total, items } = req.body;
+        const order = await prisma.order.create({
             data: {
                 name,
-                price: Number(price),
-                category,
-                description,
-                imageUrl,
+                phone,
+                address,
+                total: Number(total),
+                items: items,
             },
         });
-        res.status(201).json(newProduct);
+        res.json({ success: true, orderId: order.id });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Could not create product' });
+        res.status(500).json({ error: 'Помилка' });
     }
 });
 

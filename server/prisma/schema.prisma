@@ -7,12 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String?
-  price       Float
-  imageUrl    String?
-  category    String
-  createdAt   DateTime @default(now())
+// Product видалили, він нам не треба
+
+model Order {
+  id        Int      @id @default(autoincrement()) 
+  name      String
+  phone     String
+  address   String
+  total     Int      
+  status    String   @default("new") 
+  items     Json     
+  createdAt DateTime @default(now())
 }
