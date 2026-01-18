@@ -1,6 +1,6 @@
 import React from 'react'
-import shoppingcart from "../../png/shoppingcart.png";
-import { useStore } from '../../store/Store';
+import shoppingcart from "../../../png/shoppingcart.png";
+import { useStore } from '../../../store/Store';
 
 const BasketSection = () => {
 

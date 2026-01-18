@@ -1,9 +1,9 @@
 import React from 'react'
-import Call from '../png/png-for-footer/Call.svg'
-import Envelope from '../png/png-for-footer/envelope.svg'
-import Instagram from '../png/png-for-footer/instagram.svg'
-import Facebook from '../png/png-for-footer/facebook.svg'
-import Twitter from '../png/png-for-footer/twitter.svg'
+import Call from '../../png/png-for-footer/Call.svg';
+import Envelope from '../../png/png-for-footer/envelope.svg';
+import Instagram from '../../png/png-for-footer/instagram.svg';
+import Facebook from '../../png/png-for-footer/facebook.svg';
+import Twitter from '../../png/png-for-footer/twitter.svg';
 
 
 const Footer = () => {

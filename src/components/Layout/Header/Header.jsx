@@ -1,7 +1,7 @@
 import React from 'react'
-import SearchSection from './HeaderComponents/SearchSection';
-import BasketSection from './HeaderComponents/BasketSection';
-import arrow from '../png/arrow.svg'
+import SearchSection from './SearchSection';
+import BasketSection from './BasketSection';
+import arrow from '../../../png/arrow.svg';
 
 
 const Header = () => {

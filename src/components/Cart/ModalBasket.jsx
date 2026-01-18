@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import garbage from '../png/garbage.svg'
-import { useStore } from '../store/Store';
+import garbage from '../../png/garbage.svg'
+import { useStore } from '../../store/Store';
 
 const ModalBasket = () => {
 

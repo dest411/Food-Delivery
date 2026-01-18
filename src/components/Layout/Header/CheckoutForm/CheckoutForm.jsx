@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // 1. Для запитів
 import { useMutation } from '@tanstack/react-query'; // 2. Для керування запитом
-import CheckoutInput from './CheckoutInput';
-import CheckoutSelect from './CheckoutSelect';
-import { useStore } from '../../store/Store.jsx';
+import CheckoutInput from './CheckoutInput.jsx';
+import CheckoutSelect from './CheckoutSelect.jsx';
+import { useStore } from '../../../../store/Store.jsx';
 
 const CheckoutForm = () => {
     const isCheckoutOpen = useStore((state) => state.isCheckoutOpen);

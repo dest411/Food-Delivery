@@ -1,6 +1,6 @@
 import React,  {useState, useEffect, useRef, useMemo } from 'react'
-import dandruff from '../../png/dandruff.svg'
-import { useStore, allDishes } from '../../store/Store';
+import dandruff from '../../../png/dandruff.svg'
+import { useStore, allDishes } from '../../../store/Store';
 
 const SearchSection = () => {
 

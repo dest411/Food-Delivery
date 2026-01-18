@@ -1,6 +1,6 @@
 import React, {useState, memo} from 'react'
-import Foods from '../Food'
-import { useStore } from '../store/Store';
+import Foods from '../../Food'
+import { useStore } from '../../store/Store';
 
 const Menu = () => {
 

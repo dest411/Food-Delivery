@@ -1,5 +1,5 @@
 import React from 'react'
-import background from '../png/bg.svg'
+import background from '../../png/bg.svg'
 
 const Hero = React.memo(() => {
   console.log("hero render");

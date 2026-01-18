@@ -1,17 +1,17 @@
 import React from 'react'
 import './index.css'
 
-import Header from './components/Header'
-import ModalBasket from './components/ModalBasket.jsx'
-import Hero from './components/Hero'
-import WelcomeSection from './components/WelcomeSection'
-import Menu from './components/Menu.jsx'
-import MenuFood from './components/MenuFood.jsx'
-import Form from './components/Form.jsx'
-import Hr from './components/Hr.jsx'
-import ChoiseFood from './components/ChoiseFood.jsx'
-import Footer from './components/Footer.jsx'
-import CheckoutForm from './components/Checkout Form/CheckoutForm.jsx'
+import Header from './components/Layout/Header/Header.jsx'
+import ModalBasket from './components/Cart/ModalBasket.jsx'
+import Hero from './components/Sections/Hero.jsx'
+import WelcomeSection from './components/Sections/WelcomeSection.jsx'
+import Menu from './components/Menu/Menu.jsx'
+import MenuFood from './components/Menu/MenuFood.jsx'
+import Form from './components/Cart/Form.jsx'
+import Hr from './components/UI/Hr.jsx'
+import ChoiseFood from './components/Sections/ChoiceFood.jsx'
+import Footer from './components/Layout/Footer.jsx'
+import CheckoutForm from './components/Layout/Header/CheckoutForm/CheckoutForm.jsx'
 
 const App = () => {
 
