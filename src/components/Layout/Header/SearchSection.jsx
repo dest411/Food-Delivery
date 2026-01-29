@@ -1,27 +1,29 @@
-import React,  {useState, useEffect, useRef, useMemo } from 'react'
-import dandruff from '../../../png/dandruff.svg'
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import dandruff from '../../../png/dandruff.svg';
 import { useStore, allDishes } from '../../../store/Store';
 
 const SearchSection = () => {
-
     const searchItem = useStore((state) => state.searchItem);
     const setSearchItem = useStore((state) => state.setSearchItem);
     const addToBasket = useStore((state) => state.addToBasket);
     const setActiveMenu = useStore((state) => state.setActiveMenu);
 
     const filteredFoods = useMemo(() => {
-        if (searchItem === "") return [];
-        return allDishes.filter((item) => 
-            item.name.toLowerCase().includes(searchItem.toLowerCase())
+        if (searchItem === '') return [];
+        return allDishes.filter((item) =>
+            item.name.toLowerCase().includes(searchItem.toLowerCase()),
         );
-    }, [searchItem])
+    }, [searchItem]);
 
     const searchRef = useRef(null);
     const [showSearch, setShowSearch] = useState(false);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
+            if (
+                searchRef.current &&
+                !searchRef.current.contains(event.target)
+            ) {
                 setShowSearch(false);
             }
         };
@@ -34,7 +36,7 @@ const SearchSection = () => {
 
     const handleInputFocus = () => {
         if (searchItem.length > 0) setShowSearch(true);
-    }
+    };
 
     useEffect(() => {
         if (searchItem.length > 0) setShowSearch(true);
@@ -48,26 +50,22 @@ const SearchSection = () => {
         setTimeout(() => {
             const id = item.name.replace(/\s/g, '');
             const element = document.getElementById(id);
-            
+
             if (element) {
-                element.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
                 });
             }
         }, 100);
     };
 
     return (
-        <div
-            ref={searchRef}
-            className="flex w-auto *:items-center select-none "
-        >
-            <div className="relative lg:w-50 w-20 sm:w-30 md:w-45 md:h-9 sm:h-8 h-7 flex items-center justify-between border border-black/10 rounded-2xl px-3 bg-black/5  ">
+        <div ref={searchRef} className="flex w-auto select-none *:items-center">
+            <div className="bg relative flex h-7 w-20 items-center justify-between rounded-2xl border border-black/10 bg-black/5 px-3 sm:h-8 sm:w-30 md:h-9 md:w-45 lg:h-12 lg:w-55 lg:rounded-3xl">
                 <input
                     id="inputSearch"
-                    className="w-15 lg: h-4 sm:placeholder:text-[14px] md:placeholder:text-[20px] md:w-30 sm:w-18 placeholder:text-[8px] placeholder:text-gray-500
-                        flex items-center  text-xl leading-[50px] outline-none"
+                    className="flex h-4 w-15 items-center text-xl leading-[50px] outline-none placeholder:text-[8px] placeholder:text-gray-500 sm:w-18 sm:placeholder:text-[14px] md:w-30 md:placeholder:text-[20px] lg:w-40 lg:text-3xl lg:placeholder:text-[25px]"
                     type="text"
                     placeholder="Search something..."
                     value={searchItem}
@@ -75,9 +73,9 @@ const SearchSection = () => {
                     onFocus={handleInputFocus}
                 />
                 {showSearch && searchItem.length > 0 && (
-                    <div className="absolute top-17 left-0 z-50 text-black rounded-3xl p-3 bg-white border border-gray-200 w-[330px] h-auto shadow-lg">
+                    <div className="absolute top-17 left-0 z-50 h-auto w-[330px] rounded-3xl border border-gray-200 bg-white p-3 text-black shadow-lg">
                         {filteredFoods.length === 0 ? (
-                            <p className="text-2xl text-center text-gray-500">
+                            <p className="text-center text-2xl text-gray-500">
                                 Nothing found
                             </p>
                         ) : (
@@ -85,11 +83,11 @@ const SearchSection = () => {
                                 <div
                                     key={item.name + index}
                                     onClick={() => handleScrollToProduct(item)}
-                                    className="flex items-center justify-between border-gray-200 border-b last:border-0"
+                                    className="flex items-center justify-between border-b border-gray-200 last:border-0"
                                 >
-                                    <p className="flex gap-5 items-center text-2xl py-1   hover:text-orange-500 cursor-pointer transition">
+                                    <p className="flex cursor-pointer items-center gap-5 py-1 text-2xl transition hover:text-orange-500">
                                         <img
-                                            className="w-15 h-15"
+                                            className="h-15 w-15"
                                             src={item.typePhoto}
                                             alt=""
                                         />
@@ -100,7 +98,7 @@ const SearchSection = () => {
                                             e.stopPropagation();
                                             addToBasket(item);
                                         }}
-                                        className="add-btn2 w-15! h-8! text-[16px]! "
+                                        className="add-btn2 h-8! w-15! text-[16px]!"
                                     >
                                         Add to get
                                     </button>
@@ -111,13 +109,13 @@ const SearchSection = () => {
                 )}
 
                 <img
-                    className="absolute md:w-4 md:h-4 sm:w-3 sm:h-3 w-2 h-2 right-2"
+                    className="absolute right-2 h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4 lg:h-5 lg:w-5"
                     src={dandruff}
                     alt="dandruff"
                 />
             </div>
         </div>
     );
-}
+};
 
-export default SearchSection
+export default SearchSection;
