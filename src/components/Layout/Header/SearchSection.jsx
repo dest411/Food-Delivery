@@ -59,13 +59,12 @@ const SearchSection = () => {
     };
 
     return (
-        <div ref={searchRef} className='flex items-center gap-8 select-none' >
-            <div className='relative h-[50px] flex items-center justify-center border border-black/10 rounded-2xl px-3 bg-black/5 '>
+        <div ref={searchRef} className='flex  w-auto *:items-center select-none ' >
+            <div className='relative w-20 sm:w-30 sm:h-8 h-7 flex items-center justify-between border border-black/10 rounded-2xl px-3 bg-black/5  '>
                 <input
                     id='inputSearch' 
-                    className='w-[300px] h-[25px] 
-                        placeholder:text-3xl placeholder:text-gray-500
-                        flex items-center text-3xl leading-[50px] outline-none'                
+                    className='w-15 h-4 sm:placeholder:text-[14px] sm:w-18 placeholder:text-[8px] placeholder:text-gray-500
+                        flex items-center  text-xl leading-[50px] outline-none'                
                     type="text" 
                     placeholder='Search something...'
                     value={searchItem} 
@@ -98,7 +97,7 @@ const SearchSection = () => {
                     </div>
                 )}
                 
-                <img className='absolute  w-5 h-5 right-5 top-[25%]' src={dandruff} alt="dandruff" />   
+                <img className='absolute sm:w-3 sm:h-3 w-2 h-2 right-2' src={dandruff} alt="dandruff" />   
             </div>
 
         </div>

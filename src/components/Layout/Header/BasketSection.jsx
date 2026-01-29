@@ -17,15 +17,22 @@ const BasketSection = () => {
     }
 
     return (
-        <div className='relative select-none' >
-            <img onClick={handleBasketClick} src={shoppingcart} className='w-8 h-8 cursor-pointer' alt="shopingcart"  />
-            {basket.length > 0 && 
-                <div className='flex items-center justify-center ' >
-                    <p className='text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full' >{totalCount}</p>
+        <div className="relative w-auto select-none">
+            <img
+                onClick={handleBasketClick}
+                src={shoppingcart}
+                className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer"
+                alt="shopingcart"
+            />
+            {basket.length > 0 && (
+                <div className="flex items-center justify-center ">
+                    <p className="text-4xl w-8 h-8 absolute -right-5 -bottom-6 bg-red-600 flex text-white items-center justify-center rounded-full">
+                        {totalCount}
+                    </p>
                 </div>
-            }
+            )}
         </div>
-    )
+    );
 }
 
 export default BasketSection

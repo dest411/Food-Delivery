@@ -1,46 +1,47 @@
-import React from 'react'
+import React from 'react';
 import SearchSection from './SearchSection';
 import BasketSection from './BasketSection';
 import arrow from '../../../png/arrow.svg';
 
-
 const Header = () => {
-    
-    console.log('render header');
 
     const ScrollToHome = () => {
         window.scrollTo({
-            top:0,
-            behavior: 'smooth'
-        })
-    }
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
     return (
-        <header className='shadow-xl sticky top-0 z-200 w-full bg-white backdrop-blur-sm  border-b border-gray-100' >
-            <div className='flex relative w-[95%] mx-auto top-0 z-140 bg-white  max-w-[1500px] h-20 justify-between  items-center' >
-                <div className='flex gap-25 items-center ' >
-
-                    <p className=" text-5xl font-bold bg-linear-to-r from-gray to-[#C0C0C2] bg-clip-text text-transparent">
-                        Naples  
+        <header className="shadow-xl sticky top-0 z-200 w-full bg-white backdrop-blur-sm flex justify-center border-b border-gray-100">
+            <div className="flex relative w-[95%] not-[]:top-0 z-140  max-w-[1500px] h-20 justify-between items-center">
+                <div className="w-6/10  flex gap-10 items-center  ">
+                    <p className="w-auto text-lg font-bold bg-linear-to-r sm:text-3xl  from-gray to-[#C0C0C2] bg-clip-text text-transparent">
+                        Naples
                     </p>
 
-                    <nav>
-                        <ul className='flex gap-25 text-3xl' >
-                            <li className='cursor-pointer' onClick={ScrollToHome} >Home</li>
-                            <li className="flex gap-1.5 relative "  >Menu <img src={arrow} className='cursor-pointer transition-all ease-in duration-150 hover:rotate-180 absolute right-[-22px] top-[40%]' alt="" /> </li>
+                    <nav className=" ">
+                        <ul className="flex items-center w-full sm:text-[15px] gap-5 sm justify-between text-[10px]">
+                            <li
+                                className="cursor-pointer"
+                                onClick={ScrollToHome}
+                            >
+                                Home
+                            </li>
+                            <li className="flex relative ">
+                                Menu
+                            </li>
                             <li>Contact Us</li>
                         </ul>
                     </nav>
-
                 </div>
-                
-                <div className='flex items-center gap-6'>
 
+                <div className="flex justify-end items-center gap-5 w-auto">
                     <SearchSection />
                     <BasketSection />
                 </div>
-            </div> 
+            </div>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
