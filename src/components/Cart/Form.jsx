@@ -58,20 +58,28 @@ const Form = memo(() => {
                             />
                         </div>
                         <textarea
-                            {...register('message'), {
-                                required: 'Please, write something'
-                            }}
+                            {...register('message', {
+                                required: 'Please, write something',
+                                minLength: {
+                                    value: 5,
+                                    message: 'Minimum 5 characters required',
+                                },
+                            })}
                             placeholder="Write something..."
                             className="resize-none focus:outline-none focus:border-0 bg-white p-2 rounded-2xl w-[430px] h-full placeholder:text-2xl placeholder:text-gray-400"
                             required
                         ></textarea>
                     </div>
-
+                    {errors.message && (
+                        <p className="text-red-500 text-sm mt-2 font-bold">
+                            {errors.message.message}
+                        </p>
+                    )}
                     <button
                         type="submit"
                         disabled={isSubmitting}
                         className={`border-red-500 text-red-700 text-3xl font-bold border rounded-3xl w-[140px] h-[50px] cursor-pointer transition-transform duration-200 
-                        ${isSending ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'}
+                        ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'}
                     `}
                     >
                         {isSubmitting ? '...' : 'Send'}
