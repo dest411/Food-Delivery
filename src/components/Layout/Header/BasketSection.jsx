@@ -21,7 +21,7 @@ const BasketSection = () => {
             <img
                 onClick={handleBasketClick}
                 src={shoppingcart}
-                className="w-4 h-4 sm:w-6 sm:h-6 cursor-pointer"
+                className="w-4 h-4 md:w-8 md:h-8 sm:w-6 sm:h-6 cursor-pointer"
                 alt="shopingcart"
             />
             {basket.length > 0 && (
