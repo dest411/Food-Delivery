@@ -4,7 +4,6 @@ import BasketSection from './BasketSection';
 import arrow from '../../../png/arrow.svg';
 
 const Header = () => {
-
     const ScrollToHome = () => {
         window.scrollTo({
             top: 0,
@@ -12,30 +11,28 @@ const Header = () => {
         });
     };
     return (
-        <header className="shadow-xl sticky top-0 z-200 w-full bg-white backdrop-blur-sm flex justify-center border-b border-gray-100">
-            <div className="flex relative w-[95%] not-[]:top-0 z-140  max-w-[1500px] h-20 justify-between items-center">
-                <div className="w-6/10  lg:gap-25 flex gap-10 md:gap-20 items-center  ">
-                    <p className="w-auto text-lg font-bold bg-linear-to-r sm:text-3xl lg:text-6xl md:text-5xl from-gray to-[#C0C0C2] bg-clip-text text-transparent">
+        <header className="sticky top-0 z-200 flex w-full justify-center border-b border-gray-100 bg-white shadow-xl backdrop-blur-sm">
+            <div className="not-[]:top-0 relative z-140 flex h-20 w-[95%] max-w-[1500px] items-center justify-between lg:h-25">
+                <div className="flex w-6/10 items-center gap-10 md:gap-20 lg:gap-25 2xl:gap-35">
+                    <p className="from-gray w-auto bg-linear-to-r to-[#C0C0C2] bg-clip-text text-lg font-bold text-transparent sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-8xl">
                         Naples
                     </p>
 
                     <nav className=" ">
-                        <ul className="flex items-center w-full lg:text-[28px] lg:gap-12 md:text-[20px] sm:text-[15px] gap-5 md:gap-7 sm justify-between text-[10px]">
+                        <ul className="flex w-full items-center justify-between gap-5 text-[10px] sm:text-[15px] md:gap-7 md:text-[20px] lg:gap-12 lg:text-[28px] 2xl:gap-15 2xl:text-[35px]">
                             <li
                                 className="cursor-pointer"
                                 onClick={ScrollToHome}
                             >
                                 Home
                             </li>
-                            <li className="flex relative ">
-                                Menu
-                            </li>
+                            <li className="relative flex">Menu</li>
                             <li>Contact Us</li>
                         </ul>
                     </nav>
                 </div>
 
-                <div className="flex justify-end items-center gap-5 w-auto">
+                <div className="flex w-auto items-center justify-end gap-5 lg:gap-8 2xl:gap-10">
                     <SearchSection />
                     <BasketSection />
                 </div>

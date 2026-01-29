@@ -62,10 +62,10 @@ const SearchSection = () => {
 
     return (
         <div ref={searchRef} className="flex w-auto select-none *:items-center">
-            <div className="bg relative flex h-7 w-20 items-center justify-between rounded-2xl border border-black/10 bg-black/5 px-3 sm:h-8 sm:w-30 md:h-9 md:w-45 lg:h-12 lg:w-55 lg:rounded-3xl">
+            <div className="bg relative flex h-7 w-20 items-center justify-between rounded-2xl border border-black/10 bg-black/5 px-3 sm:h-8 sm:w-30 md:h-9 md:w-45 lg:h-12 lg:w-55 lg:rounded-3xl 2xl:h-15 2xl:w-80">
                 <input
                     id="inputSearch"
-                    className="flex h-4 w-15 items-center text-xl leading-[50px] outline-none placeholder:text-[8px] placeholder:text-gray-500 sm:w-18 sm:placeholder:text-[14px] md:w-30 md:placeholder:text-[20px] lg:w-40 lg:text-3xl lg:placeholder:text-[25px]"
+                    className="flex h-4 w-15 items-center text-xl leading-[50px] outline-none placeholder:text-[8px] placeholder:text-gray-500 sm:w-18 sm:placeholder:text-[14px] md:w-30 md:placeholder:text-[20px] lg:w-40 lg:text-3xl lg:placeholder:text-[25px] 2xl:h-10 2xl:w-60 2xl:text-3xl 2xl:placeholder:text-[30px]"
                     type="text"
                     placeholder="Search something..."
                     value={searchItem}
@@ -109,7 +109,7 @@ const SearchSection = () => {
                 )}
 
                 <img
-                    className="absolute right-2 h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4 lg:h-5 lg:w-5"
+                    className="absolute right-2 h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4 lg:h-5 lg:w-5 2xl:h-7 2xl:w-7"
                     src={dandruff}
                     alt="dandruff"
                 />
