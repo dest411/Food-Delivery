@@ -17,19 +17,19 @@ const Hero = React.memo(() => {
             style={{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${background})`,
             }}
-            className="flex h-[150px] w-full flex-col items-center justify-center bg-cover bg-center py-20 text-center text-white sm:h-[300px] md:h-[400px] lg:h-[600px] xl:h-[800px]"
+            className="flex h-[150px] w-full flex-col items-center justify-center bg-cover bg-center py-20 text-center text-white sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
         >
             <div className="flex flex-col items-center gap-3 md:gap-5 lg:gap-7 xl:gap-10">
-                <h1 className="text-xl leading-4 sm:text-4xl sm:leading-6 md:text-6xl md:leading-9 lg:text-8xl lg:leading-15 xl:text-9xl xl:leading-20">
+                <h1 className="text-2xl leading-4 sm:text-4xl sm:leading-6 md:text-6xl md:leading-9 lg:text-7xl lg:leading-12 xl:text-8xl xl:leading-18">
                     The fastest delivery in <br /> your city
                 </h1>
-                <p className="text-[10px] leading-2 sm:text-sm sm:leading-4 md:text-xl md:leading-5 lg:text-3xl lg:leading-7 xl:text-4xl xl:leading-9">
+                <p className="text-[10px] leading-2 sm:text-sm sm:leading-4 md:text-xl md:leading-5 lg:text-2xl lg:leading-6 xl:text-4xl xl:leading-9">
                     Visit our restaurant to taste our italian cuisine or <br />
                     simply order it from our website.
                 </p>
                 <button
                     onClick={scrollToMenu}
-                    className="transform cursor-pointer rounded-lg border px-5 py-1 text-[10px] transition duration-300 hover:scale-110 hover:bg-white/15 active:scale-95 active:bg-white/25 sm:text-sm md:rounded-2xl md:text-2xl lg:text-4xl xl:rounded-4xl xl:px-7 xl:py-3 xl:text-6xl"
+                    className="transform cursor-pointer rounded-lg border px-5 py-1 text-[14px] transition duration-300 hover:scale-110 hover:bg-white/15 active:scale-95 active:bg-white/25 sm:text-sm md:rounded-2xl md:px-10 md:text-2xl lg:text-4xl xl:rounded-4xl xl:px-13 xl:py-3 xl:text-5xl"
                 >
                     Order now
                 </button>
