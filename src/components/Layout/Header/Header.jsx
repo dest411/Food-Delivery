@@ -27,15 +27,22 @@ const Header = () => {
                     </p>
 
                     <nav className=" ">
-                        <ul className="flex w-full items-center justify-between gap-5 text-[10px] sm:text-[15px] md:gap-7 md:text-[20px] lg:gap-12 lg:text-[28px] 2xl:gap-15 2xl:text-[35px]">
+                        <ul className="flex w-full items-center justify-between gap-5 text-[10px] sm:text-[15px] md:gap-7 md:text-[20px] lg:gap-12 lg:text-[28px] 2xl:gap-15 2xl:text-[45px]">
                             <li
-                                className="cursor-pointer"
+                                className="cursor-pointer transition-all duration-200 hover:scale-110"
                                 onClick={scrollToHome}
                             >
                                 Home
                             </li>
-                            <li className="relative flex">Menu</li>
-                            <li onClick={scrollToFooter}>Contact Us</li>
+                            <li className="cursor-pointer transition-all duration-200 hover:scale-110">
+                                Menu
+                            </li>
+                            <li
+                                className="cursor-pointer transition-all duration-200 hover:scale-110"
+                                onClick={scrollToFooter}
+                            >
+                                Contact Us
+                            </li>
                         </ul>
                     </nav>
                 </div>
