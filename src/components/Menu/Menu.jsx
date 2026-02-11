@@ -11,7 +11,7 @@ const Menu = () => {
     return (
         <div
             id="menu-choise"
-            className="mx-0 my-5 flex h-auto w-[95%] max-w-[1500px] bg-gray-100"
+            className="my-5 mb-50 flex h-auto w-[95%] max-w-[1500px]"
         >
             <div className="flex h-auto w-full items-start justify-between">
                 <div className="absolute left-0 flex w-1/6 items-center justify-center bg-red-700 px-6 py-2 text-center text-xl font-semibold text-white [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)] sm:px-8 sm:py-6 sm:text-2xl md:px-15 md:text-4xl lg:px-25 lg:py-8 lg:text-6xl xl:px-30 xl:py-10 xl:text-6xl">
