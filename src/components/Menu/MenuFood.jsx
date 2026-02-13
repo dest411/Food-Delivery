@@ -37,7 +37,7 @@ const MenuFood = () => {
                                         </div>
                                     ) : (
                                         <img
-                                            className={`absolute top-[-30%] left-[-15px] z-110 select-none sm:top-[-43%] lg:top-[-45%] xl:top-[-40%] ${'h-40 w-40 sm:h-60 sm:w-60 lg:h-85 lg:w-85 xl:h-115 xl:w-115 2xl:h-130 2xl:w-130' || 'top-[-170px] h-5 w-5'}`}
+                                            className={`absolute top-[-30%] left-[-15px] z-110 select-none sm:top-[-43%] lg:top-[-45%] xl:top-[-35%] ${'h-40 w-40 sm:h-60 sm:w-60 lg:h-85 lg:w-85 xl:h-115 xl:w-115 2xl:h-135 2xl:w-135' || 'top-[-170px] h-5 w-5'}`}
                                             src={food.typePhoto}
                                             alt=""
                                         />
@@ -54,7 +54,7 @@ const MenuFood = () => {
 
                                     <div className="flex h-18 w-full sm:h-24 lg:h-32 xl:h-50 2xl:h-60">
                                         <div className="h-full w-[40%] bg-gray-100"></div>
-                                        <ul className="relative grid h-full w-[60%] list-inside list-disc grid-flow-col grid-rows-4 bg-gray-100 p-2 text-[13px] sm:text-[18px] lg:text-[26px] xl:text-[32px]">
+                                        <ul className="relative grid h-full w-[60%] list-inside list-disc grid-flow-col grid-rows-4 bg-gray-100 p-2 text-[13px] sm:text-[18px] lg:text-[26px] xl:text-[32px] 2xl:text-[38px]">
                                             {food.ingredients.map((ing) => {
                                                 return (
                                                     <li key={ing} className="">
@@ -66,7 +66,7 @@ const MenuFood = () => {
                                                 onClick={() =>
                                                     addToBasket(food)
                                                 }
-                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none sm:h-8 sm:w-25 lg:right-3 lg:bottom-3 lg:h-11 lg:w-32 xl:right-4 xl:bottom-4 xl:h-14 xl:w-40"
+                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none sm:h-8 sm:w-25 lg:right-3 lg:bottom-3 lg:h-11 lg:w-32 xl:right-4 xl:bottom-4 xl:h-14 xl:w-40 2xl:right-6 2xl:bottom-6 2xl:h-18 2xl:w-50"
                                             >
                                                 Add to Get
                                             </button>{' '}
