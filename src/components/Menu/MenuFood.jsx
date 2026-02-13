@@ -37,7 +37,11 @@ const MenuFood = () => {
                                         </div>
                                     ) : (
                                         <img
-                                            className={`absolute top-[-30%] left-[-15px] z-110 select-none sm:top-[-43%] lg:top-[-45%] xl:top-[-35%] ${'h-40 w-40 sm:h-60 sm:w-60 lg:h-85 lg:w-85 xl:h-115 xl:w-115 2xl:h-135 2xl:w-135' || 'top-[-170px] h-5 w-5'}`}
+                                            className={`absolute z-110 select-none ${
+                                                activeMenu === 'Pizza'
+                                                    ? 'top-[-30%] left-[-15px] h-40 w-40 sm:top-[-43%] sm:h-60 sm:w-60 lg:top-[-45%] lg:h-85 lg:w-85 xl:top-[-35%] xl:h-115 xl:w-115 2xl:h-135 2xl:w-135'
+                                                    : 'top-[-5%] h-30 w-35 sm:top-[-20%] sm:h-45 sm:w-50 md:h-53 md:w-58 lg:top-[-25%] lg:h-65 lg:w-85 xl:top-[-15%] xl:h-90 xl:w-105 2xl:h-105 2xl:w-130'
+                                            } `}
                                             src={food.typePhoto}
                                             alt=""
                                         />
