@@ -16,11 +16,11 @@ const MenuFood = () => {
     const name = foodItem.name;
 
     return (
-        <div className="mx-auto w-full max-w-[1500px]">
-            <h1 className="mx-auto w-[90%] text-3xl font-bold sm:text-5xl">
+        <div className="mx-auto w-full max-w-[1500px] lg:mt-10">
+            <h1 className="mx-auto w-[90%] text-3xl font-bold sm:text-5xl lg:mb-15 lg:text-7xl">
                 Popular {name}s of Naples
             </h1>
-            <div className="mt-10 flex flex-col gap-10 sm:gap-20">
+            <div className="mt-10 flex flex-col gap-10 sm:gap-20 lg:gap-30">
                 {Object.values(foodItem.typeFood).map((food) => {
                     return (
                         <div
@@ -37,24 +37,24 @@ const MenuFood = () => {
                                         </div>
                                     ) : (
                                         <img
-                                            className={`absolute top-[-30%] left-[-15px] z-110 select-none sm:top-[-43%] ${'h-40 w-40 sm:h-60 sm:w-60 ' || 'top-[-170px] h-5 w-5'}`}
+                                            className={`absolute top-[-30%] left-[-15px] z-110 select-none sm:top-[-43%] lg:top-[-45%] ${'h-40 w-40 sm:h-60 sm:w-60 lg:h-85 lg:w-85' || 'top-[-170px] h-5 w-5'}`}
                                             src={food.typePhoto}
                                             alt=""
                                         />
                                     )}
 
                                     <div className="bg-gray flex w-full items-center justify-between pr-3 pl-[40%] text-white">
-                                        <h1 className="text-xl sm:text-3xl">
+                                        <h1 className="text-xl sm:text-3xl lg:text-5xl">
                                             {food.name}
                                         </h1>
-                                        <h2 className="text-xl sm:text-3xl">
+                                        <h2 className="text-xl sm:text-3xl lg:text-5xl">
                                             {food.price}$
                                         </h2>
                                     </div>
 
-                                    <div className="flex h-18 w-full sm:h-24">
+                                    <div className="flex h-18 w-full sm:h-24 lg:h-32">
                                         <div className="h-full w-[40%] bg-gray-100"></div>
-                                        <ul className="relative grid h-full w-[60%] list-inside list-disc grid-flow-col grid-rows-4 bg-gray-100 p-2 text-[13px] sm:text-[18px]">
+                                        <ul className="relative grid h-full w-[60%] list-inside list-disc grid-flow-col grid-rows-4 bg-gray-100 p-2 text-[13px] sm:text-[18px] lg:text-[26px]">
                                             {food.ingredients.map((ing) => {
                                                 return (
                                                     <li key={ing} className="">
@@ -66,7 +66,7 @@ const MenuFood = () => {
                                                 onClick={() =>
                                                     addToBasket(food)
                                                 }
-                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none"
+                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none sm:h-8 sm:w-25 lg:right-3 lg:bottom-3 lg:h-11 lg:w-32"
                                             >
                                                 Add to Get
                                             </button>{' '}
