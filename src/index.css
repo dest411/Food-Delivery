@@ -4,7 +4,8 @@
 @theme {
     --color-gray: #67666a;
     --color-gray-from: #f6f6f6;
-    --breakpoint-xs: 420px;
+    --breakpoint-xs: 26.25rem;
+    --breakpoint-l: 53.125rem;
     --font-caveat: 'Caveat', cursive;
 }
 * {
