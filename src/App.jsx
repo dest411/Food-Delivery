@@ -23,10 +23,10 @@ const App = () => {
             <WelcomeSection />
             <Menu />
             <MenuFood />
-            {/* <Hr /> */}
-            {/* <ChoiseFood /> */}
-            {/* <Form/> */}
-            {/* <Footer/> */}
+            <Hr />
+            <ChoiseFood />
+            <Form />
+            <Footer />
         </div>
     );
 };

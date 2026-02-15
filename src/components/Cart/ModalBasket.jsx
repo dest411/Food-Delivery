@@ -17,6 +17,9 @@ const ModalBasket = () => {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
+            if (event.target.closest('.basket-toggle-btn')) {
+                return;
+            }
             if (
                 isModalBasketOpen &&
                 basketRef.current &&
@@ -61,7 +64,7 @@ const ModalBasket = () => {
                             {' '}
                             {/* MAIN */}
                             {/* LIST FOOD ID MODAL BASKET */}
-                            <div className="custom-scrollbar xs:py-1 flex h-auto flex-1 flex-col gap-2 overflow-y-auto bg-amber-200 sm:gap-5 sm:py-3 md:gap-12 md:py-5 lg:gap-18 lg:py-8 xl:gap-30 xl:py-10 xl:pl-2 2xl:gap-35">
+                            <div className="custom-scrollbar xs:py-1 flex h-auto flex-1 flex-col gap-2 overflow-y-auto sm:gap-5 sm:py-3 md:gap-12 md:py-5 lg:gap-18 lg:py-8 xl:gap-30 xl:py-10 xl:pl-2 2xl:gap-35">
                                 {basket.map((food) => {
                                     return (
                                         <div
@@ -82,7 +85,7 @@ const ModalBasket = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="xs:text-[14px] xs:gap-2 flex w-[15%] min-w-5 cursor-pointer items-center gap-1 bg-emerald-200 text-[10px] select-none sm:gap-4 sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl">
+                                            <div className="xs:text-[14px] xs:gap-2 flex w-[15%] min-w-5 cursor-pointer items-center gap-1 text-[10px] select-none sm:gap-4 sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl">
                                                 <p
                                                     onClick={() =>
                                                         removeFromBasket(food)

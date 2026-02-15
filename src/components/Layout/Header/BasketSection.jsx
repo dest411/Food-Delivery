@@ -19,7 +19,7 @@ const BasketSection = () => {
             <img
                 onClick={handleBasketClick}
                 src={shoppingcart}
-                className="h-4 w-4 cursor-pointer transition-all duration-200 hover:scale-110 sm:h-6 sm:w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 2xl:h-10 2xl:w-10" //2xl:h-10 2xl:w-10
+                className="basket-toggle-btn h-4 w-4 cursor-pointer transition-all duration-200 hover:scale-110 sm:h-6 sm:w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 2xl:h-10 2xl:w-10" //2xl:h-10 2xl:w-10
                 alt="shopingcart"
             />
             {basket.length > 0 && (
