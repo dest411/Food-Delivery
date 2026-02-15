@@ -44,7 +44,7 @@ const ModalBasket = () => {
             <div className="flex h-screen w-full max-w-[1500px] items-center justify-center">
                 <div
                     ref={basketRef}
-                    className={`/* here */ xs:h-50 pointer-events-auto flex h-[150px] w-8/10 flex-col rounded-2xl border-none sm:h-60 md:h-70 lg:h-90 xl:h-120 ${
+                    className={`/* here */ xs:h-40 pointer-events-auto flex h-[150px] w-8/10 flex-col rounded-2xl border-none sm:h-65 md:h-60 lg:h-80 xl:h-120 ${
                         isModalBasketOpen
                             ? 'visible scale-100 opacity-100'
                             : 'invisible scale-90 opacity-0'
@@ -82,7 +82,7 @@ const ModalBasket = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="xs:text-[14px] xs:gap-2 flex w-[15%] min-w-5 cursor-pointer items-center gap-1 bg-emerald-200 text-[10px] select-none sm:gap-4 sm:text-lg md:text-2xl lg:text-3xl">
+                                            <div className="xs:text-[14px] xs:gap-2 flex w-[15%] min-w-5 cursor-pointer items-center gap-1 bg-emerald-200 text-[10px] select-none sm:gap-4 sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl">
                                                 <p
                                                     onClick={() =>
                                                         removeFromBasket(food)
@@ -90,7 +90,7 @@ const ModalBasket = () => {
                                                 >
                                                     -
                                                 </p>
-                                                <p className="xs:text-[12px] flex h-3 w-auto min-w-3 items-center justify-center rounded border text-[10px] sm:h-5 sm:min-w-5 sm:text-lg md:text-xl lg:h-6 lg:w-6 lg:text-2xl">
+                                                <p className="xs:text-[12px] flex h-3 w-auto min-w-3 items-center justify-center rounded border text-[10px] sm:h-5 sm:min-w-5 sm:text-lg md:text-xl lg:h-6 lg:w-6 lg:text-2xl xl:h-8 xl:w-8 xl:text-4xl">
                                                     {food.count}
                                                 </p>
                                                 <p
@@ -106,13 +106,13 @@ const ModalBasket = () => {
                                                 onClick={() =>
                                                     removeCompletely(food)
                                                 }
-                                                className="xs:h-3 xs:w-3 h-2 w-2 cursor-pointer sm:h-4 sm:w-4 md:h-5 md:min-w-5 lg:h-6 lg:w-6"
+                                                className="xs:h-3 xs:w-3 h-2 w-2 cursor-pointer sm:h-4 sm:w-4 md:h-5 md:min-w-5 lg:h-6 lg:w-6 xl:h-8 xl:w-8"
                                                 src={garbage}
                                                 alt=""
                                             />
                                             <p
                                                 key={food.name}
-                                                className="xs:text-[13px] w-[20%] text-[10px] sm:text-lg md:text-xl lg:text-3xl"
+                                                className="xs:text-[13px] w-[20%] text-[10px] sm:text-lg md:text-xl lg:text-3xl xl:text-4xl"
                                             >
                                                 Price:{' '}
                                                 {(
@@ -130,8 +130,8 @@ const ModalBasket = () => {
                                 })}
                             </div>
                             {/* FOOTER MODAL BASKET */}
-                            <div className="flex shrink-0 flex-col border-t border-black/20 sm:gap-3">
-                                <div className="xs:text-[14px] flex justify-between text-right text-[12px] font-bold sm:text-lg md:text-2xl lg:text-3xl">
+                            <div className="flex shrink-0 flex-col border-t border-black/20 sm:gap-3 xl:py-4">
+                                <div className="xs:text-[14px] flex justify-between text-right text-[12px] font-bold sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl">
                                     <p className="">Total to order:</p>
                                     <p className="text-orange-400">
                                         {totalPrice}$
@@ -140,7 +140,7 @@ const ModalBasket = () => {
 
                                 <button
                                     onClick={proceedToCheckout}
-                                    className="add-btn2 xs:text-[14px] xs:h-6! xs:w-22! h-4! w-17! text-[10px] sm:h-8! sm:w-30! sm:text-lg md:h-10! md:w-40! md:text-xl lg:h-14! lg:w-55! lg:text-3xl"
+                                    className="add-btn2 xs:text-[14px] xs:h-6! xs:w-22! lx:h-17! h-4! w-17! text-[10px] sm:h-8! sm:w-30! sm:text-lg md:h-10! md:w-40! md:text-xl lg:h-14! lg:w-55! lg:text-3xl xl:h-15! xl:w-65! xl:text-4xl"
                                 >
                                     Proceed to checkout
                                 </button>
