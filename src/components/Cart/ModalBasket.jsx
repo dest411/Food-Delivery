@@ -40,7 +40,7 @@ const ModalBasket = () => {
             <div className="flex h-screen w-full max-w-[1500px] items-center justify-center">
                 <div
                     ref={basketRef}
-                    className={`/* here */ pointer-events-auto flex h-[150px] w-8/10 flex-col rounded-2xl border-none ${
+                    className={`/* here */ xs:h-50 pointer-events-auto flex h-[150px] w-8/10 flex-col rounded-2xl border-none sm:h-60 ${
                         isModalBasketOpen
                             ? 'visible scale-100 opacity-100'
                             : 'invisible scale-90 opacity-0'
@@ -57,28 +57,28 @@ const ModalBasket = () => {
                             {' '}
                             {/* MAIN */}
                             {/* LIST FOOD ID MODAL BASKET */}
-                            <div className="custom-scrollbar flex h-auto flex-1 flex-col gap-2 overflow-y-auto">
+                            <div className="custom-scrollbar xs:py-1 flex h-auto flex-1 flex-col gap-2 overflow-y-auto bg-amber-200 sm:py-3">
                                 {basket.map((food) => {
                                     return (
                                         <div
                                             key={food.name}
                                             className="flex h-5 w-full shrink-0 items-center justify-between gap-2 rounded"
                                         >
-                                            <div className="w-20b flex w-1/2 items-center gap-3">
+                                            <div className="w-20b flex w-1/2 items-center gap-3 sm:w-1/3">
                                                 <img
-                                                    className="xs:h-10 xs:w-10 h-7 w-7"
+                                                    className="xs:h-10 xs:w-10 h-7 w-7 sm:h-15 sm:w-15"
                                                     src={food.typePhoto}
                                                     alt="food photo"
                                                 />
                                                 <p
                                                     key={food.name}
-                                                    className="text-[10px]"
+                                                    className="xs:text-[13px] text-[10px] sm:text-lg"
                                                 >
                                                     {food.name}
                                                 </p>
                                             </div>
 
-                                            <div className="flex w-[15%] min-w-5 cursor-pointer items-center gap-1 text-[10px] select-none">
+                                            <div className="xs:text-[14px] xs:gap-2 flex w-[15%] min-w-5 cursor-pointer items-center gap-1 bg-emerald-200 text-[10px] select-none sm:gap-4 sm:text-lg">
                                                 <p
                                                     onClick={() =>
                                                         removeFromBasket(food)
@@ -86,7 +86,7 @@ const ModalBasket = () => {
                                                 >
                                                     -
                                                 </p>
-                                                <p className="flex h-3 w-auto min-w-3 items-center justify-center rounded border text-[10px]">
+                                                <p className="xs:text-[12px] flex h-3 w-auto min-w-3 items-center justify-center rounded border text-[10px] sm:h-5 sm:min-w-5 sm:text-lg">
                                                     {food.count}
                                                 </p>
                                                 <p
@@ -102,13 +102,13 @@ const ModalBasket = () => {
                                                 onClick={() =>
                                                     removeCompletely(food)
                                                 }
-                                                className="h-2 w-2 cursor-pointer"
+                                                className="xs:h-3 xs:w-3 h-2 w-2 cursor-pointer sm:h-4 sm:w-4"
                                                 src={garbage}
                                                 alt=""
                                             />
                                             <p
                                                 key={food.name}
-                                                className="w-[20%] text-[10px]"
+                                                className="xs:text-[13px] w-[20%] text-[10px] sm:text-lg"
                                             >
                                                 Price:{' '}
                                                 {(
@@ -126,19 +126,19 @@ const ModalBasket = () => {
                                 })}
                             </div>
                             {/* FOOTER MODAL BASKET */}
-                            <div className="flex shrink-0 flex-col border-t border-black/20">
+                            <div className="flex shrink-0 flex-col border-t border-black/20 sm:gap-3">
                                 <div className="flex justify-between">
-                                    <p className="text-right text-[12px] font-bold">
+                                    <p className="xs:text-[14px] text-right text-[12px] font-bold sm:text-lg">
                                         Total to order:
                                     </p>
-                                    <p className="text-right text-[12px] font-bold text-orange-400">
+                                    <p className="xs:text-[14px] text-right text-[12px] font-bold text-orange-400 sm:text-lg">
                                         {totalPrice}$
                                     </p>
                                 </div>
 
                                 <button
                                     onClick={proceedToCheckout}
-                                    className="add-btn2 h-4! w-17! text-[10px]"
+                                    className="add-btn2 xs:text-[14px] xs:h-6! xs:w-22! h-4! w-17! text-[10px] sm:h-8! sm:w-30! sm:text-lg"
                                 >
                                     Proceed to checkout
                                 </button>
