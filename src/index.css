@@ -4,9 +4,10 @@
 @theme {
     --color-gray: #67666a;
     --color-gray-from: #f6f6f6;
-    --breakpoint-xs: 26.25rem;
-    --breakpoint-s: 34.375rem;
-    --breakpoint-l: 53.125rem;
+    --breakpoint-xxs: 22.5rem; /* 360px */
+    --breakpoint-xs: 26.25rem; /* 420px */
+    --breakpoint-s: 34.375rem; /* 550px */
+    --breakpoint-l: 53.125rem; /* 850px */
     --font-caveat: 'Caveat', cursive;
 }
 * {

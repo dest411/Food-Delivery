@@ -13,8 +13,8 @@ const Menu = () => {
             id="menu-choise"
             className="my-5 mb-10 flex h-auto w-[95%] max-w-[1500px]"
         >
-            <div className="l:gap-10 s:gap-10 flex h-auto w-full items-center justify-between gap-8 sm:gap-5 md:gap-10 lg:gap-20 2xl:gap-20">
-                <div className="flex w-1/4 items-center justify-center bg-red-700 px-6 text-center text-lg font-semibold text-white [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)] sm:px-8 sm:py-3 sm:text-2xl md:px-10 md:text-2xl lg:mr-5 lg:py-2 lg:text-4xl xl:mr-15 xl:py-5 xl:text-6xl 2xl:mr-15 2xl:px-6 2xl:py-4 2xl:text-4xl">
+            <div className="l:gap-5 s:gap-10 flex h-auto w-full items-center justify-between gap-8 sm:gap-10 md:gap-10 lg:gap-20 2xl:gap-20">
+                <div className="l:mr-10 flex w-1/4 items-center justify-center bg-red-700 px-6 text-center text-lg font-semibold text-white [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)] sm:py-2 sm:text-2xl md:px-10 md:text-2xl lg:mr-5 lg:py-2 lg:text-4xl xl:mr-15 xl:py-5 xl:text-6xl 2xl:mr-15 2xl:px-6 2xl:py-4 2xl:text-4xl">
                     Menu
                 </div>
 
@@ -25,17 +25,17 @@ const Menu = () => {
                         const isActive = food.name === activeMenu;
                         return (
                             <div
-                                className={`box-shadow: -1px 0px 80px -3px rgba(0,0,0,0.75) xs:w-22 xs:shadow-[0px_0px_20px_-3px_rgba(0,0,0,0.40)] flex w-15 cursor-pointer items-center justify-center gap-1 rounded-lg border p-2 shadow-[0px_0px_5px_-3px_rgba(0,0,0,0.40)] transition-colors duration-300 sm:w-33 sm:gap-2 sm:rounded-2xl sm:px-4 sm:py-5 md:w-35 md:gap-4 md:py-4 md:shadow-[0px_0px_10px_-3px_rgba(0,0,0,0.40)] lg:w-40 xl:w-60 2xl:gap-4 ${isActive ? 'border-amber-600' : 'border-black/7'}`}
+                                className={`box-shadow: -1px 0px 80px -3px rgba(0,0,0,0.75) xs:w-22 xs:shadow-[0px_0px_10px_-3px_rgba(0,0,0,0.40)] flex w-13 cursor-pointer items-center justify-center gap-1 rounded-lg border p-2 shadow-[0px_0px_5px_-3px_rgba(0,0,0,0.40)] transition-colors duration-300 sm:w-30 sm:gap-2 sm:rounded-2xl sm:px-4 sm:py-3 sm:shadow-[0px_0px_7px_-3px_rgba(0,0,0,0.40)] md:w-35 md:gap-4 md:py-4 md:shadow-[0px_0px_10px_-3px_rgba(0,0,0,0.40)] lg:w-40 xl:w-60 2xl:gap-4 ${isActive ? 'border-amber-600' : 'border-black/7'}`}
                                 key={food.id}
                                 onClick={() => setActiveMenu(food.name)}
                             >
                                 <img
-                                    className="xs:h-8 h-5 sm:h-10 md:h-7 lg:h-10 xl:h-13 2xl:h-15" // 2xl:h-15
+                                    className="xs:h-8 h-4 sm:h-6 md:h-7 lg:h-10 xl:h-13 2xl:h-15" // 2xl:h-15
                                     src={food.photo}
                                     alt=""
                                 />
                                 <p
-                                    className="xs:text-[15px] text-[12px] sm:text-[20px] md:text-lg lg:text-2xl xl:text-4xl 2xl:text-4xl" //2xl:text-4xl
+                                    className="xs:text-[15px] text-[10px] sm:text-[20px] md:text-lg lg:text-2xl xl:text-4xl 2xl:text-4xl" //2xl:text-4xl
                                 >
                                     {food.name}
                                 </p>

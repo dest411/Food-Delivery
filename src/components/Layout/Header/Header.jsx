@@ -31,7 +31,7 @@ const Header = () => {
 
                     <nav className=" ">
                         <ul
-                            className="xs:text-[10px] xs:gap-4 flex w-full items-center justify-between gap-3 text-[9px] sm:text-[15px] md:gap-4 md:text-[13px] lg:gap-10 lg:text-[19px] xl:text-[22px] 2xl:gap-13 2xl:text-[25px]" //2xl:text-[25px]
+                            className="xs:text-[10px] xs:gap-4 flex w-full items-center justify-between gap-3 text-[9px] sm:text-[15px] md:gap-4 md:text-[16px] lg:gap-10 lg:text-[19px] xl:text-[22px] 2xl:gap-13 2xl:text-[25px]" //2xl:text-[25px]
                         >
                             <li
                                 className="cursor-pointer transition-all duration-200 hover:scale-110"

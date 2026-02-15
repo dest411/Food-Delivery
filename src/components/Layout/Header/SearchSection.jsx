@@ -63,7 +63,7 @@ const SearchSection = () => {
     return (
         <div ref={searchRef} className="flex w-auto select-none *:items-center">
             <div
-                className="bg relative flex h-5 w-20 items-center justify-between rounded-2xl border border-black/10 bg-black/5 px-3 sm:h-8 sm:w-30 md:h-7 md:w-40 lg:h-7 lg:w-50 lg:rounded-2xl 2xl:h-10 2xl:w-70" // 2xl:h-10 2xl:w-80
+                className="relative flex h-5 w-20 items-center justify-between rounded-2xl border border-black/5 bg-black/5 px-3 sm:h-7 sm:w-30 md:h-7 md:w-40 lg:h-7 lg:w-50 lg:rounded-2xl 2xl:h-10 2xl:w-70" // 2xl:h-10 2xl:w-80
             >
                 <input
                     id="inputSearch"
@@ -75,9 +75,9 @@ const SearchSection = () => {
                     onFocus={handleInputFocus}
                 />
                 {showSearch && searchItem.length > 0 && (
-                    <div className="absolute top-17 left-0 z-50 h-auto w-[330px] rounded-3xl border border-gray-200 bg-white p-3 text-black shadow-lg">
+                    <div className="absolute top-7 right-[-20px] z-50 h-auto w-30 rounded-2xl border border-gray-200 bg-amber-300 p-3 text-black shadow-lg">
                         {filteredFoods.length === 0 ? (
-                            <p className="text-center text-2xl text-gray-500">
+                            <p className="text-center text-xl text-gray-500">
                                 Nothing found
                             </p>
                         ) : (
@@ -87,9 +87,9 @@ const SearchSection = () => {
                                     onClick={() => handleScrollToProduct(item)}
                                     className="flex items-center justify-between border-b border-gray-200 last:border-0"
                                 >
-                                    <p className="flex cursor-pointer items-center gap-5 py-1 text-2xl transition hover:text-orange-500">
+                                    <p className="flex cursor-pointer items-center gap-2 py-1 text-lg transition hover:text-orange-500">
                                         <img
-                                            className="h-15 w-15"
+                                            className="h-5 w-5"
                                             src={item.typePhoto}
                                             alt=""
                                         />
@@ -100,7 +100,7 @@ const SearchSection = () => {
                                             e.stopPropagation();
                                             addToBasket(item);
                                         }}
-                                        className="add-btn2 h-8! w-15! text-[16px]!"
+                                        className="add-btn2 h-4! w-15! text-[8px]!"
                                     >
                                         Add to get
                                     </button>

@@ -33,7 +33,7 @@ const Hero = React.memo(() => {
                 </p>
                 <button
                     onClick={scrollToMenu}
-                    className="transform cursor-pointer rounded-lg border px-5 py-1 text-[14px] transition duration-300 hover:scale-110 hover:bg-white/15 active:scale-95 active:bg-white/25 sm:text-sm md:rounded-3xl md:px-7 md:text-sm lg:rounded-3xl lg:text-2xl xl:rounded-3xl xl:px-7 xl:py-2 xl:text-3xl 2xl:rounded-4xl 2xl:px-8 2xl:py-2 2xl:text-3xl" //2xl:rounded-4xl 2xl:px-8 2xl:py-2 2xl:text-3xl
+                    className="transform cursor-pointer rounded-2xl border px-5 py-1 text-[10px] transition duration-300 hover:scale-110 hover:bg-white/15 active:scale-95 active:bg-white/25 sm:text-sm md:rounded-3xl md:px-7 md:text-sm lg:rounded-3xl lg:text-2xl xl:rounded-3xl xl:px-7 xl:py-2 xl:text-3xl 2xl:rounded-4xl 2xl:px-8 2xl:py-2 2xl:text-3xl" //2xl:rounded-4xl 2xl:px-8 2xl:py-2 2xl:text-3xl
                 >
                     Order now
                 </button>
