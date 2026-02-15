@@ -18,11 +18,11 @@ const MenuFood = () => {
     return (
         <div className="mx-auto w-full max-w-[1500px] lg:mt-10 xl:mt-20">
             <h1
-                className="lg:text-7x mx-auto w-[90%] text-3xl font-bold sm:text-5xl lg:mb-15 xl:text-7xl 2xl:text-6xl" //2xl:text-6xl
+                className="lg:text-7x mx-auto w-[90%] text-3xl font-bold sm:text-5xl lg:mb-15 xl:text-5xl 2xl:text-6xl" //2xl:text-6xl
             >
                 Popular {name}s of Naples
             </h1>
-            <div className="mt-10 flex flex-col gap-10 sm:gap-20 lg:gap-30 xl:mt-20 xl:gap-40 2xl:gap-20">
+            <div className="mt-10 flex flex-col gap-10 sm:gap-20 md:gap-14 lg:gap-16 xl:mt-20 xl:gap-18 2xl:gap-20">
                 {Object.values(foodItem.typeFood).map((food) => {
                     return (
                         <div
@@ -41,7 +41,7 @@ const MenuFood = () => {
                                         <img
                                             className={`absolute z-110 select-none ${
                                                 activeMenu === 'Pizza'
-                                                    ? 'top-[-30%] left-[-15px] h-40 w-40 sm:top-[-43%] sm:h-60 sm:w-60 lg:top-[-45%] lg:h-85 lg:w-85 xl:top-[-35%] xl:h-115 xl:w-115 2xl:h-80 2xl:w-80' // 2xl 80
+                                                    ? 'top-[-30%] left-[-15px] h-40 w-40 sm:top-[-20%] sm:h-40 sm:w-40 md:top-[-25%] md:h-50 md:w-50 lg:top-[-35%] lg:h-60 lg:w-60 xl:top-[-35%] xl:h-70 xl:w-70 2xl:h-80 2xl:w-80' // 2xl 80
                                                     : 'top-[-5%] h-30 w-35 sm:top-[-20%] sm:h-45 sm:w-50 md:h-53 md:w-58 lg:top-[-25%] lg:h-65 lg:w-85 xl:top-[-15%] xl:h-90 xl:w-105 2xl:h-105 2xl:w-130'
                                             } `}
                                             src={food.typePhoto}
@@ -49,22 +49,22 @@ const MenuFood = () => {
                                         />
                                     )}
 
-                                    <div className="bg-gray flex w-full items-center justify-between pr-3 pl-[40%] text-white 2xl:py-1">
+                                    <div className="bg-gray flex w-full items-center justify-between pr-3 pl-[30%] text-white 2xl:py-1">
                                         <h1
-                                            className="text-xl sm:text-3xl lg:text-5xl xl:text-6xl 2xl:text-5xl" // 2xl:text-5xl
+                                            className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl" // 2xl:text-5xl
                                         >
                                             {food.name}
                                         </h1>
-                                        <h2 className="text-xl sm:text-3xl lg:text-5xl xl:text-6xl 2xl:text-5xl">
+                                        <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                                             {food.price}$
                                         </h2>
                                     </div>
 
                                     <div
-                                        className="flex h-18 w-full sm:h-24 lg:h-32 xl:h-50 2xl:h-35" //2xl:h-35
+                                        className="flex h-18 w-full sm:h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-35" //2xl:h-35
                                     >
-                                        <div className="h-full w-[40%] bg-gray-100"></div>
-                                        <ul className="relative grid h-full w-[80%] list-inside list-disc grid-flow-col grid-rows-3 bg-gray-100 p-2 text-[13px] sm:text-[18px] lg:text-[26px] xl:text-[32px] 2xl:text-[25px]">
+                                        <div className="h-full w-[30%] bg-gray-100"></div>
+                                        <ul className="relative grid h-full w-[70%] list-inside list-disc grid-flow-col grid-rows-3 bg-gray-100 p-2 text-[13px] sm:text-[18px] lg:text-[22px] xl:text-[23px] 2xl:text-[25px]">
                                             {food.ingredients.map((ing) => {
                                                 return (
                                                     <li key={ing} className="">
@@ -76,7 +76,7 @@ const MenuFood = () => {
                                                 onClick={() =>
                                                     addToBasket(food)
                                                 }
-                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none sm:h-8 sm:w-25 lg:right-3 lg:bottom-3 lg:h-11 lg:w-32 xl:right-4 xl:bottom-4 xl:h-14 xl:w-40 2xl:right-6 2xl:bottom-6 2xl:h-18 2xl:w-50"
+                                                className="absolute right-2 bottom-2 flex h-5 w-20 cursor-pointer items-center justify-center rounded-xl border-none bg-[#ba1c1c] text-white shadow-[0px_4px_0px_#7f1d1d] transition-all duration-100 ease-linear active:translate-y-[2px] active:shadow-none sm:h-8 sm:w-25 lg:right-3 lg:bottom-3 lg:h-11 lg:w-32 xl:right-4 xl:bottom-4 xl:h-12 xl:w-35 2xl:right-3 2xl:bottom-3 2xl:h-13 2xl:w-40"
                                             >
                                                 Add to Get
                                             </button>{' '}
