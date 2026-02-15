@@ -75,9 +75,9 @@ const SearchSection = () => {
                     onFocus={handleInputFocus}
                 />
                 {showSearch && searchItem.length > 0 && (
-                    <div className="absolute top-7 right-[-20px] z-50 h-auto w-30 rounded-2xl border border-gray-200 bg-amber-300 p-3 text-black shadow-lg">
+                    <div className="xs:w-40 absolute top-7 -right-5 z-50 h-auto w-35 rounded-xl border border-gray-200 bg-white px-3 py-1 text-black shadow-lg sm:top-12 sm:w-50 md:w-55 lg:w-65 xl:top-15 xl:w-75 2xl:top-20">
                         {filteredFoods.length === 0 ? (
-                            <p className="text-center text-xl text-gray-500">
+                            <p className="text-md text-center text-gray-500 lg:text-xl xl:text-2xl 2xl:text-3xl">
                                 Nothing found
                             </p>
                         ) : (
@@ -87,9 +87,9 @@ const SearchSection = () => {
                                     onClick={() => handleScrollToProduct(item)}
                                     className="flex items-center justify-between border-b border-gray-200 last:border-0"
                                 >
-                                    <p className="flex cursor-pointer items-center gap-2 py-1 text-lg transition hover:text-orange-500">
+                                    <p className="xs:text-[10px] lg:text-[18px]S flex cursor-pointer items-center gap-2 py-1 text-[8px] transition hover:text-orange-500 sm:text-[14px] md:text-[16px] xl:text-[20px]">
                                         <img
-                                            className="h-5 w-5"
+                                            className="xs:w-7 xs:h-7 h-5 w-5 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16"
                                             src={item.typePhoto}
                                             alt=""
                                         />
@@ -100,7 +100,7 @@ const SearchSection = () => {
                                             e.stopPropagation();
                                             addToBasket(item);
                                         }}
-                                        className="add-btn2 h-4! w-15! text-[8px]!"
+                                        className="add-btn2 h-4! w-9! text-[8px]! sm:h-5! sm:w-11! sm:text-[10px]! md:h-6! md:w-12! md:text-[12px]! lg:h-7! lg:w-16! lg:text-[14px]! xl:h-8! xl:w-18! xl:text-[16px]!"
                                     >
                                         Add to get
                                     </button>

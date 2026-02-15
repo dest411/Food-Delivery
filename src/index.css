@@ -75,16 +75,16 @@ body {
 
     border: none;
     transition: all 100ms ease;
-    box-shadow: 0px 4px 0px #7f1d1d;
+    box-shadow: 0px 2px 0px #7f1d1d;
 }
 
 .add-btn2:hover {
     background-color: hsl(0, 70%, 38%);
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 0px hsl(0, 63%, 31%);
+    transform: translateY(-1px);
+    box-shadow: 0px 5px 0px hsl(0, 63%, 31%);
 }
 .add-btn2:active {
-    transform: translateY(6px);
+    transform: translateY(1px);
     box-shadow: 0px 0px 0px #7f1d1d;
 }
 
