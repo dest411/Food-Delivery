@@ -24,9 +24,9 @@ const BasketSection = () => {
             />
             {basket.length > 0 && (
                 <div className="flex items-center justify-center">
-                    <p className="absolute -right-5 -bottom-6 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-4xl text-white">
+                    {/* <p className="absolute -right-5 -bottom-6 flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-4xl text-white">
                         {totalCount}
-                    </p>
+                    </p> */}
                 </div>
             )}
         </div>
