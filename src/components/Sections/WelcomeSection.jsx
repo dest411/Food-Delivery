@@ -11,7 +11,7 @@ const WelcomeSection = () => {
                 </h2>{' '}
                 {/* text-2xl  */}
                 <h1
-                    className="absolute bottom-2 font-[Caveat] text-4xl opacity-10 sm:bottom-3 sm:text-6xl md:bottom-4 md:text-5xl lg:bottom-4.5 lg:text-7xl 2xl:text-8xl" //2xl:text-8xl
+                    className="absolute bottom-2 font-[Caveat] text-4xl opacity-10 sm:bottom-3 sm:text-6xl md:bottom-4 md:text-5xl lg:bottom-4.5 lg:text-5xl 2xl:text-8xl" //2xl:text-8xl
                 >
                     {' '}
                     {/* text-4xl  bottom-2 */}
@@ -20,7 +20,7 @@ const WelcomeSection = () => {
             </div>
 
             <p
-                className="text-center text-sm leading-3 opacity-60 sm:text-lg sm:leading-4 md:text-sm md:leading-3 lg:text-2xl lg:leading-6 xl:text-2xl 2xl:text-3xl" //2xl:text-3xl
+                className="text-center text-sm leading-3 opacity-60 sm:text-lg sm:leading-4 md:text-sm md:leading-3 lg:text-xl lg:leading-5 xl:text-2xl 2xl:text-3xl" //2xl:text-3xl
             >
                 {' '}
                 {/* text-sm leading-3 */}
@@ -29,7 +29,7 @@ const WelcomeSection = () => {
                 all over the country.
             </p>
             <div
-                className="mt-5 flex h-3 w-35 items-center justify-center bg-white sm:h-5 sm:w-50 md:mt-5 md:h-5 md:w-60 lg:mt-10 lg:h-9 lg:w-85" //h-3 w-[145px]
+                className="mt-5 flex h-3 w-35 items-center justify-center bg-white sm:h-5 sm:w-50 md:mt-5 md:h-5 md:w-60 lg:mt-10 lg:h-8 lg:w-75" //h-3 w-[145px]
                 aria-label="Zigzag Pattern Container"
             >
                 <svg

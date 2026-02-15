@@ -21,7 +21,7 @@ const Hero = React.memo(() => {
         >
             <div className="flex flex-col items-center gap-3 md:gap-5 lg:gap-7 xl:gap-6 2xl:gap-7">
                 <h1
-                    className="text-2xl leading-4 sm:text-4xl sm:leading-6 md:text-4xl md:leading-5 lg:text-6xl lg:leading-8 xl:text-6xl xl:leading-9 2xl:text-7xl 2xl:leading-10" //2xl:text-6xl 2xl:leading-10
+                    className="text-2xl leading-4 sm:text-4xl sm:leading-6 md:text-4xl md:leading-5 lg:text-6xl lg:leading-9 xl:text-6xl xl:leading-9 2xl:text-7xl 2xl:leading-10" //2xl:text-6xl 2xl:leading-10
                 >
                     The fastest delivery in <br /> your city
                 </h1>
