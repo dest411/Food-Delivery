@@ -5,6 +5,7 @@
     --color-gray: #67666a;
     --color-gray-from: #f6f6f6;
     --breakpoint-xs: 26.25rem;
+    --breakpoint-s: 34.375rem;
     --breakpoint-l: 53.125rem;
     --font-caveat: 'Caveat', cursive;
 }

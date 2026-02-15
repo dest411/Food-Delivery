@@ -4,18 +4,18 @@ const WelcomeSection = () => {
     return (
         <div className="flex h-auto w-[95%] flex-col items-center justify-end py-10 select-none sm:py-15 md:py-20 lg:py-25">
             <div className="relative flex w-full justify-center">
-                <h2 className="text-2xl opacity-75 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+                <h2 className="text-2xl opacity-75 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl">
                     Welcome to Naples
                 </h2>{' '}
                 {/* text-2xl  */}
-                <h1 className="absolute bottom-2 font-[Caveat] text-4xl opacity-10 sm:bottom-3 sm:text-6xl md:bottom-4 md:text-7xl lg:bottom-4.5 lg:text-8xl 2xl:text-9xl">
+                <h1 className="absolute bottom-2 font-[Caveat] text-4xl opacity-10 sm:bottom-3 sm:text-6xl md:bottom-4 md:text-7xl lg:bottom-4.5 lg:text-8xl 2xl:text-8xl">
                     {' '}
                     {/* text-4xl  bottom-2 */}
                     Welcome to Naples
                 </h1>
             </div>
 
-            <p className="text-center text-sm leading-3 opacity-60 sm:text-lg sm:leading-4 md:text-xl md:leading-5 lg:text-2xl lg:leading-6 xl:text-3xl 2xl:text-4xl">
+            <p className="text-center text-sm leading-3 opacity-60 sm:text-lg sm:leading-4 md:text-xl md:leading-5 lg:text-2xl lg:leading-6 xl:text-3xl 2xl:text-3xl">
                 {' '}
                 {/* text-sm leading-3 */}
                 We started working in 2007 and in 2012 we were able to <br />{' '}
