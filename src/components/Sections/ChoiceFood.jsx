@@ -12,7 +12,7 @@ const ChoiseFood = () => {
     });
     return (
         <div className="flex h-auto w-full justify-center select-none">
-            <div className="flex w-[60%] max-w-[1500px] flex-col items-center justify-between gap-4 text-xl text-white md:w-[85%] md:flex-row md:text-2xl">
+            <div className="l:text-3xl flex w-[60%] max-w-[1500px] flex-col items-center justify-between gap-4 text-xl text-white md:w-[85%] md:flex-row md:text-2xl lg:text-4xl">
                 <div
                     style={getBackgroundStyle(Appetizer)}
                     className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover md:min-h-60"

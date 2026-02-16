@@ -38,15 +38,15 @@ const Form = memo(() => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-gray-from flex w-full flex-col items-center justify-center rounded-2xl py-4"
                 >
-                    <p className="text-center text-lg leading-4 font-bold">
+                    <p className="l:text-3xl l:leading-6 text-center text-lg leading-4 font-bold sm:text-2xl lg:text-4xl lg:leading-7">
                         Share your opinion <br /> with us
                     </p>
 
-                    <div className="my-5 flex h-auto w-full flex-col items-center justify-between gap-3 px-4">
-                        <div className="flex w-full flex-col justify-between gap-1 text-xs">
+                    <div className="l:flex-row l:my-8 my-5 flex h-auto w-full flex-col justify-between gap-3 px-4 lg:my-10">
+                        <div className="l:gap-4 l:w-1/2 flex w-full flex-col justify-between gap-1 text-xs">
                             <input
                                 {...register('name')}
-                                className="w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
+                                className="l:py-3 l:placeholder:text-2xl w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none sm:py-2 sm:placeholder:text-lg lg:py-4 lg:placeholder:text-3xl"
                                 type="text"
                                 placeholder="Your name"
                             />
@@ -54,7 +54,7 @@ const Form = memo(() => {
                                 {...register('email')}
                                 type="email"
                                 placeholder="Your email"
-                                className="w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
+                                className="l:py-3 l:placeholder:text-2xl w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none sm:py-2 sm:placeholder:text-lg lg:py-4 lg:placeholder:text-3xl"
                             />
                         </div>
                         <textarea
@@ -66,7 +66,7 @@ const Form = memo(() => {
                                 },
                             })}
                             placeholder="Write something..."
-                            className="h-full w-full resize-none rounded-md bg-white p-2 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
+                            className="l:w-1/2 l:placeholder:text-2xl w-full resize-none rounded-md bg-white p-2 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none sm:py-2 sm:placeholder:text-lg lg:placeholder:text-3xl"
                             required
                         ></textarea>
                     </div>
@@ -78,7 +78,7 @@ const Form = memo(() => {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`h-7 w-40 cursor-pointer rounded-xl border border-red-500 text-lg font-bold text-red-700 transition-transform duration-200 ${isSubmitting ? 'cursor-not-allowed opacity-50' : 'hover:scale-110'} `}
+                        className={`h-7 w-40 cursor-pointer rounded-xl border border-red-500 text-lg font-bold text-red-700 transition-transform duration-200 sm:h-9 sm:w-45 sm:rounded-2xl sm:text-2xl lg:h-12 lg:w-55 lg:rounded-3xl lg:text-4xl ${isSubmitting ? 'cursor-not-allowed opacity-50' : 'hover:scale-110'} `}
                     >
                         {isSubmitting ? '...' : 'Send'}
                     </button>
