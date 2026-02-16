@@ -26,7 +26,7 @@ const App = () => {
             <Hr />
             <ChoiseFood />
             <Form />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };
