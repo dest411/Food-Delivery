@@ -31,22 +31,22 @@ const Form = memo(() => {
     };
 
     return (
-        <div className="w-full h-auto my-50 flex justify-center items-center">
-            <div className="w-full max-w-[920px]">
+        <div className="my-50 flex h-auto w-full items-center justify-center">
+            <div className="w-full max-w-6/10">
                 {/* onSubmit */}
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="bg-gray-from rounded-2xl w-full py-8 flex flex-col justify-center items-center"
+                    className="bg-gray-from flex w-full flex-col items-center justify-center rounded-2xl py-4"
                 >
-                    <p className="text-6xl text-center font-bold">
+                    <p className="text-center text-lg leading-4 font-bold">
                         Share your opinion <br /> with us
                     </p>
 
-                    <div className="w-full h-35 my-8 px-10 flex justify-between">
-                        <div className="flex flex-col justify-between gap-2">
+                    <div className="my-5 flex h-auto w-full flex-col items-center justify-between gap-3 px-4">
+                        <div className="flex w-full flex-col justify-between gap-1 text-xs">
                             <input
                                 {...register('name')}
-                                className="w-[380px] focus:outline-none focus:border-0 bg-white rounded-2xl p-4 py-5 placeholder:text-2xl placeholder:text-gray-400"
+                                className="w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
                                 type="text"
                                 placeholder="Your name"
                             />
@@ -54,7 +54,7 @@ const Form = memo(() => {
                                 {...register('email')}
                                 type="email"
                                 placeholder="Your email"
-                                className="w-[380px] focus:outline-none focus:border-0 bg-white rounded-2xl p-4 py-5 placeholder:text-2xl placeholder:text-gray-400"
+                                className="w-full rounded-md bg-white px-2 py-1 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
                             />
                         </div>
                         <textarea
@@ -66,21 +66,19 @@ const Form = memo(() => {
                                 },
                             })}
                             placeholder="Write something..."
-                            className="resize-none focus:outline-none focus:border-0 bg-white p-2 rounded-2xl w-[430px] h-full placeholder:text-2xl placeholder:text-gray-400"
+                            className="h-full w-full resize-none rounded-md bg-white p-2 placeholder:text-xs placeholder:text-gray-400 focus:border-0 focus:outline-none"
                             required
                         ></textarea>
                     </div>
                     {errors.message && (
-                        <p className="text-red-500 text-sm mt-2 font-bold">
+                        <p className="mt-2 text-sm font-bold text-red-500">
                             {errors.message.message}
                         </p>
                     )}
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`border-red-500 text-red-700 text-3xl font-bold border rounded-3xl w-[140px] h-[50px] cursor-pointer transition-transform duration-200 
-                        ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'}
-                    `}
+                        className={`h-7 w-40 cursor-pointer rounded-xl border border-red-500 text-lg font-bold text-red-700 transition-transform duration-200 ${isSubmitting ? 'cursor-not-allowed opacity-50' : 'hover:scale-110'} `}
                     >
                         {isSubmitting ? '...' : 'Send'}
                     </button>

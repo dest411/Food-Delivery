@@ -1,31 +1,39 @@
-import React from 'react'
+import React from 'react';
 import Appetizer from '../../png/ChoiseFood/Appetizer.svg';
 import Dessert from '../../png/ChoiseFood/Dessert.svg';
 import Beverage from '../../png/ChoiseFood/Beverage.svg';
 import Wrapper from '../../png/ChoiseFood/Wrapper.svg';
 
 const ChoiseFood = () => {
-  return (
-    <div className='w-full h-auto flex justify-center select-none'>
-        <div className=' flex justify-between w-[95%] h-auto max-w-[1500px]'>
-            <div className='relative cursor-pointer'>
-                <img className='' src={Appetizer} alt="" />
-                <p className='text-7xl absolute left-15 bottom-40 z-50 text-white' >Appetizer</p>
-                <img className='absolute top-0' src={Wrapper} alt="" />
-            </div>
-            <div className='relative cursor-pointer'>
-                <img src={Dessert} alt="" />
-                <p className='text-7xl absolute left-15 bottom-40 z-50 text-white'>Dessert</p>
-                <img className='absolute top-0' src={Wrapper} alt="" />
-            </div>
-            <div className='relative cursor-pointer'>
-                <img src={Beverage} alt=""  />
-                <p className='text-7xl absolute left-15 bottom-40 z-50 text-white'>Beverage</p>
-                <img className='absolute top-0' src={Wrapper} alt=""/>
+    const getBackgroundStyle = (imageUrl) => ({
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    });
+    return (
+        <div className="flex h-auto w-full justify-center select-none">
+            <div className="flex min-h-25 w-[95%] max-w-[1500px] justify-between gap-4">
+                <div
+                    style={getBackgroundStyle(Appetizer)}
+                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                >
+                    <p className="z-50 p-2 text-xl text-white">Appetizer</p>
+                </div>
+                <div
+                    style={getBackgroundStyle(Dessert)}
+                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                >
+                    <p className="z-50 p-2 text-xl text-white">Dessert</p>
+                </div>
+                <div
+                    style={getBackgroundStyle(Beverage)}
+                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                >
+                    <p className="z-50 p-2 text-xl text-white">Beverage</p>{' '}
+                </div>
             </div>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default ChoiseFood
+export default ChoiseFood;
