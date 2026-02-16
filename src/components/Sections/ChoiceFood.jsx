@@ -12,24 +12,24 @@ const ChoiseFood = () => {
     });
     return (
         <div className="flex h-auto w-full justify-center select-none">
-            <div className="flex w-[60%] max-w-[1500px] flex-col items-center justify-between gap-4">
+            <div className="flex w-[60%] max-w-[1500px] flex-col items-center justify-between gap-4 text-xl text-white md:w-[85%] md:flex-row md:text-2xl">
                 <div
                     style={getBackgroundStyle(Appetizer)}
-                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover md:min-h-60"
                 >
-                    <p className="z-50 p-2 text-xl text-white">Appetizer</p>
+                    <p className="z-50 p-2">Appetizer</p>
                 </div>
                 <div
                     style={getBackgroundStyle(Dessert)}
-                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover md:min-h-60"
                 >
-                    <p className="z-50 p-2 text-xl text-white">Dessert</p>
+                    <p className="z-50 p-2">Dessert</p>
                 </div>
                 <div
                     style={getBackgroundStyle(Beverage)}
-                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover md:min-h-60"
                 >
-                    <p className="z-50 p-2 text-xl text-white">Beverage</p>{' '}
+                    <p className="z-50 p-2">Beverage</p>{' '}
                 </div>
             </div>
         </div>
