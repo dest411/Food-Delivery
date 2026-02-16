@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <header className="sticky top-0 z-200 flex w-full justify-center border-b border-gray-100 bg-white shadow-xl backdrop-blur-sm">
             <div
-                className="not-[]:top-0 relative z-140 flex h-7 w-[95%] max-w-[1500px] items-center justify-between sm:h-10 md:h-10 lg:h-12 xl:h-16 2xl:h-18" //2xl:h-18
+                className="relative z-140 flex h-7 w-[95%] max-w-[1500px] items-center justify-between sm:h-10 md:h-10 lg:h-12 xl:h-16 2xl:h-18" //2xl:h-18
             >
                 <div className="flex w-6/10 items-center gap-10 md:gap-20 lg:gap-25 2xl:gap-35">
                     <p

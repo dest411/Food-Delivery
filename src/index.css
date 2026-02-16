@@ -7,7 +7,16 @@
     --breakpoint-xxs: 22.5rem; /* 360px */
     --breakpoint-xs: 26.25rem; /* 420px */
     --breakpoint-s: 34.375rem; /* 550px */
+    /* 
+        sm: 640px 
+        md: 768px 
+     */
     --breakpoint-l: 53.125rem; /* 850px */
+    /* 
+        lg: 1024px 
+        xl: 1280px
+        2xl: 1536px 
+    */
     --font-caveat: 'Caveat', cursive;
 }
 * {

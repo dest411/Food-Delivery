@@ -1,8 +1,8 @@
 const Hr = () => {
     return (
-        <div className="my-10 w-full max-w-[1500px]">
+        <div className="xs:my-12 my-10 w-full max-w-[1500px] sm:my-15">
             <div
-                className="flex h-5 w-[150px] items-center justify-center bg-white"
+                className="xs:h-7 s:h-8 s:w-55 xs:w-50 flex h-5 w-40 items-center justify-center bg-white sm:h-10 sm:w-70"
                 aria-label="Zigzag Pattern Container"
             >
                 <svg

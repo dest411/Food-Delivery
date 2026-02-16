@@ -31,7 +31,7 @@ const Form = memo(() => {
     };
 
     return (
-        <div className="my-50 flex h-auto w-full items-center justify-center">
+        <div className="my-20 flex h-auto w-full items-center justify-center">
             <div className="w-full max-w-6/10">
                 {/* onSubmit */}
                 <form
