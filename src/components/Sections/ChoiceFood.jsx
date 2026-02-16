@@ -12,22 +12,22 @@ const ChoiseFood = () => {
     });
     return (
         <div className="flex h-auto w-full justify-center select-none">
-            <div className="flex min-h-25 w-[95%] max-w-[1500px] justify-between gap-4">
+            <div className="flex w-[60%] max-w-[1500px] flex-col items-center justify-between gap-4">
                 <div
                     style={getBackgroundStyle(Appetizer)}
-                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
                 >
                     <p className="z-50 p-2 text-xl text-white">Appetizer</p>
                 </div>
                 <div
                     style={getBackgroundStyle(Dessert)}
-                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
                 >
                     <p className="z-50 p-2 text-xl text-white">Dessert</p>
                 </div>
                 <div
                     style={getBackgroundStyle(Beverage)}
-                    className="flex w-1/3 cursor-pointer items-end-safe bg-cover"
+                    className="flex min-h-40 w-full cursor-pointer items-end-safe rounded-2xl bg-cover"
                 >
                     <p className="z-50 p-2 text-xl text-white">Beverage</p>{' '}
                 </div>
