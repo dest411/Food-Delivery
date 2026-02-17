@@ -3,8 +3,6 @@ import garbage from '../../png/garbage.svg';
 import { useStore } from '../../store/Store';
 
 const ModalBasket = () => {
-    console.log('render modalBasket');
-
     const basketRef = useRef(null);
     const basket = useStore((state) => state.basket);
     const isModalBasketOpen = useStore((state) => state.isModalBasketOpen);

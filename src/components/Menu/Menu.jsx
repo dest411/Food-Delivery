@@ -6,8 +6,6 @@ const Menu = () => {
     const activeMenu = useStore((state) => state.activeMenu);
     const setActiveMenu = useStore((state) => state.setActiveMenu);
 
-    console.log('render menu');
-
     return (
         <div
             id="menu-choise"

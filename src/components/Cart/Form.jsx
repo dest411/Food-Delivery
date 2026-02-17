@@ -4,8 +4,6 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useForm } from 'react-hook-form';
 
 const Form = memo(() => {
-    console.log('form render');
-
     const {
         register,
         handleSubmit,

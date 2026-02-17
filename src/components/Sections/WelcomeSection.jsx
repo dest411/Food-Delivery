@@ -1,5 +1,3 @@
-import React from 'react';
-
 const WelcomeSection = () => {
     return (
         <div className="flex h-auto w-[95%] flex-col items-center justify-end py-10 select-none sm:py-15 md:py-20 lg:py-25">

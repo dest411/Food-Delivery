@@ -6,8 +6,6 @@ const MenuFood = () => {
     const activeMenu = useStore((state) => state.activeMenu);
     const addToBasket = useStore((state) => state.addToBasket);
 
-    console.log('render menu food');
-
     const foodItem = Foods.find((item) => item.name === activeMenu);
     if (!foodItem) {
         return <p className="text-4xl uppercase">Menu is not found</p>;
