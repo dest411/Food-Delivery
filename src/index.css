@@ -22,9 +22,9 @@
 * {
     @apply box-border;
 }
-* {
+/* * {
     outline: 1px solid red !important;
-}
+} */
 
 body {
     font-family: 'Dongle', sans-serif;
