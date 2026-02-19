@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import Foods from '../../Food';
 import { useStore } from '../../store/Store';
 
@@ -15,8 +15,6 @@ const Menu = () => {
                 <div className="l:mr-10 flex w-1/4 items-center justify-center bg-red-700 px-6 text-center text-lg font-semibold text-white [clip-path:polygon(0%_0%,87%_0%,100%_50%,87%_100%,0%_100%)] sm:py-2 sm:text-2xl md:px-10 md:text-2xl lg:mr-5 lg:py-2 lg:text-4xl xl:mr-15 xl:py-5 xl:text-6xl 2xl:mr-15 2xl:px-6 2xl:py-4 2xl:text-4xl">
                     Menu
                 </div>
-
-                {/* <div className="h-full w-1/3"></div> */}
 
                 <div className="flex w-full items-center justify-between gap-2 md:gap-3">
                     {Foods.map((food) => {

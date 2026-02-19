@@ -6,9 +6,9 @@ import PepperoniPizza from './png/PizzaPhoto/PepperoniPizza.svg';
 import VegetablesPizza from './png/PizzaPhoto/VegetablesPizza.svg';
 import MargheritaPizza from './png/PizzaPhoto/MargheritaPizza.svg';
 
-import doubleBeefBurger from './png/BurgersPhoto/doubleBeefBurger.png';
-import chickenBurger from './png/BurgersPhoto/chickenBurger.png';
-import cheeseBurger from './png/BurgersPhoto/cheeseBurger.png';
+// import doubleBeefBurger from './png/BurgersPhoto/doubleBeefBurger.png';
+// import chickenBurger from './png/BurgersPhoto/chickenBurger.png';
+// import cheeseBurger from './png/BurgersPhoto/cheeseBurger.png';
 
 const Foods = [
     {
@@ -65,7 +65,7 @@ const Foods = [
         photo: burger,
         typeFood: {
             Cheese: {
-                typePhoto: cheeseBurger,
+                typePhoto: null,
                 imgStyle: 'w-[400px] h-[280px] top-[-50px]!',
                 name: 'Cheese Burger',
                 price: '6,00',
@@ -79,7 +79,7 @@ const Foods = [
                 ],
             },
             Chicken: {
-                typePhoto: chickenBurger,
+                typePhoto: null,
                 imgStyle: 'w-[500] h-[304px] top-[-50px]!',
                 name: 'Chicken Burger',
                 price: '7,00',
@@ -92,7 +92,7 @@ const Foods = [
                 ],
             },
             Double: {
-                typePhoto: doubleBeefBurger,
+                typePhoto: null,
                 imgStyle: 'w-[400px] h-[400px] top-[-120px]!',
                 name: 'Double Beef Burger',
                 price: '8,50',

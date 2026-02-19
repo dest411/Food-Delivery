@@ -7,6 +7,7 @@ const MenuFood = () => {
     const addToBasket = useStore((state) => state.addToBasket);
 
     const foodItem = Foods.find((item) => item.name === activeMenu);
+
     if (!foodItem) {
         return <p className="text-4xl uppercase">Menu is not found</p>;
     }
@@ -31,7 +32,7 @@ const MenuFood = () => {
                             <div className="mx-auto flex w-[90%] items-center">
                                 <div className="relative flex h-auto w-full flex-col">
                                     {food.typePhoto == null ? (
-                                        <div className="skeleton">
+                                        <div className="sm:text-md absolute top-1.5 left-3 z-100 flex h-18 w-18 cursor-default items-center justify-center border bg-white text-center text-xs sm:h-22 sm:w-22 md:h-24 md:w-24 md:text-lg lg:top-2 lg:left-8 lg:h-28 lg:w-28 xl:top-4 xl:h-34 xl:w-34 xl:text-xl 2xl:h-40 2xl:w-40 2xl:text-3xl">
                                             PHOTO {food.name} <br /> (NOT
                                             LOADED)
                                         </div>
